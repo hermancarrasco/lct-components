@@ -1,0 +1,20 @@
+{
+  "name": "select",
+  "version": "0.0.1",
+  "description": "LCT select button",
+  "keywords": ["lct", "select", "logistic control towel"],
+  "homepage": "https://github.com/hermancarrasco/lct-select.git#readme",
+  "license": "MIT",
+  "author": {
+    "name": "Herman Carrasco",
+    "email": "hermancarrasco@outlook.com",
+    "url": "https://github.com/hermancarrasco"
+  },
+  "peerDependencies": {
+    "@angular/common": "^12.1.0",
+    "@angular/core": "^12.1.0"
+  },
+  "dependencies": {
+    "tslib": "^2.2.0"
+  }
+}
