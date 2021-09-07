@@ -1,0 +1,29 @@
+<div>
+  <div class="title">{{title}}</div>
+  <div class="select-box">
+    <div class="select-box__current"
+         tabindex="1" #select
+         (click)="toggleSelect()"
+         (blur)="hideSelect()">
+      <div class="select-box__value" *ngFor="let option of options; let i = index">
+        <input
+          class="select-box__input"
+          type="radio"
+          [id]="i"
+          [value]="option"
+          name="Ben"
+          [checked]="i===0"
+          [(ngModel)]="selected"
+          (ngModelChange)="changeValue(option)"/>
+        <p class="select-box__input-text">{{option}}</p>
+      </div>
+      <img class="select-box__icon" src="https://cdn.onlinewebfonts.com/svg/img_295694.svg" alt="Arrow Icon"
+           aria-hidden="true"/>
+    </div>
+    <ul class="select-box__list">
+      <li *ngFor="let option of options; let i = index">
+        <label class="select-box__option" [for]="i" aria-hidden="aria-hidden">{{option}}</label>
+      </li>
+    </ul>
+  </div>
+</div>

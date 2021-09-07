@@ -1,0 +1,38 @@
+.input-with-icon {
+  box-sizing: border-box;
+  position: relative;
+  height: 40px;
+  @media (max-width: 375px) {
+    height: 50px;
+  }
+}
+
+.input-with-icon .form-control {
+  height: 100%;
+  width: 100%;
+  border: 1px solid #C2C2C2;
+  border-radius: 5px;
+  background-color: #E0E5EE;
+  box-sizing: border-box;
+  font-size: 14px;
+  padding: 12px 20px 12px 15px;
+}
+
+.input-with-icon .icon {
+  :hover{
+    cursor: pointer;
+  }
+
+  position: absolute;
+
+  right: 0.5rem;
+  top: 0.3rem;
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 0.3rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}

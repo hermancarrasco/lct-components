@@ -1,0 +1,14 @@
+<div class="input-with-icon">
+  <input type="text"
+         class="form-control"
+         #inputScan
+         [placeholder]="placeHolder"
+         [(ngModel)]="inputValue"
+         (keydown.enter) = "enterEmit()"
+         (keydown.tab)="enterEmit()"
+         (ngModelChange)="lpnUpdate.next(inputScan.value);"
+  >
+  <div class="icon" *ngIf="showIcon">
+    <img [src]="icon" alt="" (click)="click()">
+  </div>
+</div>

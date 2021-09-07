@@ -7,4 +7,21 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'designComponents';
+  valuesSelect = ['Chilexpress', 'Bluex'];
+  valuesSelect2 = ['RLO', 'ASD'];
+
+  clickEnIcon() {
+    console.log('click icon: ')
+  }
+  clickButton(){
+    console.log('click in button')
+  }
+
+  enter(value: string) {
+    console.log('enter gatillado: ', value);
+  }
+
+  changeSelect(value: string) {
+    console.log('value change select: ', value)
+  }
 }
