@@ -2,23 +2,18 @@
 
 This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.0.
 
-## Code scaffolding
+##How to
+```
+npm i lct-select --save
+```
+- Import LctSelectModule to component module
+- Add ``<lct-select></lct-select>`` to html component
+- add change ``title`` attribute
+- add ``options`` attribute to select options
+- get value selected with ``(value)`` when select change value
 
-Run `ng generate component component-name --project select` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project select`.
-> Note: Don't forget to add `--project select` or else it will be added to the default project in your `angular.json` file. 
+## Example
 
-## Build
-
-Run `ng build select` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Publishing
-
-After building your library with `ng build select`, go to the dist folder `cd dist/select` and run `npm publish`.
-
-## Running unit tests
-
-Run `ng test select` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```
+<lct-select title="Operadores log" (value)="changeSelect($event)" [options]="['Select one', 'One Option']]"></lct-select>
+```

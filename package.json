@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "build-lib": "npm run build input-text"
+    "build-lib": "npm run build input-text",
+    "build-select": "npm run build select --prod"
   },
   "private": true,
   "dependencies": {

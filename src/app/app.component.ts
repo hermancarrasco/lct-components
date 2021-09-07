@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'designComponents';
-  valuesSelect = ['Chilexpress', 'Bluex'];
+  valuesSelect = ['Seleccione una opción', 'Chilexpress', 'Bluex'];
   valuesSelect2 = ['RLO', 'ASD'];
 
   clickEnIcon() {
