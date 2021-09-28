@@ -16,13 +16,13 @@
   iconPosition="left"
 ></lct-input-text><br>
 <lct-input-text
-  [disabled]="true"
+  [(ngModel)]="value1"
   placeholder="Buscar por Nº de la etiqueta"
   (enterEmitted)="enter($event)"
   title="Titulo del componente"
 ></lct-input-text>
 <br>
-
+<pre>value: {{value1}}</pre>
 <br>
 <lct-select-multiple [list]="list2"
                      title="Selecciona tienda"
@@ -33,11 +33,10 @@
 <lct-select title="Operadores log" (value)="changeSelect($event)" [options]="valuesSelect"></lct-select>
 <br>
 <lct-button  buttonType="primary" [title]="'Primary'" (click)="disableButton=!disableButton" ></lct-button>
-<pre>{{disableButton}}</pre>
 <br><br>
-<lct-button [disabled]="disableButton"  buttonType="secondary" [title]="'Secondary'" ></lct-button>
+<lct-button buttonType="secondary" [title]="'Secondary'" ></lct-button>
 <br><br>
 <lct-button  buttonType="error" [title]="'Error'" (click)="clickButton()"></lct-button>
 <br><br>
-<lct-button [disabled]="disableButton" buttonType="success" [title]="'Success'" (click)="clickButton()"></lct-button>
+<lct-button buttonType="success" [title]="'Success'" (click)="clickButton()"></lct-button>
 <br>

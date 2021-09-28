@@ -13,6 +13,8 @@ export class AppComponent {
   list2 : any[];
   disableButton=true;
 
+  value1 = '';
+
   constructor() {
     this.list =
       [
