@@ -1,25 +1,42 @@
-
-<lct-select title="Operadores asdasd" (value)="changeSelect($event)" [options]="valuesSelect2"></lct-select>
-<lct-select title="Operadores log" (value)="changeSelect($event)" [options]="valuesSelect"></lct-select>
-<br>
-<app-input-text2
+<lct-input-text
   icon="assets/img/keyboard.svg"
   [showIcon]="true"
   (iconClick)="clickEnIcon()"
-  placeHolder="Buscar por Nº de la etiqueta"
+  placeholder="Buscar por Nº de la etiqueta"
   (enterEmitted)="enter($event)"
-></app-input-text2>
+  iconPosition="right"
+  title="Titulo del componente"
+></lct-input-text><br>
+<lct-input-text
+  icon="assets/img/keyboard.svg"
+  [showIcon]="true"
+  (iconClick)="clickEnIcon()"
+  placeholder="Buscar por Nº de la etiqueta"
+  (enterEmitted)="enter($event)"
+  iconPosition="left"
+></lct-input-text><br>
+<lct-input-text
+  [disabled]="true"
+  placeholder="Buscar por Nº de la etiqueta"
+  (enterEmitted)="enter($event)"
+  title="Titulo del componente"
+></lct-input-text>
 <br>
-<lct-input-text icon="assets/img/keyboard.svg" placeHolder="Buscar algo 2"></lct-input-text>
+
+<br>
+<lct-select-multiple [list]="list2"
+                     title="Selecciona tienda"
+                     (shareCheckedList)="shareCheckedList($event)"
+                     (shareIndividualCheckedList)="shareIndividualCheckedList($event)">
+</lct-select-multiple>
+<br>
+<lct-select title="Operadores log" (value)="changeSelect($event)" [options]="valuesSelect"></lct-select>
 <br>
 <app-button-lct buttonType="primary" [title]="'Primary'" (click)="clickButton()"></app-button-lct>
-<br>
-<br>
+<br><br>
 <app-button-lct buttonType="secondary" [title]="'Secondary'" (click)="clickButton()"></app-button-lct>
 <br><br>
 <app-button-lct buttonType="error" [title]="'Error'" (click)="clickButton()"></app-button-lct>
 <br><br>
 <app-button-lct buttonType="success" [title]="'Success'" (click)="clickButton()"></app-button-lct>
-<br>
-<app-select title="asdasd" [options]="valuesSelect2" (value)="changeSelect($event)"></app-select>
 <br>

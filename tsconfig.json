@@ -17,9 +17,17 @@
         "dist/input-text/input-text",
         "dist/input-text"
       ],
+      "lct-components": [
+        "dist/lct-components/lct-components",
+        "dist/lct-components"
+      ],
       "select": [
         "dist/select/select",
         "dist/select"
+      ],
+      "select-multiple": [
+        "dist/select-multiple/select-multiple",
+        "dist/select-multiple"
       ]
     },
     "sourceMap": true,

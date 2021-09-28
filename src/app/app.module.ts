@@ -3,12 +3,12 @@ import {BrowserModule} from '@angular/platform-browser';
 
 import {AppComponent} from './app.component';
 import {ButtonLctComponent} from './button-lct/button-lct.component';
-import {LctButtonModule} from "../../projects/button/src/lib/button.module";
-import {LctInputTextModule} from "../../projects/input-text/src/lib/input-text.module";
 import {InputText2Component} from "./input-text2/input-text2.component";
 import {FormsModule} from "@angular/forms";
 import { SelectComponent } from './select/select.component';
-import {LctSelectModule} from "../../projects/select/src/lib/select.module";
+import { SelectMultipleComponent } from './select-multiple/select-multiple.component';
+import { SelectMultiple2Component } from './select-multiple2/select-multiple2.component';
+import {LctComponentsModule} from "../../projects/lct-components/src/lib/lct-components.module";
 
 @NgModule({
   declarations: [
@@ -16,12 +16,12 @@ import {LctSelectModule} from "../../projects/select/src/lib/select.module";
     ButtonLctComponent,
     InputText2Component,
     SelectComponent,
+    SelectMultipleComponent,
+    SelectMultiple2Component,
   ],
   imports: [
     BrowserModule,
-    LctButtonModule,
-    LctInputTextModule,
-    LctSelectModule,
+    LctComponentsModule,
     FormsModule,
   ],
   providers: [],

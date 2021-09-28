@@ -1,5 +1,8 @@
-.title{
+*{
   font-family: "Barlow", 'Open Sans', 'Helvetica Neue', 'Segoe UI', 'Calibri', 'Arial', sans-serif;
+}
+
+.title {
   color: #3C4149;
   font-size: 12px;
   letter-spacing: 0;
@@ -24,7 +27,10 @@
   border-radius: 5px;
   background-color: #E0E5EE;
   box-sizing: border-box;
+  color: #3C4149;
   font-size: 14px;
+  letter-spacing: 0;
+  line-height: 17px;
   padding: 12px 20px 12px 15px;
   &.iconLeft{
     padding: 12px 20px 12px 60px;
@@ -56,5 +62,6 @@
   &.iconLeft{
     left: 15px;
   }
+
 }
 

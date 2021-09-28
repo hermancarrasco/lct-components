@@ -1,0 +1,36 @@
+{
+  "name": "lct-components",
+  "version": "0.0.1",
+  "description": "LCT basic components",
+  "keywords": [
+    "button",
+    "input",
+    "lct",
+    "logistic control towel",
+    "select",
+    "select multiple"
+  ],
+  "homepage": "https://github.com/hermancarrasco/lct-components",
+  "license": "MIT",
+  "author": {
+    "name": "Herman Carrasco",
+    "email": "hermancarrasco@outlook.com",
+    "url": "https://github.com/hermancarrasco"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hermancarrasco/lct-components.git",
+    "directory": "projects"
+  },
+  "bugs": {
+    "url" : "https://github.com/hermancarrasco/lct-components/issues",
+    "email" : "hermancarrasco@outlook.com"
+  },
+  "peerDependencies": {
+    "@angular/common": "^12.1.0",
+    "@angular/core": "^12.1.0"
+  },
+  "dependencies": {
+    "tslib": "^2.2.0"
+  }
+}

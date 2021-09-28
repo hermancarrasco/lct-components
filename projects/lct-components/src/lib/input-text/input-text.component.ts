@@ -1,29 +1,29 @@
 import {
+  AfterViewInit,
   Component,
+  ElementRef,
+  EventEmitter,
   Input,
   OnInit,
   Output,
-  EventEmitter,
-  AfterViewInit,
-  ElementRef,
-  ViewChild,
-  Renderer2
+  Renderer2,
+  ViewChild
 } from '@angular/core';
 import {Subject} from "rxjs";
-import {DeviceDetectorService} from "ngx-device-detector";
 import {debounceTime, distinctUntilChanged} from "rxjs/operators";
 
 @Component({
-  selector: 'app-input-text2',
-  templateUrl: './input-text2.component.html',
-  styleUrls: ['./input-text2.component.scss']
+  selector: 'lct-input-text',
+  templateUrl: './input-text.component.html',
+  styleUrls: ['./input-text.component.scss']
 })
-export class InputText2Component implements OnInit, AfterViewInit {
+export class InputTextComponent implements OnInit, AfterViewInit {
+
   @Input() disabled = false;
   @Input() icon = ''
   @Input() iconPosition : 'left' | 'right' = 'right';
   @Input() pdaAutoEnter = false;
-  @Input() placeHolder = '';
+  @Input() placeholder = '';
   @Input() showIcon = false;
   @Input() title = 'Insert Title';
   @Input() type : 'email' | 'number' | 'text' = 'text';
@@ -63,7 +63,9 @@ export class InputText2Component implements OnInit, AfterViewInit {
   }
 
   click() {
-    this.iconClick.emit('iconClick')
+    if (!this.disabled){
+      this.iconClick.emit('iconClick')
+    }
   }
 
   enterEmit() {

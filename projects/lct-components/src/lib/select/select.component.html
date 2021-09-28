@@ -1,0 +1,33 @@
+<div [id]="title">
+  <div class="title">{{title}}</div>
+  <div class="select-box disabled">
+    <div #select
+         class="select-box__current"
+         tabindex="1"
+         (click)="toggleSelect()"
+         (blur)="hideSelect()">
+      <div class="select-box__value" *ngFor="let option of options; let i = index">
+        <input
+          class="select-box__input"
+          type="radio"
+          [id]="title.replace(regexTrim, '')+i"
+          [value]="option"
+          [name]="title.replace(regexTrim, '')"
+          [checked]="i===0"
+          [(ngModel)]="selected"
+          (ngModelChange)="changeValue(option)"/>
+        <p class="select-box__input-text">{{option}}</p>
+      </div>
+      <img class="select-box__icon" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gU3ZnIFZlY3RvciBJY29ucyA6IGh0dHA6Ly93d3cub25saW5ld2ViZm9udHMuY29tL2ljb24gLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgMTAwMCAxMDAwIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCAxMDAwIDEwMDAiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPG1ldGFkYXRhPiBTdmcgVmVjdG9yIEljb25zIDogaHR0cDovL3d3dy5vbmxpbmV3ZWJmb250cy5jb20vaWNvbiA8L21ldGFkYXRhPg0KPGc+PHBhdGggZD0iTTUwMCw3NzUuNEwxMCwyODcuMmw2NC40LTYyLjZMNTAwLDY1MC4ybDQyNS42LTQyNS42bDY0LjQsNjIuNkw1MDAsNzc1LjR6Ii8+PC9nPg0KPC9zdmc+" alt="Arrow Icon"
+           aria-hidden="true"/>
+      <!--<img class="select-box__icon" src="https://cdn.onlinewebfonts.com/svg/img_295694.svg" alt="Arrow Icon"
+           aria-hidden="true"/>-->
+    </div>
+    <ul class="select-box__list">
+      <li *ngFor="let option of options; let i = index">
+        <label class="select-box__option" [for]="title.replace(regexTrim, '')+i" aria-hidden="aria-hidden"
+               (click)="clickOption(option)">{{option}}</label>
+      </li>
+    </ul>
+  </div>
+</div>

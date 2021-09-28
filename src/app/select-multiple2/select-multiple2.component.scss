@@ -1,0 +1,212 @@
+/***
+    css for multi select drop down
+**/
+
+*{
+  font-family: "Barlow", 'Open Sans', 'Helvetica Neue', 'Segoe UI', 'Calibri', 'Arial', sans-serif;
+}
+.container {
+  width: 100%;
+  position: relative;
+}
+
+
+.drop-toggle{
+  background-color: #E0E5EE;
+  cursor: pointer;
+  box-sizing: border-box;
+  height: 41px;
+  width: 100%;
+  border: 1px solid #C2C2C2;
+  border-radius: 5px;
+  text-align: left;
+  font-size: 14px;
+  color: #3C4149;
+  overflow: hidden;
+}
+
+
+.drop-toggle i{
+  float:right;
+}
+.drop-show {
+  box-sizing: border-box;
+  width: 100%;
+  border: 1px solid #E0E5EE;
+  border-radius: 5px;
+  background-color: #FFFFFF;
+  position: absolute;
+  z-index: 2;
+  -webkit-box-shadow: 0 6px 10px rgba(0,0,0,.15);
+  -moz-box-shadow: 0 6px 10px rgba(0,0,0,.15);
+  box-shadow: 0 6px 10px rgba(0,0,0,.15);
+  margin-left: 1px;
+}
+/*.drop-show label{
+  display:block;
+  cursor: pointer;
+  color: #3C4149;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 27px;
+}*/
+/*.drop-show label input{
+  height: 17px;
+  width: 17px;
+  margin: 5px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 1px solid #E0E5EE;
+  border-radius: 4px;
+  outline: none;
+  transition-duration: 0.3s;
+  background-color: #F4F4F4;
+  cursor: pointer;
+}*/
+
+
+
+/*.drop-show > label input:checked {
+  border: 1px solid #E0E5EE;
+  background-color: #2649B6;
+
+}*/
+
+
+/*.drop-show label input:active {
+  border: 2px solid #2649B6;
+}*/
+
+/*.drop-show label .text{
+  display:inline-block;
+  vertical-align: top;
+  text-align: center;
+}
+
+.drop-show label .text:after {
+  left: 8px;
+  bottom: 5px;
+  width: 6px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 4px 4px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}*/
+
+.selected {
+  display: inline-block;
+  position: relative;
+  margin-right: 5px;
+  box-sizing: border-box;
+  height: 26px;
+  border: 1px solid #C2C2C2;
+  border-radius: 3px;
+  background-color: #F5F7FA;
+  font-size: 13px;
+  letter-spacing: 0;
+  line-height: 16px;
+  padding: 5px;
+}
+
+.selected span {
+  vertical-align: top;
+}
+
+.selected .icon {
+  display: inline;
+  margin-left: 2px;
+}
+
+.moreSelected {
+  position: absolute;
+  margin-top: 8px;
+  color: #3C4149;
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: 15px;
+}
+
+.main {
+  display: block;
+  position: relative;
+  margin-left: 17px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  color: #3C4149;
+  font-size: 13px;
+  letter-spacing: 0;
+  line-height: 27px;
+}
+.text {
+  margin-left: 27px;
+}
+
+/* Hide the default checkbox */
+input[type=checkbox] {
+  visibility: hidden;
+}
+
+/* Creating a custom checkbox
+based on demand */
+.mark {
+  position: absolute;
+  top: 5px;
+  left: 0;
+  box-sizing: border-box;
+  height: 17px;
+  width: 17px;
+  border: 1px solid #D6D6D6;
+  border-radius: 2px;
+  background-color: #F4F4F4;
+}
+
+/* Specify the background color to be
+shown when hovering over checkbox */
+.main:hover input ~ .mark {
+  background-color: #C2C2C2;
+}
+
+/* Specify the background color to be
+shown when checkbox is active */
+.main input:active ~ .mark {
+  background-color: #546c84;
+}
+
+/* Specify the background color to be
+shown when checkbox is checked */
+.main input:checked ~ .mark {
+  background-color: #2649B6;
+}
+
+/* Checkmark to be shown in checkbox */
+/* It is not be shown when not checked */
+.mark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Display checkmark when checked */
+.main input:checked ~ .mark:after {
+  display: block;
+}
+
+/* Styling the checkmark using webkit */
+/* Rotated the rectangle by 45 degree and
+showing only two border to make it look
+like a tickmark */
+.main .mark:after {
+  left: 5px;
+  bottom: 5px;
+  width: 3px;
+  height: 6px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}

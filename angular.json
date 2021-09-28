@@ -198,6 +198,68 @@
           }
         }
       }
+    },
+    "selectMultiple": {
+      "projectType": "library",
+      "root": "projects/select-multiple",
+      "sourceRoot": "projects/select-multiple/src",
+      "prefix": "lct",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/select-multiple/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/select-multiple/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/select-multiple/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/select-multiple/src/test.ts",
+            "tsConfig": "projects/select-multiple/tsconfig.spec.json",
+            "karmaConfig": "projects/select-multiple/karma.conf.js"
+          }
+        }
+      }
+    },
+    "lctComponents": {
+      "projectType": "library",
+      "root": "projects/lct-components",
+      "sourceRoot": "projects/lct-components/src",
+      "prefix": "lct",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/lct-components/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/lct-components/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/lct-components/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/lct-components/src/test.ts",
+            "tsConfig": "projects/lct-components/tsconfig.spec.json",
+            "karmaConfig": "projects/lct-components/karma.conf.js"
+          }
+        }
+      }
     }
   },
   "defaultProject": "designComponents"
