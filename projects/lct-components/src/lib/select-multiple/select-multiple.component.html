@@ -1,6 +1,6 @@
 <div>
   <div class="title">{{title}}</div>
-  <div class="container" (mouseleave)="showDropDown = false">
+  <div class="containerSelectMultiple" (mouseleave)="showDropDown = false">
     <button class="drop-toggle" [disabled]="disabled" (click)="showDropDown=!showDropDown">
       <span *ngIf="checkedList.length<=0">Seleccione una opción</span>
       <span *ngIf="checkedList.length>0">

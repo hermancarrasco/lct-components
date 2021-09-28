@@ -13,7 +13,7 @@ npm i lct-components --save
 - get value selected with ``(value)`` when select change value
 
 # Example
-###select
+### Select
 ```
 <lct-select 
     title="Title to component" 
@@ -22,7 +22,7 @@ npm i lct-components --save
 >
 </lct-select>
 ```
-###select multiple
+### Select multiple
 ```
 <lct-select-multiple [list]="list2"
                      title="Insert title"
@@ -30,7 +30,7 @@ npm i lct-components --save
                      (shareIndividualCheckedList)="myFunction($event)">
 </lct-select-multiple>
 ```
-####Input Text
+#### Input Text
 ```
 <lct-input-text
   icon="assets/img/keyboard.svg"
@@ -55,7 +55,7 @@ npm i lct-components --save
   (enterEmitted)="myFunctionEnter($event)"
 ></lct-input-text>
 ```
-###Buttons
+### Buttons
 ```
 <app-button-lct buttonType="primary" [title]="'Primary'" (click)="clickButton()"></app-button-lct>
 
