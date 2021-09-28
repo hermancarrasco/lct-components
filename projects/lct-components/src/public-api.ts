@@ -5,3 +5,7 @@
 export * from './lib/lct-components.service';
 export * from './lib/lct-components.component';
 export * from './lib/lct-components.module';
+export * from './lib/button/button.component';
+export * from './lib/input-text/input-text.component';
+export * from './lib/select/select.component';
+export * from './lib/select-multiple/select-multiple.component';
