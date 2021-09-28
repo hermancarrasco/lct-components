@@ -11,6 +11,7 @@ export class AppComponent {
   valuesSelect2 = ['RLO', 'ASD'];
   list : any[];
   list2 : any[];
+  disableButton=true;
 
   constructor() {
     this.list =

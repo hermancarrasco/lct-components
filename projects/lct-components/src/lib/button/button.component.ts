@@ -1,4 +1,14 @@
-import {AfterViewInit, Component, ElementRef, Input, OnInit, Renderer2, ViewChild} from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  Input,
+  OnChanges,
+  OnInit,
+  Renderer2,
+  SimpleChanges,
+  ViewChild
+} from '@angular/core';
 
 @Component({
   selector: 'lct-button',
@@ -15,11 +25,7 @@ export class ButtonComponent implements OnInit, AfterViewInit {
   constructor(private renderer: Renderer2) { }
 
   ngAfterViewInit() {
-    if (this.disabled) {
-      this.renderer.addClass(this.button?.nativeElement, 'disabled');
-    } else {
-      this.renderer.addClass(this.button?.nativeElement, this.buttonType);
-    }
+    this.renderer.addClass(this.button?.nativeElement, this.buttonType);
   }
 
   ngOnInit(): void {

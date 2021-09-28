@@ -32,11 +32,12 @@
 <br>
 <lct-select title="Operadores log" (value)="changeSelect($event)" [options]="valuesSelect"></lct-select>
 <br>
-<app-button-lct buttonType="primary" [title]="'Primary'" (click)="clickButton()"></app-button-lct>
+<lct-button  buttonType="primary" [title]="'Primary'" (click)="disableButton=!disableButton" ></lct-button>
+<pre>{{disableButton}}</pre>
 <br><br>
-<app-button-lct buttonType="secondary" [title]="'Secondary'" (click)="clickButton()"></app-button-lct>
+<lct-button [disabled]="disableButton"  buttonType="secondary" [title]="'Secondary'" ></lct-button>
 <br><br>
-<app-button-lct buttonType="error" [title]="'Error'" (click)="clickButton()"></app-button-lct>
+<lct-button  buttonType="error" [title]="'Error'" (click)="clickButton()"></lct-button>
 <br><br>
-<app-button-lct buttonType="success" [title]="'Success'" (click)="clickButton()"></app-button-lct>
+<lct-button [disabled]="disableButton" buttonType="success" [title]="'Success'" (click)="clickButton()"></lct-button>
 <br>
