@@ -70,12 +70,11 @@ export class InputTextComponent implements ControlValueAccessor, OnInit, AfterVi
   }
 
   registerOnChange(fn: any): void {
-    console.log('reg change', fn)
     this.propagateChange = fn;
   }
 
   registerOnTouched(fn: any): void {
-    console.log('reg touch', fn)
+   // console.log('reg touch', fn)
   }
 
   onKeyUpHandler(event?: KeyboardEvent) {

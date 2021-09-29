@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {IListLCTSelectMultiple} from "../../projects/lct-components/src/lib/select-multiple/select-multiple.component";
 
 @Component({
   selector: 'app-root',
@@ -9,8 +10,8 @@ export class AppComponent {
   title = 'designComponents';
   valuesSelect = ['Seleccione una opción', 'Chilexpress', 'Bluex'];
   valuesSelect2 = ['RLO', 'ASD'];
-  list : any[];
-  list2 : any[];
+  list : IListLCTSelectMultiple[];
+  list2 : IListLCTSelectMultiple[];
   disableButton=true;
 
   value1 = '';
@@ -18,12 +19,8 @@ export class AppComponent {
   constructor() {
     this.list =
       [
-        {name :'Falabella',checked : false},
-        {name :'Sodimac',checked : false},
-        {name :'Tottus',checked : false},
-        {name :'Linio',checked : false},
-        {name :'Ikea',checked : false},
-        {name :'Global Seller Center',checked : false}
+        {name : 'Pendiente etiquetado' , checked : false, value: 'RELABEL_PENDING'},
+        {name :'Listo para despachar' , checked : false, value: 'READY_TO_DISPATCH'},
       ]
     this.list2 =
       [

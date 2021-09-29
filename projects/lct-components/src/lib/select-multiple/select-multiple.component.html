@@ -4,27 +4,9 @@
     <button class="drop-toggle" [disabled]="disabled" (click)="showDropDown=!showDropDown">
       <span *ngIf="checkedList.length<=0">Seleccione una opción</span>
       <span *ngIf="checkedList.length>0">
-        <!--<div class="selected" *ngFor="let checked of checkedList">
-          <span>{{checked}}</span>
-          <div class="icon" (click)="uncheck(checked)">
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 4 24 24"
-              fill="none"
-              style="color: #2649B6"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M6.2253 4.81108C5.83477 4.42056 5.20161 4.42056 4.81108 4.81108C4.42056 5.20161 4.42056 5.83477 4.81108 6.2253L10.5858 12L4.81114 17.7747C4.42062 18.1652 4.42062 18.7984 4.81114 19.1889C5.20167 19.5794 5.83483 19.5794 6.22535 19.1889L12 13.4142L17.7747 19.1889C18.1652 19.5794 18.7984 19.5794 19.1889 19.1889C19.5794 18.7984 19.5794 18.1652 19.1889 17.7747L13.4142 12L19.189 6.2253C19.5795 5.83477 19.5795 5.20161 19.189 4.81108C18.7985 4.42056 18.1653 4.42056 17.7748 4.81108L12 10.5858L6.2253 4.81108Z"
-                fill="currentColor"
-              />
-            </svg>
-          </div>
-        </div>-->
         <div class="selected">
-          <span>{{checkedList[0]}}</span>
-          <div class="icon" (click)="uncheck(checkedList[0])">
+          <span>{{checkedList[0].name}}</span>
+          <div class="icon" (click)="uncheck(checkedList[0].name, checkedList[0].value)">
             <svg
               width="20"
               height="20"
@@ -48,20 +30,11 @@
            [ngStyle]="{'transform': showDropDown ? 'translateY(-50%) rotate(180deg)' : 'translateY(-50%) rotate(0deg)' }"
            src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gU3ZnIFZlY3RvciBJY29ucyA6IGh0dHA6Ly93d3cub25saW5ld2ViZm9udHMuY29tL2ljb24gLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgMTAwMCAxMDAwIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCAxMDAwIDEwMDAiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPG1ldGFkYXRhPiBTdmcgVmVjdG9yIEljb25zIDogaHR0cDovL3d3dy5vbmxpbmV3ZWJmb250cy5jb20vaWNvbiA8L21ldGFkYXRhPg0KPGc+PHBhdGggZD0iTTUwMCw3NzUuNEwxMCwyODcuMmw2NC40LTYyLjZMNTAwLDY1MC4ybDQyNS42LTQyNS42bDY0LjQsNjIuNkw1MDAsNzc1LjR6Ii8+PC9nPg0KPC9zdmc+" alt="Arrow Icon"
            aria-hidden="true"/>
-      <!--<img *ngIf="showIcon"
-           class="select-box__icon"
-           [ngStyle]="{'transform': showDropDown ? 'translateY(-50%) rotate(180deg)' : 'translateY(-50%) rotate(0deg)' }"
-           src="https://cdn.onlinewebfonts.com/svg/img_295694.svg" alt="Arrow Icon"
-           aria-hidden="true"/>-->
     </button>
     <div class="drop-show" *ngIf="showDropDown">
-
-      <!--<input type="checkbox" [(ngModel)]="a.checked"
-             (change)="getSelectedValue(a.checked,a.name)"/>
-      <span class="text">{{a.name}}</span>-->
       <label class="main" *ngFor="let a of list"><span class="text">{{a.name}}</span>
         <input type="checkbox" [(ngModel)]="a.checked"
-               (change)="getSelectedValue(a.checked,a.name)">
+               (change)="getSelectedValue(a.checked,a.name, a?.value)">
         <span class="mark"></span>
       </label>
 

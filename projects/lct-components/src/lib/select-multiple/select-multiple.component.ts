@@ -1,5 +1,11 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
+export interface IListLCTSelectMultiple {
+  name: string;
+  checked: boolean;
+  value?: string | number;
+}
+
 @Component({
   selector: 'lct-select-multiple',
   templateUrl: './select-multiple.component.html',
@@ -7,7 +13,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 })
 export class SelectMultipleComponent implements OnInit {
 
-  @Input() list: any[] | undefined;
+  @Input() list: IListLCTSelectMultiple[] | undefined;
   @Input() title = 'Insert title'
   @Input() disabled = false;
   @Input() showIcon = true;
@@ -16,8 +22,9 @@ export class SelectMultipleComponent implements OnInit {
   @Output() shareIndividualCheckedList = new EventEmitter();
 
 
-  checkedList : any[];
-  currentSelected : {} | undefined;
+
+  checkedList : IListLCTSelectMultiple[];
+  currentSelected : IListLCTSelectMultiple | undefined;
   showDropDown = false;
 
   constructor() {
@@ -27,38 +34,46 @@ export class SelectMultipleComponent implements OnInit {
   ngOnInit() {
   }
 
-  getSelectedValue(status:Boolean,value:String){
-    if(status){
-      this.checkedList.push(value);
+  getSelectedValue(status: boolean,name: string, value? : string | number){
+    if(status) {
+      if (value) {
+        this.checkedList.push({checked : status,name:name, value: value});
+      } else {
+        this.checkedList.push({checked : status,name:name});
+      }
     }else{
       console.log(this.list)
-      const index = this.checkedList.indexOf(value);
-      const indexList = this.list?.findIndex(list => list.name === value);
+      const index = this.checkedList.findIndex(checked => checked.name === name);
+      const indexList = this.list?.findIndex(list => list.name === name);
       this.checkedList.splice(index,1);
       if (indexList! >= 0 ) {
         this.list![indexList!].checked = false;
       }
-      console.log(indexList)
     }
 
-    this.currentSelected = {checked : status,name:value};
+    if (value) {
+      this.currentSelected = {checked : status,name:name, value: value};
+    } else {
+      console.log('no tiene value')
+      this.currentSelected = {checked : status,name:name};
+    }
 
     //share checked list
-    this.shareCheckedlist();
+    this.shareChecked();
 
     //share individual selected item
     this.shareIndividualStatus();
   }
-  shareCheckedlist(){
+  shareChecked(){
     this.shareCheckedList.emit(this.checkedList);
   }
   shareIndividualStatus(){
     this.shareIndividualCheckedList.emit(this.currentSelected);
   }
 
-  uncheck(value: string) {
-    console.log('desmarcar ', value);
-    this.getSelectedValue(false, value);
+  uncheck(name: string, value?: string | number) {
+    console.log('desmarcar ', name);
+    this.getSelectedValue(false, name, value);
   }
 
 }
