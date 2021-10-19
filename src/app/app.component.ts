@@ -60,6 +60,10 @@ export class AppComponent {
     console.log(item);
   }
 
+  inputClick() {
+    console.log('click en input');
+  }
+
   /*
 * end select multiple
 * */

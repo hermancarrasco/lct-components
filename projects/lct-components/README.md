@@ -57,12 +57,13 @@ npm i lct-components --save
 ```
 ### Buttons
 ```
-<app-button-lct buttonType="primary" [title]="'Primary'" (click)="clickButton()"></app-button-lct>
 
-<app-button-lct buttonType="secondary" [title]="'Secondary'" (click)="clickButton()"></app-button-lct>
+<lct-button  buttonType="primary" title="Primary"></lct-button>
 
-<app-button-lct buttonType="error" [title]="'Error'" (click)="clickButton()"></app-button-lct>
+<lct-button buttonType="secondary" title="Secondary"></lct-button>
 
-<app-button-lct buttonType="success" [title]="'Success'" (click)="clickButton()"></app-button-lct>
+<lct-button  buttonType="error" title="Error"></lct-button>
+
+<lct-button buttonType="success" title="Success"></lct-button>
 ```
 

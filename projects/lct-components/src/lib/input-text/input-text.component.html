@@ -12,6 +12,7 @@
            (keydown.enter) = "enterEmit()"
            (keydown.tab)="enterEmit()"
            (keyup)="onKeyUpHandler($event)"
+            (click)="clickInput()"
            (ngModelChange)="lpnUpdate.next(inputScan.value);"
     >
     <div class="icon" #iconDiv *ngIf="showIcon">

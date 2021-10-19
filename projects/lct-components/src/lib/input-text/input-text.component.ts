@@ -38,6 +38,7 @@ export class InputTextComponent implements ControlValueAccessor, OnInit, AfterVi
   @Input() type: 'email' | 'number' | 'text' = 'text';
   @Output() enterEmitted = new EventEmitter()
   @Output() iconClick = new EventEmitter();
+  @Output() inputClick = new EventEmitter();
   @ViewChild('inputScan') inputScan: ElementRef | undefined;
   @ViewChild('iconDiv') iconDiv: ElementRef | undefined;
 
@@ -94,6 +95,12 @@ export class InputTextComponent implements ControlValueAccessor, OnInit, AfterVi
   click() {
     if (!this.disabled) {
       this.iconClick.emit('iconClick')
+    }
+  }
+
+  clickInput( ) {
+    if (!this.disabled) {
+      this.inputClick.emit('inputClick')
     }
   }
 
