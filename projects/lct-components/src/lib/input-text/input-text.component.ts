@@ -36,7 +36,7 @@ export class InputTextComponent implements ControlValueAccessor, OnInit, AfterVi
   @Input() showIcon = false;
   @Input() title = 'Insert Title';
   @Input() type: 'email' | 'number' | 'text' = 'text';
-  @Output() enterEmitted = new EventEmitter()
+  @Output() enterEmitted = new EventEmitter<string>()
   @Output() iconClick = new EventEmitter();
   @Output() inputClick = new EventEmitter();
   @ViewChild('inputScan') inputScan: ElementRef | undefined;
@@ -48,20 +48,6 @@ export class InputTextComponent implements ControlValueAccessor, OnInit, AfterVi
   public propagateChange = (_: any) => { };
 
   constructor(private render: Renderer2) {
-    if (this.pdaAutoEnter) {
-      this.lpnUpdate
-        .pipe(
-          debounceTime(100),
-          distinctUntilChanged()
-        )
-        .subscribe(async value => {
-          if (value) {
-            this.enterEmit();
-          } else {
-            return;
-          }
-        });
-    }
   }
 
   writeValue(value: any): void {
@@ -86,6 +72,20 @@ export class InputTextComponent implements ControlValueAccessor, OnInit, AfterVi
     if (this.iconPosition === "left" && this.showIcon) {
       this.render.addClass(this.inputScan?.nativeElement, 'iconLeft')
       this.render.addClass(this.iconDiv?.nativeElement, 'iconLeft')
+    }
+    if (this.pdaAutoEnter) {
+      this.lpnUpdate
+        .pipe(
+          debounceTime(200),
+          distinctUntilChanged()
+        )
+        .subscribe(async value => {
+          if (value) {
+            this.enterEmit();
+          } else {
+            return;
+          }
+        });
     }
   }
 

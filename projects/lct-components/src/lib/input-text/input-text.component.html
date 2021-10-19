@@ -1,4 +1,4 @@
-<div >
+<div>
   <div class="title">
     {{title}}
   </div>
@@ -9,15 +9,14 @@
            [disabled]="disabled"
            [placeholder]="placeholder"
            [(ngModel)]="inputValue"
-           (keydown.enter) = "enterEmit()"
+           (keydown.enter)="enterEmit()"
            (keydown.tab)="enterEmit()"
            (keyup)="onKeyUpHandler($event)"
-            (click)="clickInput()"
+           (click)="clickInput()"
            (ngModelChange)="lpnUpdate.next(inputScan.value);"
     >
     <div class="icon" #iconDiv *ngIf="showIcon">
       <img [src]="icon" [ngStyle]="{'cursor': disabled ? 'not-allowed' : 'pointer'}" alt="" (click)="click()">
     </div>
   </div>
-
 </div>
