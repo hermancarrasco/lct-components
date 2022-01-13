@@ -9,3 +9,4 @@ export * from './lib/button/button.component';
 export * from './lib/input-text/input-text.component';
 export * from './lib/select/select.component';
 export * from './lib/select-multiple/select-multiple.component';
+export * from './lib/loading/loading.component'

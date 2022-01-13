@@ -1,6 +1,6 @@
 {
   "name": "lct-components",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "LCT basic components",
   "keywords": [
     "button",
@@ -8,7 +8,9 @@
     "lct",
     "logistic control towel",
     "select",
-    "select multiple"
+    "select multiple",
+    "loading",
+    "overlay"
   ],
   "homepage": "https://github.com/hermancarrasco/lct-components",
   "license": "MIT",

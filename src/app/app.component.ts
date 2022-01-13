@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {IListLCTSelectMultiple} from "../../projects/lct-components/src/lib/select-multiple/select-multiple.component";
+import {LoadingComponent} from "../../projects/lct-components/src/lib/loading/loading.component";
 
 @Component({
   selector: 'app-root',
@@ -13,6 +14,8 @@ export class AppComponent {
   list : IListLCTSelectMultiple[];
   list2 : IListLCTSelectMultiple[];
   disableButton=true;
+
+  @ViewChild('lctLoading') lctLoading!: LoadingComponent;
 
   value1 = '';
 
@@ -67,4 +70,12 @@ export class AppComponent {
   /*
 * end select multiple
 * */
+
+  openOverlay() {
+    this.lctLoading.show();
+
+    /*setTimeout(()=> {
+      this.lctLoading.dismiss();
+    }, 2000);*/
+  }
 }

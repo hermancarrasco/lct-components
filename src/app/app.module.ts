@@ -7,7 +7,7 @@ import {LctComponentsModule} from "../../projects/lct-components/src/lib/lct-com
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
