@@ -11,6 +11,7 @@ export class SelectComponent implements OnInit, AfterViewInit {
   @Input() title = 'Insert title';
   @ViewChild('select') select: ElementRef | undefined;
   @Output() value = new EventEmitter();
+  @ViewChild("myinput") myInputField: ElementRef = new ElementRef('');
   regexTrim = / /g;
   private show = false;
 
@@ -49,6 +50,15 @@ export class SelectComponent implements OnInit, AfterViewInit {
 
   clickOption(value: string) {
     this.toggleSelect();
+  }
+
+  hidenKeyboard() {
+    console.log('hola');
+    this.myInputField.nativeElement.setAttribute('inputmode', 'none');
+    setTimeout(() => {
+      this.myInputField.nativeElement.focus();
+      this.myInputField.nativeElement.removeAttribute('inputmode');
+    }, 100);
   }
 
 }
