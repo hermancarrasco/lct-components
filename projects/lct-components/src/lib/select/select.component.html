@@ -8,6 +8,8 @@
          (blur)="hideSelect()">
       <div class="select-box__value" *ngFor="let option of options; let i = index">
         <input
+          #myinput
+          (click)="hidenKeyboard()"
           class="select-box__input"
           type="radio"
           [id]="title.replace(regexTrim, '')+i"

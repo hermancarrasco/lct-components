@@ -1,42 +1,24 @@
-<lct-input-text
-  icon="assets/img/ico-camera-blue.svg"
-  [showIcon]="true"
-  (iconClick)="clickEnIcon()"
-  placeholder="Buscar por Nº de la etiqueta"
-  (enterEmitted)="enter($event)"
-  (inputClick)="inputClick()"
-  [pdaAutoEnter]="true"
-></lct-input-text><br>
+<lct-input-text icon="assets/img/ico-camera-blue.svg" [showIcon]="true" (iconClick)="clickEnIcon()"
+  placeholder="Buscar por Nº de la etiqueta" (enterEmitted)="enter($event)" (inputClick)="inputClick()"
+  [pdaAutoEnter]="true"></lct-input-text><br>
 
-<lct-input-text
-  icon="assets/img/keyboard.svg"
-  [showIcon]="true"
-  (iconClick)="clickEnIcon()"
-  placeholder="Buscar por Nº de la etiqueta"
-  (enterEmitted)="enter($event)"
-  iconPosition="left"
-></lct-input-text><br>
-<lct-input-text
-  [(ngModel)]="value1"
-  placeholder="Buscar por Nº de la etiqueta"
-  (enterEmitted)="enter($event)"
-  title="Titulo del componente"
-></lct-input-text>
+<lct-input-text icon="assets/img/keyboard.svg" [showIcon]="true" (iconClick)="clickEnIcon()"
+  placeholder="Buscar por Nº de la etiqueta" (enterEmitted)="enter($event)" iconPosition="left"></lct-input-text><br>
+<lct-input-text [(ngModel)]="value1" placeholder="Buscar por Nº de la etiqueta" (enterEmitted)="enter($event)"
+  title="Titulo del componente"></lct-input-text>
 <br>
 <br>
-<lct-select-multiple [list]="list"
-                     title="Selecciona tienda"
-                     (shareCheckedList)="shareCheckedList($event)"
-                     (shareIndividualCheckedList)="shareIndividualCheckedList($event)">
+<lct-select-multiple [list]="list" title="Selecciona tienda" (shareCheckedList)="shareCheckedList($event)"
+  (shareIndividualCheckedList)="shareIndividualCheckedList($event)">
 </lct-select-multiple>
 <br>
 <lct-select title="Operadores log" (value)="changeSelect($event)" [options]="valuesSelect"></lct-select>
 <br>
-<lct-button  buttonType="primary" [title]="'Primary'" (click)="disableButton=!disableButton" ></lct-button>
+<lct-button buttonType="primary" [title]="'Primary'" (click)="disableButton=!disableButton"></lct-button>
 <br><br>
-<lct-button buttonType="secondary" [title]="'Secondary'" ></lct-button>
+<lct-button buttonType="secondary" [title]="'Secondary'"></lct-button>
 <br><br>
-<lct-button  buttonType="error" [title]="'Error'" (click)="clickButton()"></lct-button>
+<lct-button buttonType="error" [title]="'Error'" (click)="clickButton()"></lct-button>
 <br><br>
 <lct-button buttonType="success" [title]="'Success'" (click)="clickButton()"></lct-button>
 <br>
@@ -46,3 +28,7 @@
 
 <br><br>
 <button (click)="openOverlay()">overlay</button>
+<br><br>
+<br><br>
+<lct-select title="Ordenar por" [options]="['+ Días en tienda', '- Días en tienda']">
+</lct-select>
