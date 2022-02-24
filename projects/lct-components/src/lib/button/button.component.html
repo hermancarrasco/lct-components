@@ -1,1 +1,4 @@
-<button [disabled]="disabled"  #button>{{title}}</button>
+<button [disabled]="disabled"  #button>
+  <img *ngIf="icon && !title" width="auto" height="80%" style="display: -webkit-box; margin: auto;" [src]="icon" alt="icon">
+  <span>{{title}}</span>
+</button>
