@@ -30,7 +30,13 @@ npm i lct-components --save
                      (shareCheckedList)="shareCheckedList($event)"  
                      (shareIndividualCheckedList)="myFunction($event)">  
 </lct-select-multiple>  
-```  
+```
+#### Switch
+```
+<lct-switch 
+      [(ngModel)]="yourVariable"
+></lct-switch>
+```
 #### Input Text
 ```  
 <lct-input-text  

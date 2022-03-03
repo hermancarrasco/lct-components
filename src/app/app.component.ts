@@ -14,6 +14,7 @@ export class AppComponent {
   list : IListLCTSelectMultiple[];
   list2 : IListLCTSelectMultiple[];
   disableButton=true;
+  switchValue = false;
 
   @ViewChild('lctLoading') lctLoading!: LoadingComponent;
 

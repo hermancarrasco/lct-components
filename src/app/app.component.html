@@ -14,6 +14,9 @@
 <br>
 <lct-select title="Operadores log" (value)="changeSelect($event)" [options]="valuesSelect"></lct-select>
 <br>
+<lct-switch [(ngModel)]="switchValue"></lct-switch>
+<br>
+<br>
 <lct-button buttonType="primary" [title]="'Primary'" (click)="disableButton=!disableButton"></lct-button>
 <br><br>
 <lct-button buttonType="secondary" [title]="'Secondary'"></lct-button>

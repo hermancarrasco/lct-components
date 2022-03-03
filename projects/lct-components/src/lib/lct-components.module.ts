@@ -7,6 +7,7 @@ import { SelectComponent } from './select/select.component';
 import { ButtonComponent } from './button/button.component';
 import { InputTextComponent } from './input-text/input-text.component';
 import { LoadingComponent } from './loading/loading.component';
+import {SwitchComponent} from "./switch/switch.component";
 
 
 
@@ -17,7 +18,8 @@ import { LoadingComponent } from './loading/loading.component';
     LctComponentsComponent,
     SelectComponent,
     SelectMultipleComponent,
-    LoadingComponent
+    LoadingComponent,
+    SwitchComponent
   ],
   imports: [
     CommonModule,
@@ -29,7 +31,8 @@ import { LoadingComponent } from './loading/loading.component';
     LctComponentsComponent,
     SelectComponent,
     SelectMultipleComponent,
-    LoadingComponent
+    LoadingComponent,
+    SwitchComponent
   ]
 })
 export class LctComponentsModule { }
