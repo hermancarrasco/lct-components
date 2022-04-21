@@ -2,63 +2,64 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
-  EventEmitter, forwardRef,
+  EventEmitter,
   Input,
   OnInit,
   Output,
-  Renderer2,
   ViewChild
 } from '@angular/core';
 
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
 
-export const CUSTOM_SWITCH_CONTROL_VALUE_ACCESSOR: any = {
-  provide: NG_VALUE_ACCESSOR,
-  // tslint:disable-next-line: no-use-before-declare
-  useExisting: forwardRef(() => SwitchComponent),
-  multi: true
-};
-
 @Component({
   selector: 'lct-switch',
   templateUrl: './switch.component.html',
   styleUrls: ['./switch.component.css'],
-  providers: [CUSTOM_SWITCH_CONTROL_VALUE_ACCESSOR]
+  providers: [{
+    provide: NG_VALUE_ACCESSOR,
+    useExisting: SwitchComponent,
+    multi: true
+  }]
 })
 export class SwitchComponent implements ControlValueAccessor, OnInit, AfterViewInit {
 
   @Input() checked: boolean | string = false;
   @Input() disabled: boolean | string = false;
-  @ViewChild('checkbox') checkbox: ElementRef | undefined;
-  @Output() enterEmitted = new EventEmitter<string>()
+  @Output() enterEmitted = new EventEmitter<boolean>()
 
   public propagateChange = (_: any) => { };
 
-  constructor(private renderer: Renderer2) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
 
   ngAfterViewInit() {
-    if ((this.checked === '' || this.checked === true || this.checked !== 'false') && this.checked !== false) {
-      this.renderer.setAttribute(this.checkbox?.nativeElement,'checked', 'checked');
+    if (
+      (typeof this.checked === 'string' && (this.checked.toLowerCase() === 'true' || this.checked.toLowerCase() === 'checked' || this.checked === '')) ||
+      (typeof this.checked === 'boolean' && this.checked)
+    ) {
+      console.log('entra al true check');
+      this.checked = true;
+    } else {
+      this.checked = false;
     }
-    if ((this.disabled === '' || this.disabled === true || this.disabled !== 'false') && this.disabled !== false) {
-      this.renderer.setAttribute(this.checkbox?.nativeElement,'disabled', 'disabled');
+    if (
+      (typeof this.disabled === 'string' && (this.disabled.toLowerCase() === 'true' || this.disabled.toLowerCase() === 'disabled' || this.disabled === '')) ||
+      (typeof this.disabled === 'boolean' && this.disabled)
+    ) {
+      this.disabled = true;
+    } else {
+      this.disabled = false;
     }
   }
 
   toggle() {
-    if (this.checkbox?.nativeElement.checked) {
-      this.renderer.setAttribute(this.checkbox?.nativeElement,'checked', 'checked');
-    } else {
-      this.renderer.removeAttribute(this.checkbox?.nativeElement,'checked');
-    }
+    this.checked = !this.checked;
     this.onKeyUpHandler();
   }
 
   writeValue(value: any): void {
-    console.log('value', value);
     if (typeof value !== 'undefined') {
       this.onKeyUpHandler(value);
     }
@@ -72,13 +73,15 @@ export class SwitchComponent implements ControlValueAccessor, OnInit, AfterViewI
     // console.log('reg touch', fn)
   }
 
-  onKeyUpHandler(event?: KeyboardEvent) {
-    this.propagateChange(this.checkbox?.nativeElement.checked);
+  onKeyUpHandler(event?: KeyboardEvent | boolean) {
+    if (typeof event === 'boolean') {
+      this.checked = event;
+    }
+    this.propagateChange(this.checked);
   }
 
-
   enterEmit() {
-    this.enterEmitted.emit(this.checkbox?.nativeElement.checked);
+    this.enterEmitted.emit(<boolean>this.checked);
   }
 
 }

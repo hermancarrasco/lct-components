@@ -2,7 +2,7 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
-  EventEmitter, forwardRef,
+  EventEmitter,
   Input,
   OnInit,
   Output,
@@ -13,18 +13,15 @@ import {Subject} from "rxjs";
 import {debounceTime, distinctUntilChanged} from "rxjs/operators";
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
 
-export const CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR: any = {
-  provide: NG_VALUE_ACCESSOR,
-  // tslint:disable-next-line: no-use-before-declare
-  useExisting: forwardRef(() => InputTextComponent),
-  multi: true
-};
-
 @Component({
   selector: 'lct-input-text',
   templateUrl: './input-text.component.html',
   styleUrls: ['./input-text.component.scss'],
-  providers: [CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR]
+  providers: [{
+    provide: NG_VALUE_ACCESSOR,
+    useExisting: InputTextComponent,
+    multi: true
+  }]
 })
 export class InputTextComponent implements ControlValueAccessor, OnInit, AfterViewInit {
 
@@ -50,24 +47,6 @@ export class InputTextComponent implements ControlValueAccessor, OnInit, AfterVi
   constructor(private render: Renderer2) {
   }
 
-  writeValue(value: any): void {
-    if (typeof value !== 'undefined') {
-      this.onKeyUpHandler(value);
-    }
-  }
-
-  registerOnChange(fn: any): void {
-    this.propagateChange = fn;
-  }
-
-  registerOnTouched(fn: any): void {
-   // console.log('reg touch', fn)
-  }
-
-  onKeyUpHandler(event?: KeyboardEvent) {
-    this.propagateChange(this.inputValue);
-  }
-
   ngAfterViewInit() {
     if (this.iconPosition === "left" && this.showIcon) {
       this.render.addClass(this.inputScan?.nativeElement, 'iconLeft')
@@ -90,6 +69,30 @@ export class InputTextComponent implements ControlValueAccessor, OnInit, AfterVi
   }
 
   ngOnInit(): void {
+  }
+
+  writeValue(value: any): void {
+    if (typeof value !== 'undefined') {
+      this.onKeyUpHandler(value);
+    }
+  }
+
+  registerOnChange(fn: any): void {
+    this.propagateChange = fn;
+  }
+
+  registerOnTouched(fn: any): void {
+    // console.log('reg touch', fn)
+  }
+
+  onKeyUpHandler(event?: KeyboardEvent | string) {
+    if (!this.inputValue && typeof event === 'string') {
+      this.inputValue = event;
+    }
+    if (this.inputValue && event === null){
+      this.inputValue = '';
+    }
+    this.propagateChange(this.inputValue);
   }
 
   click() {

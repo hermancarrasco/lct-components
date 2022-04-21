@@ -20,6 +20,7 @@ npm i lct-components --save
     title="Title to component"   
     (value)="changeSelect($event)"   
     [options]="['Select one', 'One Option']]"  
+
 >  
 </lct-select>  
 ```  
@@ -30,13 +31,7 @@ npm i lct-components --save
                      (shareCheckedList)="shareCheckedList($event)"  
                      (shareIndividualCheckedList)="myFunction($event)">  
 </lct-select-multiple>  
-```
-#### Switch
-```
-<lct-switch 
-      [(ngModel)]="yourVariable"
-></lct-switch>
-```
+```  
 #### Input Text
 ```  
 <lct-input-text  
@@ -91,6 +86,12 @@ yourComponent.ts
   
 ```  
 | Method | Description | Example |
-|-- | -- | -- |
-| show(): void | Show loading overlay | this.lctLoading.show() |
-| dismiss(): void | Hide loading overlay | this.lctLoading.dismiss() |
+|-- | -- | --|
+| show(): void | show overlay | this.lctLoading.show() |
+| dismiss(): void | hide overlay | this.lctLoading.dismiss()|
+
+>Version 0.1.1
+>
+>[(ngModel)] only can be used for:
+> > lct-input-text  
+> > lct-switch

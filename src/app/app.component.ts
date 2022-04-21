@@ -13,7 +13,7 @@ export class AppComponent {
   valuesSelect2 = ['RLO', 'ASD'];
   list : IListLCTSelectMultiple[];
   list2 : IListLCTSelectMultiple[];
-  disableButton=true;
+  disableButton = true;
   switchValue = false;
 
   @ViewChild('lctLoading') lctLoading!: LoadingComponent;
@@ -78,5 +78,9 @@ export class AppComponent {
     /*setTimeout(()=> {
       this.lctLoading.dismiss();
     }, 2000);*/
+  }
+
+  changeSwitch1() {
+    this.switchValue = !this.switchValue;
   }
 }
