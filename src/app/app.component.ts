@@ -9,7 +9,7 @@ import {LoadingComponent} from "../../projects/lct-components/src/lib/loading/lo
 })
 export class AppComponent {
   title = 'designComponents';
-  valuesSelect = ['Seleccione una opción', 'Chilexpress', 'Bluex'];
+  valuesSelect = ['Chilexpress', 'Bluex'];
   valuesSelect2 = ['RLO', 'ASD'];
   list : IListLCTSelectMultiple[];
   list2 : IListLCTSelectMultiple[];
@@ -41,7 +41,12 @@ export class AppComponent {
     console.log('click icon: ')
   }
   clickButton(){
+    this.value1 = '';
     console.log('click in button')
+  }
+
+  modelChange(ev: any) {
+    console.log('model change:', ev);
   }
 
   enter(value: string) {

@@ -18,9 +18,9 @@ npm i lct-components --save
 ```  
 <lct-select   
     title="Title to component"   
+    placeholder="Select option"
     (value)="changeSelect($event)"   
-    [options]="['Select one', 'One Option']]"  
-
+    [options]="['Option one', 'option two']]"  
 >  
 </lct-select>  
 ```  
@@ -39,6 +39,7 @@ npm i lct-components --save
   [showIcon]="true"  
   (iconClick)="myFunction()"  
   placeholder="Insert placeholder"  
+  [(ngModel)]="value"
   (enterEmitted)="myFunctionEnter($event)"  
   iconPosition="right"  
   title="Insert title"  
@@ -54,7 +55,8 @@ npm i lct-components --save
 ></lct-input-text>  
   
 <lct-input-text  
-  (enterEmitted)="myFunctionEnter($event)"  
+  (enterEmitted)="myFunctionEnter($event)"
+  [(ngModel)]="value"  
 ></lct-input-text>  
 ```  
 ### Buttons
@@ -90,8 +92,8 @@ yourComponent.ts
 | show(): void | show overlay | this.lctLoading.show() |
 | dismiss(): void | hide overlay | this.lctLoading.dismiss()|
 
->Version 0.1.1
+>Version 0.1.2
 >
->[(ngModel)] only can be used for:
+>[(ngModel)] Can only be used at the moment for:
 > > lct-input-text  
 > > lct-switch

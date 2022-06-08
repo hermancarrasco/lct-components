@@ -4,7 +4,7 @@
 
 <lct-input-text icon="assets/img/keyboard.svg" [showIcon]="true" (iconClick)="clickEnIcon()"
   placeholder="Buscar por Nº de la etiqueta" (enterEmitted)="enter($event)" iconPosition="left"></lct-input-text><br>
-<lct-input-text [(ngModel)]="value1" placeholder="Buscar por Nº de la etiqueta" (enterEmitted)="enter($event)"
+<lct-input-text [(ngModel)]="value1" (ngModelChange)="modelChange($event)" placeholder="Buscar por Nº de la etiqueta" (enterEmitted)="enter($event)"
   title="Titulo del componente"></lct-input-text>
 <br>
 <br>

@@ -92,6 +92,9 @@ export class InputTextComponent implements ControlValueAccessor, OnInit, AfterVi
     if (this.inputValue && event === null){
       this.inputValue = '';
     }
+    if (this.inputValue && typeof event === 'string' && event==='') {
+      this.inputValue = '';
+    }
     this.propagateChange(this.inputValue);
   }
 

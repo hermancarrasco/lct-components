@@ -1,27 +1,24 @@
-import {AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'lct-select',
   templateUrl: './select.component.html',
   styleUrls: ['./select.component.scss']
 })
-export class SelectComponent implements OnInit, AfterViewInit {
+export class SelectComponent implements OnInit {
 
   @Input() options = ['Insert Values as string array']
   @Input() title = 'Insert title';
+  @Input() placeholder = 'Select one option';
   @ViewChild('select') select: ElementRef | undefined;
   @Output() value = new EventEmitter();
   @ViewChild("myinput") myInputField: ElementRef = new ElementRef('');
   regexTrim = / /g;
   private show = false;
 
-  selected = this.options[0];
+  selected = 'default';
 
   constructor() { }
-
-  ngAfterViewInit() {
-    this.selected = this.options[0];
-  }
 
   ngOnInit(): void {
   }
@@ -53,7 +50,6 @@ export class SelectComponent implements OnInit, AfterViewInit {
   }
 
   hidenKeyboard() {
-    console.log('hola');
     this.myInputField.nativeElement.setAttribute('inputmode', 'none');
     setTimeout(() => {
       this.myInputField.nativeElement.focus();
