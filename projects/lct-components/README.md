@@ -26,7 +26,8 @@ npm i lct-components --save
 ```  
 ### Select multiple
 ```  
-<lct-select-multiple [list]="list2"  
+<lct-select-multiple [list]="list2"
+                     placeholder="select options"  
                      title="Insert title"  
                      (shareCheckedList)="shareCheckedList($event)"  
                      (shareIndividualCheckedList)="myFunction($event)">  
@@ -92,7 +93,7 @@ yourComponent.ts
 | show(): void | show overlay | this.lctLoading.show() |
 | dismiss(): void | hide overlay | this.lctLoading.dismiss()|
 
->Version 0.1.2
+>Version 0.1.3
 >
 >[(ngModel)] Can only be used at the moment for:
 > > lct-input-text  

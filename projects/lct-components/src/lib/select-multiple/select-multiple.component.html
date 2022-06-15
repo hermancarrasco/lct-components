@@ -2,7 +2,7 @@
   <div class="title">{{title}}</div>
   <div class="containerSelectMultiple" (mouseleave)="showDropDown = false">
     <button class="drop-toggle" [disabled]="disabled" (click)="showDropDown=!showDropDown">
-      <span *ngIf="checkedList.length<=0">Seleccione una opción</span>
+      <span *ngIf="checkedList.length<=0">{{placeholder}}</span>
       <span *ngIf="checkedList.length>0">
         <div class="selected">
           <span>{{checkedList[0].name}}</span>

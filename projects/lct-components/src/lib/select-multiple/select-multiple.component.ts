@@ -17,6 +17,7 @@ export class SelectMultipleComponent implements OnInit {
   @Input() title = 'Insert title'
   @Input() disabled = false;
   @Input() showIcon = true;
+  @Input() placeholder = 'Insert placeholder';
 
   @Output() shareCheckedList = new EventEmitter();
   @Output() shareIndividualCheckedList = new EventEmitter();
