@@ -27,10 +27,11 @@
   box-sizing: border-box;
   height: 41px;
   width: 100%;
-  border: 1px solid #C2C2C2;
+  border: 0;
   border-radius: 5px;
   text-align: left;
   font-size: 14px;
+  padding-left: 12px;
   color: #3C4149;
   overflow: hidden;
 }
@@ -47,8 +48,9 @@
 
 
 button:disabled {
-  background-color: #C8CCD4;
+  background-color: #F5F7FA;
   cursor: not-allowed;
+  color: #C8CCD4;
 }
 
 .drop-toggle i{

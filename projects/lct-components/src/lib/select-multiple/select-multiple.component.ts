@@ -15,12 +15,13 @@ export class SelectMultipleComponent implements OnInit {
 
   @Input() list: IListLCTSelectMultiple[] | undefined;
   @Input() title = 'Insert title'
-  @Input() disabled = false;
+  @Input() disabled: 'true'| 'false' | 'disabled'| boolean | '' = 'false';
   @Input() showIcon = true;
   @Input() placeholder = 'Insert placeholder';
 
   @Output() shareCheckedList = new EventEmitter();
   @Output() shareIndividualCheckedList = new EventEmitter();
+  disabledValue = false;
 
 
 
@@ -33,6 +34,7 @@ export class SelectMultipleComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.disabledValue = this.disabled === true || this.disabled == 'true' || this.disabled === '';
   }
 
   getSelectedValue(status: boolean,name: string, value? : string | number){

@@ -23,8 +23,9 @@
 .input-with-icon .form-control {
   height: 100%;
   width: 100%;
-  border: 1px solid #C2C2C2;
-  border-radius: 5px;
+  // border: 1px solid #C2C2C2;
+  border: 0;
+  border-radius: 4px;
   background-color: #E0E5EE;
   box-sizing: border-box;
   color: #3C4149;
@@ -37,7 +38,8 @@
   }
   &:disabled{
     cursor: not-allowed;
-    background-color: #C8CCD4;
+    background-color: #F5F7FA;
+    color: #C8CCD4;
   }
 }
 

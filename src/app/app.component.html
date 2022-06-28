@@ -3,25 +3,32 @@
   [pdaAutoEnter]="true"></lct-input-text><br>
 
 <lct-input-text icon="assets/img/keyboard.svg" [showIcon]="true" (iconClick)="clickEnIcon()"
-  placeholder="Buscar por Nº de la etiqueta" (enterEmitted)="enter($event)" iconPosition="left"></lct-input-text><br>
+  placeholder="Buscar por Nº de la etiqueta" (enterEmitted)="enter($event)" iconPosition="left"></lct-input-text>
+<br>
 <lct-input-text [(ngModel)]="value1" (ngModelChange)="modelChange($event)" placeholder="Buscar por Nº de la etiqueta" (enterEmitted)="enter($event)"
   title="Titulo del componente"></lct-input-text>
 <br>
 <br>
-<lct-select-multiple [list]="list" title="Selecciona tienda" (shareCheckedList)="shareCheckedList($event)"
+<lct-select-multiple [disabled]="true" [list]="list" title="Selecciona tienda" (shareCheckedList)="shareCheckedList($event)"
   (shareIndividualCheckedList)="shareIndividualCheckedList($event)">
 </lct-select-multiple>
 <br>
-<lct-select title="Operadores log" (value)="changeSelect($event)" [options]="valuesSelect"></lct-select>
+<lct-select [disabled]="true" title="Operadores log" (value)="changeSelect($event)" [options]="valuesSelect"></lct-select>
 <br>
 <lct-switch [(ngModel)]="switchValue"></lct-switch>
 <br>
 <br>
-<lct-button buttonType="primary" [title]="'Primary'" (click)="disableButton=!disableButton"></lct-button>
+<lct-button [buttonType]="!switchValue ? 'primary' : 'secondary'" [counter]="30" [title]="'Primary'" (click)="disableButton=!disableButton"></lct-button>
 <br><br>
-<lct-button buttonType="secondary" (click)="changeSwitch1()" [title]="'Secondary'"></lct-button>
+<lct-button [buttonType]="switchValue ? 'primary' : 'secondary'"  [counter]="2" [title]="'Secondary'"></lct-button>
 <br><br>
-<lct-button buttonType="secondary" icon="assets/img/icon-check.svg" [title]="''"></lct-button>
+<lct-button buttonType="secondary"  icon="assets/img/icon-check.svg" [counter]="12" [title]="''"></lct-button>
+<br><br>
+<lct-button buttonType="tertiary"  icon="assets/img/ico-camera-blue.svg" [counter]="2" title="terciario"></lct-button>
+<br><br>
+<lct-button buttonType="quaternary" icon="assets/img/icon-check.svg" title="quaternary"></lct-button>
+<br><br>
+<lct-button buttonType="secondary" icon="assets/img/icon-check.svg" title="prueba icon txt"></lct-button>
 <br><br>
 <lct-button buttonType="error" [title]="'Error'" (click)="clickButton()"></lct-button>
 <br><br>

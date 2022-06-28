@@ -9,7 +9,8 @@ export class SelectComponent implements OnInit {
 
   @Input() options = ['Insert Values as string array']
   @Input() title = 'Insert title';
-  @Input() placeholder = 'Select one option';
+  @Input() placeholder = 'Insert placeholder';
+  @Input() disabled: 'true'| 'false' | 'disabled'| boolean | '' = 'false';
   @ViewChild('select') select: ElementRef | undefined;
   @Output() value = new EventEmitter();
   @ViewChild("myinput") myInputField: ElementRef = new ElementRef('');

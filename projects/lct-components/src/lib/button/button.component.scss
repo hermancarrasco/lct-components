@@ -1,28 +1,47 @@
 button{
   width: 100%;
   height: 40px;
-  border-radius: 5px;
+  border-radius: 8px;
   border: 1px solid #C2C2C2;
   background-color: #C8CCD4;
-  font-size: 15px;
+  font-size: 14px;
   letter-spacing: 0;
   line-height: 18px;
   font-family: 'Barlow', serif;
   cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  display: inline-flex;
+
   &:disabled{
     cursor: not-allowed;
     background-color: #C8CCD4;
     color: #FFFFFF;
     font-weight: unset;
   }
-@media (max-width: 375px) {
-  height: 50px;
-}
+  @media (max-width: 375px) {
+    height: 50px;
+  }
+  img {
+    margin-right: 8px;
+  }
+  &:not([disabled]):active{
+    img{
+      -webkit-filter: hue-rotate(40deg) saturate(0.5) brightness(390%) saturate(4);
+      filter: hue-rotate(40deg) saturate(0.5) brightness(390%) saturate(4);
+    }
+  }
 }
 .primary {
   background-color: #2649B6;
   color: #FFFFFF;
   font-weight: bold;
+  &:hover{
+    background: #2A5AED;
+  }
+  &:not([disabled]):active{
+    background: #2A5AED;
+  }
 }
 
 .secondary {
@@ -32,6 +51,73 @@ button{
   color: #2649B6;
   &:disabled{
     border: 0;
+  }
+  &:hover{
+    border: 1px solid #2A5AED;
+    color: #2A5AED;
+  }
+  &:not([disabled]):active{
+    background: #2A5AED;
+    color: #FFFFFF;
+  }
+}
+
+.counterOn {
+  position: absolute;
+  left: 15%;
+}
+
+.btnCounter {
+  background-color: #FFFFFF;
+  color: #2649B6;
+  position: absolute;
+  right: 15%;
+  padding: 0.1rem 0.4rem;
+  border: 1px solid #2649B6;
+  border-radius: 2px;
+}
+
+.counterAndIconTxt{
+  display: inline-flex;
+  position: absolute;
+}
+.counterAndIconImg{
+  display: inline-flex;
+  position: relative;
+  left: -30%;
+}
+
+.tertiary {
+  box-sizing: border-box;
+  background-color: #6A80B1;
+  color: #FFFFFF;
+  &:disabled{
+    border: 0;
+  }
+  &:hover{
+    border: 1px solid #2649B6;
+  }
+  &:not([disabled]):active{
+    background: #809AD2;
+  }
+}
+
+.quaternary{
+  box-sizing: border-box;
+  border: 1px solid #2649B6;
+  background-color: #223359;
+  color: #FFFFFF;
+  &:disabled{
+    border: 0;
+  }
+  &:not([disabled]):hover{
+    background-color: #FFFFFF;
+    border: 1px solid #223359;
+    color: #223359;
+  }
+  &:not([disabled]):active{
+    background-color: #2A5AED;
+    color: #FFFFFF;
   }
 }
 

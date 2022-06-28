@@ -1,3 +1,7 @@
+*{
+  font-family: "Barlow", 'Open Sans', 'Helvetica Neue', 'Segoe UI', 'Calibri', 'Arial', sans-serif;
+}
+
 .title{
   font-family: "Barlow", 'Open Sans', 'Helvetica Neue', 'Segoe UI', 'Calibri', 'Arial', sans-serif;
   color: #3C4149;
@@ -20,8 +24,8 @@
   width: 100%;
   margin: 0 auto;
   font-family: 'Open Sans', 'Helvetica Neue', 'Segoe UI', 'Calibri', 'Arial', sans-serif;
-  font-size: 15px;
-  color: #60666d;
+  font-size: 14px;
+  color: #3C4149;
 
 
 
@@ -83,12 +87,13 @@
    padding-left: 12px;
    height: 40px;
    box-sizing: border-box;
-   border: 1px solid #C2C2C2;
-   border-radius: 5px;
+   // border: 1px solid #C2C2C2;
+   border: 0;
+   border-radius: 4px;
    background-color: #E0E5EE;
-@media (max-width: 375px) {
+/*@media (max-width: 375px) {
   height: 50px !important;
-}
+}*/
 }
 
 &__list {
