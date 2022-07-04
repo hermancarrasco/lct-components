@@ -18,9 +18,9 @@
 <lct-switch [(ngModel)]="switchValue"></lct-switch>
 <br>
 <br>
-<lct-button [buttonType]="!switchValue ? 'primary' : 'secondary'" [counter]="30" [title]="'Primary'" (click)="disableButton=!disableButton"></lct-button>
+<lct-button [buttonType]="!switchValue ? 'primary' : 'secondary'"  [counter]="30" [title]="'Primary'" (click)="disableButton=!disableButton"></lct-button>
 <br><br>
-<lct-button [buttonType]="switchValue ? 'primary' : 'secondary'"  [counter]="2" [title]="'Secondary'"></lct-button>
+<lct-button [buttonType]="switchValue ? 'primary' : 'secondary'" [disabled]="true" [counter]="2" [title]="'Secondary'"></lct-button>
 <br><br>
 <lct-button buttonType="secondary"  icon="assets/img/icon-check.svg" [counter]="12" [title]="''"></lct-button>
 <br><br>

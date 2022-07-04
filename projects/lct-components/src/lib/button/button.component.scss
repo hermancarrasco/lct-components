@@ -36,7 +36,7 @@ button{
   background-color: #2649B6;
   color: #FFFFFF;
   font-weight: bold;
-  &:hover{
+  &:not([disabled]):hover{
     background: #2A5AED;
   }
   &:not([disabled]):active{
@@ -52,7 +52,7 @@ button{
   &:disabled{
     border: 0;
   }
-  &:hover{
+  &:not([disabled]):hover{
     border: 1px solid #2A5AED;
     color: #2A5AED;
   }
@@ -63,15 +63,15 @@ button{
 }
 
 .counterOn {
-  position: absolute;
-  left: 15%;
+  position: relative;
+  left: -15%;
 }
 
 .btnCounter {
   background-color: #FFFFFF;
   color: #2649B6;
-  position: absolute;
-  right: 15%;
+  position: relative;
+  right: -15%;
   padding: 0.1rem 0.4rem;
   border: 1px solid #2649B6;
   border-radius: 2px;
@@ -79,12 +79,12 @@ button{
 
 .counterAndIconTxt{
   display: inline-flex;
-  position: absolute;
+  position: relative;
 }
 .counterAndIconImg{
   display: inline-flex;
   position: relative;
-  left: -30%;
+  left: -15%;
 }
 
 .tertiary {
@@ -94,7 +94,7 @@ button{
   &:disabled{
     border: 0;
   }
-  &:hover{
+  &:not([disabled]):hover{
     border: 1px solid #2649B6;
   }
   &:not([disabled]):active{
