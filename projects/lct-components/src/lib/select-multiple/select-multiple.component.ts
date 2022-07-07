@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 
 export interface IListLCTSelectMultiple {
   name: string;
@@ -11,7 +11,7 @@ export interface IListLCTSelectMultiple {
   templateUrl: './select-multiple.component.html',
   styleUrls: ['./select-multiple.component.css']
 })
-export class SelectMultipleComponent implements OnInit {
+export class SelectMultipleComponent implements OnInit, OnChanges {
 
   @Input() list: IListLCTSelectMultiple[] | undefined;
   @Input() title = 'Insert title'
@@ -35,6 +35,16 @@ export class SelectMultipleComponent implements OnInit {
 
   ngOnInit() {
     this.disabledValue = this.disabled === true || this.disabled == 'true' || this.disabled === '';
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['disabled'] && !changes['disabled'].firstChange) {
+      if (changes['disabled'].currentValue === true || changes['disabled'].currentValue == 'true' || changes['disabled'].currentValue === ''){
+        this.disabledValue = true;
+      } else {
+        this.disabledValue = false;
+      }
+    }
   }
 
   getSelectedValue(status: boolean,name: string, value? : string | number){

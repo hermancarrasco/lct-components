@@ -1,61 +1,59 @@
-import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
-
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges,
+  ViewChild
+} from '@angular/core';
+export interface IListLCTSelect {
+  name: string;
+  checked: boolean;
+  value?: string | number;
+}
 @Component({
   selector: 'lct-select',
   templateUrl: './select.component.html',
-  styleUrls: ['./select.component.scss']
+  styleUrls: ['./select.component.css']
 })
-export class SelectComponent implements OnInit {
+export class SelectComponent implements OnInit, OnChanges {
 
   @Input() options = ['Insert Values as string array']
-  @Input() title = 'Insert title';
-  @Input() placeholder = 'Insert placeholder';
+  @Input() title = 'Insert title'
   @Input() disabled: 'true'| 'false' | 'disabled'| boolean | '' = 'false';
-  @ViewChild('select') select: ElementRef | undefined;
-  @Output() value = new EventEmitter();
-  @ViewChild("myinput") myInputField: ElementRef = new ElementRef('');
-  regexTrim = / /g;
-  private show = false;
+  @Input() showIcon = true;
+  @Input() placeholder = 'Insert placeholder';
+  @Output() value = new EventEmitter<string>();
 
-  selected = 'default';
+  disabledValue = false;
+  selected : string;
+  showDropDown = false;
 
-  constructor() { }
+  constructor() {
+    this.selected = '';
+  }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.disabledValue = this.disabled === true || this.disabled == 'true' || this.disabled === '';
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['disabled'] && !changes['disabled'].firstChange) {
+      if (changes['disabled'].currentValue === true || changes['disabled'].currentValue == 'true' || changes['disabled'].currentValue === ''){
+        this.disabledValue = true;
+      } else {
+        this.disabledValue = false;
+      }
+    }
   }
 
   changeValue(value: string) {
-    this.value.emit(value);
-    this.hideSelect();
-  }
-
-  toggleSelect() {
-    if (this.show) {
-      setTimeout(() => {
-        this.select?.nativeElement.blur();
-        this.show = false;
-      }, 50);
-    } else {
-      this.show = true;
-    }
-  }
-
-  hideSelect() {
-    if (this.show) {
-      this.show = false;
-    }
-  }
-
-  clickOption(value: string) {
-    this.toggleSelect();
-  }
-
-  hidenKeyboard() {
-    this.myInputField.nativeElement.setAttribute('inputmode', 'none');
-    setTimeout(() => {
-      this.myInputField.nativeElement.focus();
-      this.myInputField.nativeElement.removeAttribute('inputmode');
-    }, 100);
+    this.selected = value;
+    this.showDropDown = false;
+    this.value.emit(this.selected);
   }
 
 }
