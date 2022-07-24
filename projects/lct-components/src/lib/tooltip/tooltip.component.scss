@@ -1,4 +1,4 @@
-.tooltip {
+.tooltipLCT {
   position: relative;
   display: inline-flex;
   border-bottom: 1px dotted black;
@@ -14,7 +14,7 @@
     align-items: center;
   }
 
-  .tooltipText {
+  .tooltipLCTText {
     width: max-content;
     color: #fff;
     text-align: center;
@@ -78,7 +78,7 @@
     }
   }
 
-  .tooltipText::after {
+  .tooltipLCTText::after {
     content: "";
     position: absolute;
     margin-top: -5px;
