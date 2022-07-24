@@ -72,6 +72,28 @@ npm i lct-components --save
 <lct-button buttonType="success" title="Success"></lct-button>  
 ```  
 
+### tooltip directive
+```  
+  
+<lct-button  
+  buttonType="primary"
+  title="Primary"
+  lctTooltip
+  tooltipText="Tooltip from button 1"
+  position="right"
+  color="tertiary"
+></lct-button>  
+  
+<lct-button 
+  buttonType="secondary" 
+  title="Secondary"
+  lctTooltip
+  tooltipText="Tooltip from button 2"
+  position="top"
+  color="primary"
+  ></lct-button>  
+```  
+
 ### Overlay loading
 ```  
 yourComponent.html  
@@ -93,7 +115,7 @@ yourComponent.ts
 | show(): void | show overlay | this.lctLoading.show() |
 | dismiss(): void | hide overlay | this.lctLoading.dismiss()|
 
->Version 0.2.3
+>Version 0.3.0
 >
 >[(ngModel)] Can only be used at the moment for:
 > > lct-input-text  

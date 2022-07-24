@@ -32,8 +32,37 @@
 <br><br>
 <lct-button buttonType="error" [title]="'Error'" (click)="clickButton()"></lct-button>
 <br><br>
-<lct-button buttonType="success" [title]="'Success'" (click)="clickButton()"></lct-button>
+<lct-button lctTooltip tooltipText="fasdfsdfs" buttonType="success" [title]="'Success'" (click)="clickButton()"></lct-button>
 <br>
+<br>
+<div style="text-align: start">
+
+  <button lctTooltip
+          tooltipText="Tooltip desde boton2"
+          color="secondary"
+          position="right"
+          secondaryMessage="mensaje secundario fas fdsafsadfasd fs"
+  >link tooltip</button>
+
+</div>
+<div style="text-align: center">
+
+  <button
+    style="height: 50px"
+    lctTooltip
+    tooltipText="Tooltip desde boton2"
+    position="right"
+    color="tertiary"
+    secondaryMessage="mensaje secundario fas fdsafsadfasd fs"
+  >link tooltip</button>
+
+</div>
+<div style="text-align: end">
+
+  <button lctTooltip tooltipText="Tooltip desde boton3">link tooltip</button>
+
+</div>
+
 <br>
 
 <lct-loading #lctLoading></lct-loading>

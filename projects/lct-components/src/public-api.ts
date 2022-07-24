@@ -11,3 +11,4 @@ export * from './lib/select/select.component';
 export * from './lib/select-multiple/select-multiple.component';
 export * from './lib/loading/loading.component'
 export * from './lib/switch/switch.component'
+export * from './lib/tooltip.directive';

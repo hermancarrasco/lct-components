@@ -8,6 +8,8 @@ import { ButtonComponent } from './button/button.component';
 import { InputTextComponent } from './input-text/input-text.component';
 import { LoadingComponent } from './loading/loading.component';
 import {SwitchComponent} from "./switch/switch.component";
+import { TooltipDirective } from './tooltip.directive';
+import { TooltipComponent } from './tooltip/tooltip.component';
 
 
 
@@ -19,7 +21,9 @@ import {SwitchComponent} from "./switch/switch.component";
     SelectComponent,
     SelectMultipleComponent,
     LoadingComponent,
-    SwitchComponent
+    SwitchComponent,
+    TooltipDirective,
+    TooltipComponent
   ],
   imports: [
     CommonModule,
@@ -32,7 +36,9 @@ import {SwitchComponent} from "./switch/switch.component";
     SelectComponent,
     SelectMultipleComponent,
     LoadingComponent,
-    SwitchComponent
-  ]
+    SwitchComponent,
+    TooltipDirective
+  ],
+  entryComponents:[TooltipComponent]
 })
 export class LctComponentsModule { }

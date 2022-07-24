@@ -1,0 +1,7 @@
+<!--<div class="tooltip">-->
+<div class="tooltip" [ngClass]="classes">
+  <span class="tooltipText" [ngClass]="classes">
+    {{message}}
+    <span *ngIf="secondaryMessage"><br>{{secondaryMessage}}</span>
+  </span>
+</div>

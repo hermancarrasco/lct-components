@@ -7,8 +7,7 @@ import { Component, OnInit } from '@angular/core';
       lct-components works!
     </p>
   `,
-  styles: [
-  ]
+  styles: []
 })
 export class LctComponentsComponent implements OnInit {
 
