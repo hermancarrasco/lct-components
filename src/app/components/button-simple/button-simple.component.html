@@ -1,0 +1,224 @@
+<div class="container">
+  <h1>Button</h1>
+  <p>Buttons simple with lct design</p>
+
+
+<!--  <pre><code class="language-javascript"><lct-button   [counter]="30" [title]="'Primary'" ></lct-button></code></pre>-->
+  <div class="row align-items-center">
+    <div class="col-xs-12 col-md-4">
+      <lct-button   title="Primary" ></lct-button>
+    </div>
+    <div class="col-xs-12 col-md-8">
+        <pre><code class="language-html">
+    &lt;lct-button title="Primary"&gt;&lt;/lct-button&gt;
+  </code></pre>
+    </div>
+  </div>
+  <div class="row align-items-center">
+    <div class="col-xs-12 col-md-4">
+      <lct-button buttonType="secondary" title="Secondary"></lct-button>
+    </div>
+    <div class="col-xs-12 col-md-8">
+        <pre><code class="language-html">
+    &lt;lct-button buttonType="secondary" title="Secondary"&gt;&lt;/lct-button&gt;
+  </code></pre>
+    </div>
+  </div>
+  <div class="row align-items-center">
+    <div class="col-xs-12 col-md-4">
+      <lct-button buttonType="tertiary" title="tertiary"></lct-button>
+    </div>
+    <div class="col-xs-12 col-md-8">
+        <pre><code class="language-html">
+    &lt;lct-button buttonType="tertiary" title="tertiary"&gt;&lt;/lct-button&gt;
+  </code></pre>
+    </div>
+  </div>
+  <div class="row align-items-center">
+    <div class="col-xs-12 col-md-4">
+      <lct-button buttonType="quaternary" title="quaternary"></lct-button>
+    </div>
+    <div class="col-xs-12 col-md-8">
+        <pre><code class="language-html">
+    &lt;lct-button buttonType="quaternary" title="quaternary"&gt;&lt;/lct-button&gt;
+  </code></pre>
+    </div>
+  </div>
+  <div class="row align-items-center">
+    <div class="col-xs-12 col-md-4">
+      <lct-button buttonType="error" title="Error"></lct-button>
+    </div>
+    <div class="col-xs-12 col-md-8">
+        <pre><code class="language-html">
+    &lt;lct-button buttonType="error" title="Error"&gt;&lt;/lct-button&gt;
+  </code></pre>
+    </div>
+  </div>
+  <div class="row align-items-center">
+    <div class="col-xs-12 col-md-4">
+      <lct-button buttonType="success" title="Success"></lct-button>
+    </div>
+    <div class="col-xs-12 col-md-8">
+        <pre><code class="language-html">
+    &lt;lct-button buttonType="success" title="Success"&gt;&lt;/lct-button&gt;
+  </code></pre>
+    </div>
+  </div>
+  <div class="row align-items-center">
+    <div class="col-xs-12 col-md-4">
+      <lct-button buttonType="secondary" title="Secondary disabled" disabled></lct-button>
+    </div>
+    <div class="col-xs-12 col-md-8">
+        <pre><code class="language-html">
+    &lt;lct-button buttonType="secondary" title="Secondary disabled" disabled&gt;&lt;/lct-button&gt;
+  </code></pre>
+    </div>
+  </div>
+
+
+
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <div class="row">
+        <div class="col">
+          <h2>title</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <table class="table table-bordered">
+            <thead>
+            <tr>
+              <th scope="col">Type</th>
+              <th scope="col">Detail</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>string</td>
+              <td>text value to button</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <div class="row">
+        <div class="col">
+          <h2>buttonType</h2>
+          <p>Button type is defined to background color of the button, default value <code>primary</code></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <table class="table table-bordered">
+            <thead>
+            <tr>
+              <th scope="col">Value</th>
+              <th scope="col">Detail</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>primary</td>
+              <td>Background color <input type="color" value="#2A5AED" style="height: 18px; width: 18px" readonly> and text color <input type="color" value="#FFFFFF" style="height: 18px; width: 18px" readonly></td>
+            </tr>
+            <tr>
+              <td>secondary</td>
+              <td>Background color <input type="color" value="#FFFFFF" style="height: 18px; width: 18px" readonly> and text color <input type="color" value="#2649B6" style="height: 18px; width: 18px" readonly></td>
+            </tr>
+            <tr>
+              <td>tertiary</td>
+              <td>Background color <input type="color" value="#6A80B1" style="height: 18px; width: 18px" readonly> and text color <input type="color" value="#FFFFFF" style="height: 18px; width: 18px" readonly></td>
+            </tr>
+            <tr>
+              <td>quaternary</td>
+              <td>Background color <input type="color" value="#223359" style="height: 18px; width: 18px" readonly> and text color <input type="color" value="#FFFFFF" style="height: 18px; width: 18px" readonly></td>
+            </tr>
+            <tr>
+              <td>error</td>
+              <td>Background color <input type="color" value="#C60E4C" style="height: 18px; width: 18px" readonly> and text color <input type="color" value="#FFFFFF" style="height: 18px; width: 18px" readonly></td>
+            </tr>
+            <tr>
+              <td>success</td>
+              <td>Background color <input type="color" value="#8CBA37" style="height: 18px; width: 18px" readonly> and text color <input type="color" value="#FFFFFF" style="height: 18px; width: 18px" readonly></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <div class="row">
+        <div class="col">
+          <h2>disabled</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <table class="table table-bordered">
+            <thead>
+            <tr>
+              <th scope="col">Type</th>
+              <th scope="col">Detail</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>'true' | 'false' | 'disabled' | boolean | ""</td>
+              <td>default value <code>false</code></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <div class="row">
+        <div class="col">
+          <h2>height and width</h2>
+          <p>Height and width is used to set static values, by default set width 100% and height 40px</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <table class="table table-bordered">
+            <thead>
+            <tr>
+              <th scope="col">value</th>
+              <th scope="col">Type</th>
+              <th scope="col">Detail</th>
+              <th scope="col">Example</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>height</td>
+              <td>string</td>
+              <td>set style height, can be set px, %, em, etc</td>
+              <td><code>height="40px"</code></td>
+            </tr>
+            <tr>
+              <td>width</td>
+              <td>string</td>
+              <td>set style width, can be set px, %, em, etc</td>
+              <td><code>width="200px"</code></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

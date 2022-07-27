@@ -1,0 +1,160 @@
+<div class="container">
+  <h1>Button with counter</h1>
+  <p>Buttons with counter, with lct design</p>
+
+
+  <!--  <pre><code class="language-javascript"><lct-button   [counter]="30" [title]="'Primary'" ></lct-button></code></pre>-->
+  <div class="row align-items-center">
+    <div class="col-xs-12 col-md-4">
+      <lct-button buttonType="primary" [counter]="2"  title="Primary with counter"></lct-button>
+      <br><br>
+      <lct-button buttonType="primary" [counter]="2"  title="Icon and counter" icon="./assets/img/keyboard.svg"></lct-button>
+    </div>
+    <div class="col-xs-12 col-md-8">
+        <pre><code class="language-html">
+    &lt;lct-button
+          title="Primary with counter"
+          [counter]="2"
+          icon="./assets/img/keyboard.svg"
+    &gt;&lt;/lct-button&gt;
+  </code></pre>
+    </div>
+  </div>
+  <div class="row align-items-center">
+    <div class="col-xs-12 col-md-4">
+      <lct-button buttonType="secondary" title="Secondary" [counter]="2"></lct-button>
+      <br><br>
+      <lct-button buttonType="secondary" title="Secondary" [counter]="2" icon="./assets/img/icon-check.svg"></lct-button>
+    </div>
+    <div class="col-xs-12 col-md-8">
+        <pre><code class="language-html">
+    &lt;lct-button
+          buttonType="secondary"
+          title="Secondary"
+          [counter]="2"
+          icon="./assets/img/icon-check.svg"
+    &gt;&lt;/lct-button&gt;
+  </code></pre>
+    </div>
+  </div>
+  <div class="row align-items-center">
+    <div class="col-xs-12 col-md-4">
+      <lct-button buttonType="tertiary" title="Tertiary" [counter]="2"></lct-button>
+      <br><br>
+      <lct-button buttonType="tertiary" title="Tertiary" [counter]="2" icon="./assets/img/icon-check.svg"></lct-button>
+    </div>
+    <div class="col-xs-12 col-md-8">
+        <pre><code class="language-html">
+    &lt;lct-button
+          buttonType="tertiary"
+          title="Tertiary"
+          [counter]="2"
+          icon="./assets/img/icon-check.svg"
+    &gt;&lt;/lct-button&gt;
+  </code></pre>
+    </div>
+  </div>
+  <div class="row align-items-center">
+    <div class="col-xs-12 col-md-4">
+      <lct-button buttonType="quaternary" title="Quaternary" [counter]="2"></lct-button>
+      <br><br>
+      <lct-button buttonType="quaternary" title="Quaternary" [counter]="2" icon="./assets/img/icon-check.svg"></lct-button>
+    </div>
+    <div class="col-xs-12 col-md-8">
+        <pre><code class="language-html">
+    &lt;lct-button
+          buttonType="quaternary"
+          title="Quaternary"
+          [counter]="2"
+          icon="./assets/img/icon-check.svg"
+    &gt;&lt;/lct-button&gt;
+  </code></pre>
+    </div>
+  </div>
+  <div class="row align-items-center">
+    <div class="col-xs-12 col-md-4">
+      <lct-button buttonType="error" title="Error" [counter]="2"></lct-button>
+      <br><br>
+      <lct-button buttonType="error" title="Error" [counter]="2" icon="./assets/img/icon-check.svg"></lct-button>
+    </div>
+    <div class="col-xs-12 col-md-8">
+        <pre><code class="language-html">
+    &lt;lct-button
+          buttonType="error"
+          title="Error"
+          [counter]="2"
+          icon="./assets/img/icon-check.svg"
+    &gt;&lt;/lct-button&gt;
+  </code></pre>
+    </div>
+  </div>
+  <div class="row align-items-center">
+    <div class="col-xs-12 col-md-4">
+      <lct-button buttonType="success" title="Success" [counter]="2"></lct-button>
+      <br><br>
+      <lct-button buttonType="success" title="Success" [counter]="2" icon="./assets/img/icon-check.svg"></lct-button>
+    </div>
+    <div class="col-xs-12 col-md-8">
+        <pre><code class="language-html">
+    &lt;lct-button
+          buttonType="success"
+          title="Success"
+          [counter]="2"
+          icon="./assets/img/icon-check.svg"
+    &gt;&lt;/lct-button&gt;
+  </code></pre>
+    </div>
+  </div>
+  <div class="row align-items-center">
+    <div class="col-xs-12 col-md-4">
+      <lct-button buttonType="secondary" title="Secondary disabled" [counter]="2" disabled></lct-button>
+      <br><br>
+      <lct-button buttonType="secondary" title="Secondary disabled" [counter]="2" disabled icon="./assets/img/icon-check.svg"></lct-button>
+    </div>
+    <div class="col-xs-12 col-md-8">
+        <pre><code class="language-html">
+    &lt;lct-button
+          buttonType="secondary"
+          title="Secondary disabled"
+          disabled
+          [counter]="2"
+          icon="./assets/img/icon-check.svg"
+    &gt;&lt;/lct-button&gt;
+  </code></pre>
+    </div>
+  </div>
+
+
+
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <div class="row">
+        <div class="col">
+          <h2>counter</h2>
+          <p>counter number is reactive, can be change with variable code</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <table class="table table-bordered">
+            <thead>
+            <tr>
+              <th scope="col">Type</th>
+              <th scope="col">Detail</th>
+              <th scope="col">Example</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>number</td>
+              <td>only can set numbers >= 0</td>
+              <td><code>[counter]="2"</code></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -2,8 +2,8 @@ import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 
 import {AppComponent} from './app.component';
-import {FormsModule} from "@angular/forms";
-import {LctComponentsModule} from "../../projects/lct-components/src/lib/lct-components.module";
+import {ComponentsModule} from "./components/components.module";
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -11,8 +11,8 @@ import {LctComponentsModule} from "../../projects/lct-components/src/lib/lct-com
   ],
   imports: [
     BrowserModule,
-    LctComponentsModule,
-    FormsModule,
+    ComponentsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

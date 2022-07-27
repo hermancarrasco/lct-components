@@ -3,10 +3,10 @@ import {
   Component,
   ElementRef,
   EventEmitter,
-  Input,
+  Input, OnChanges,
   OnInit,
   Output,
-  Renderer2,
+  Renderer2, SimpleChanges,
   ViewChild
 } from '@angular/core';
 import {Subject} from "rxjs";
@@ -23,7 +23,7 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
     multi: true
   }]
 })
-export class InputTextComponent implements ControlValueAccessor, OnInit, AfterViewInit {
+export class InputTextComponent implements ControlValueAccessor, OnInit, AfterViewInit, OnChanges {
 
   @Input() disabled = false;
   @Input() icon = ''
@@ -33,10 +33,12 @@ export class InputTextComponent implements ControlValueAccessor, OnInit, AfterVi
   @Input() showIcon = false;
   @Input() title = 'Insert Title';
   @Input() type: 'email' | 'number' | 'text' = 'text';
+  @Input() error : boolean = false;
   @Output() enterEmitted = new EventEmitter<string>()
   @Output() iconClick = new EventEmitter();
   @Output() inputClick = new EventEmitter();
   @ViewChild('inputScan') inputScan: ElementRef | undefined;
+  @ViewChild('titleRef') titleRef: ElementRef | undefined;
   @ViewChild('iconDiv') iconDiv: ElementRef | undefined;
 
   inputValue = '';
@@ -51,6 +53,10 @@ export class InputTextComponent implements ControlValueAccessor, OnInit, AfterVi
     if (this.iconPosition === "left" && this.showIcon) {
       this.render.addClass(this.inputScan?.nativeElement, 'iconLeft')
       this.render.addClass(this.iconDiv?.nativeElement, 'iconLeft')
+    }
+    if (this.error) {
+      this.render.addClass(this.inputScan?.nativeElement, 'error');
+      this.render.addClass(this.titleRef?.nativeElement, 'error');
     }
     if (this.pdaAutoEnter) {
       this.lpnUpdate
@@ -69,6 +75,18 @@ export class InputTextComponent implements ControlValueAccessor, OnInit, AfterVi
   }
 
   ngOnInit(): void {
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['error'] && !changes['error'].firstChange) {
+      if (changes.error.currentValue) {
+        this.render.addClass(this.inputScan?.nativeElement, 'error');
+        this.render.addClass(this.titleRef?.nativeElement, 'error');
+      } else {
+        this.render.removeClass(this.inputScan?.nativeElement, 'error');
+        this.render.removeClass(this.titleRef?.nativeElement, 'error');
+      }
+    }
   }
 
   writeValue(value: any): void {

@@ -1,74 +1,11 @@
-<lct-input-text icon="assets/img/ico-camera-blue.svg" [showIcon]="true" (iconClick)="clickEnIcon()"
-  placeholder="Buscar por Nº de la etiqueta" (enterEmitted)="enter($event)" (inputClick)="inputClick()"
-  [pdaAutoEnter]="true"></lct-input-text><br>
 
-<lct-input-text icon="assets/img/keyboard.svg" [showIcon]="true" (iconClick)="clickEnIcon()"
-  placeholder="Buscar por Nº de la etiqueta" (enterEmitted)="enter($event)" iconPosition="left"></lct-input-text>
-<br>
-<lct-input-text [(ngModel)]="value1" (ngModelChange)="modelChange($event)" placeholder="Buscar por Nº de la etiqueta" (enterEmitted)="enter($event)"
-  title="Titulo del componente"></lct-input-text>
-<br>
-<br>
-<lct-select-multiple [disabled]="switchValue" [list]="list" title="Selecciona tienda" (shareCheckedList)="shareCheckedList($event)"
-  (shareIndividualCheckedList)="shareIndividualCheckedList($event)">
-</lct-select-multiple>
-<br>
-<lct-select [disabled]="switchValue" title="Select simple" [options]="['Devoluciones', 'Entregas fallidas']" (value)="changeSelect($event)"></lct-select>
-<br>
-<lct-switch [(ngModel)]="switchValue"></lct-switch>
-<br>
-<br>
-<lct-button [buttonType]="!switchValue ? 'primary' : 'secondary'"  [counter]="30" [title]="'Primary'" (click)="disableButton=!disableButton"></lct-button>
-<br><br>
-<lct-button [buttonType]="switchValue ? 'primary' : 'secondary'" [counter]="2" [title]="'Secondary'"></lct-button>
-<br><br>
-<lct-button buttonType="secondary"  icon="assets/img/icon-check.svg" [counter]="12" [title]="''"></lct-button>
-<br><br>
-<lct-button buttonType="tertiary"  icon="assets/img/ico-camera-blue.svg" [counter]="2" title="terciario"></lct-button>
-<br><br>
-<lct-button buttonType="quaternary" icon="assets/img/icon-check.svg" title="quaternary"></lct-button>
-<br><br>
-<lct-button buttonType="secondary" icon="assets/img/icon-check.svg" title="prueba icon txt"></lct-button>
-<br><br>
-<lct-button buttonType="error" [title]="'Error'" (click)="clickButton()"></lct-button>
-<br><br>
-<lct-button lctTooltip tooltipText="fasdfsdfs" buttonType="success" [title]="'Success'" (click)="clickButton()"></lct-button>
-<br>
-<br>
-<div style="text-align: start">
-
-  <button lctTooltip
-          tooltipText="Tooltip desde boton2"
-          color="secondary"
-          position="right"
-          secondaryMessage="mensaje secundario fas fdsafsadfasd fs"
-  >link tooltip</button>
-
+<div class="row">
+  <div class="col-xs-12 col-md-3 col-lg-2">
+    <div class="sticky-top">
+      <app-menu></app-menu>
+    </div>
+  </div>
+  <div class="col-xs-12 col-md-9 col-lg-10">
+    <app-content></app-content>
+  </div>
 </div>
-<div style="text-align: center">
-
-  <button
-    style="height: 50px"
-    lctTooltip
-    tooltipText="Tooltip desde boton2"
-    position="right"
-    color="tertiary"
-    secondaryMessage="mensaje secundario fas fdsafsadfasd fs"
-  >link tooltip</button>
-
-</div>
-<div style="text-align: end">
-
-  <button lctTooltip tooltipText="Tooltip desde boton3">link tooltip</button>
-
-</div>
-
-<br>
-
-<lct-loading #lctLoading></lct-loading>
-
-<br><br>
-<button (click)="openOverlay()">overlay</button>
-<br><br>
-<br><br>
-<!--<lct-select title="Ordenar por" [options]="['+ Días en tienda', '- Días en tienda']"></lct-select>-->

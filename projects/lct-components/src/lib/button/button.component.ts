@@ -22,7 +22,7 @@ export class ButtonComponent implements OnInit, AfterViewInit, OnChanges {
   @Input() icon = '';
   @Input() width = '';
   @Input() height = '';
-  @Input() counter = -1;
+  @Input() counter: number = -1;
   @ViewChild('button') button: ElementRef | undefined;
 
   disabledValue = false;

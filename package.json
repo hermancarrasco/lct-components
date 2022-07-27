@@ -1,6 +1,6 @@
 {
   "name": "design-components",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -19,6 +19,7 @@
     "@angular/platform-browser": "~12.1.0",
     "@angular/platform-browser-dynamic": "~12.1.0",
     "@angular/router": "~12.1.0",
+    "bootstrap": "^5.2.0",
     "ngx-device-detector": "^2.1.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.2.0",
