@@ -1,9 +1,163 @@
-<lct-input-text icon="assets/img/ico-camera-blue.svg" [showIcon]="true" (iconClick)="clickEnIcon()"
-                placeholder="Buscar por Nº de la etiqueta" (enterEmitted)="enter($event)" (inputClick)="inputClick()"
-                [pdaAutoEnter]="true"></lct-input-text><br>
 
-<lct-input-text icon="assets/img/keyboard.svg" [showIcon]="true" (iconClick)="clickEnIcon()"
-                placeholder="Buscar por Nº de la etiqueta" (enterEmitted)="enter($event)" iconPosition="left"></lct-input-text>
-<br>
-<lct-input-text [(ngModel)]="value1" (ngModelChange)="modelChange($event)" placeholder="Buscar por Nº de la etiqueta" (enterEmitted)="enter($event)"
-                title="Titulo del componente"></lct-input-text>
+<div class="container">
+  <h1>Input with icon</h1>
+  <p>Input with icon, with lct design</p>
+
+  <div class="row align-items-center">
+    <div class="col-xs-12 col-md-4">
+      <lct-input-text title="Input with icon right" icon="./assets/img/ico-camera-blue.svg" [showIcon]="true" (iconClick)="clickEnIcon()"
+                      placeholder="placeholder with icon" (enterEmitted)="enter($event)" (inputClick)="inputClick()"
+                      [pdaAutoEnter]="true"></lct-input-text>
+    </div>
+    <div class="col-xs-12 col-md-8">
+        <pre><code class="language-html">
+  &lt;lct-input-text
+      title="Input with icon right"
+      placeholder="placeholder with icon"
+      icon="./assets/img/ico-camera-blue.svg"
+      [showIcon]="true"
+      [pdaAutoEnter]="true"
+      (iconClick)="clickEnIcon()"
+      (enterEmitted)="enter($event)"
+      (inputClick)="inputClick()"
+  &gt;&lt;/lct-input-text&gt;
+        </code></pre>
+    </div>
+  </div>
+  <div class="row align-items-center">
+    <div class="col-xs-12 col-md-4">
+      <lct-input-text title="Input with icon left" icon="./assets/img/ico-camera-blue.svg" [showIcon]="true" (iconClick)="clickEnIcon()"
+                      placeholder="placeholder with icon" (enterEmitted)="enter($event)" iconPosition="left"></lct-input-text>
+    </div>
+    <div class="col-xs-12 col-md-8">
+        <pre><code class="language-html">
+  &lt;lct-input-text
+      title="Input with icon left"
+      placeholder="placeholder with icon"
+      icon="./assets/img/ico-camera-blue.svg"
+      iconPosition="left"
+      [showIcon]="true"
+      (iconClick)="clickEnIcon()"
+      (enterEmitted)="enter($event)"
+  &gt;&lt;/lct-input-text&gt;
+        </code></pre>
+    </div>
+  </div>
+  <div class="row align-items-center">
+    <div class="col-xs-12 col-md-4">
+      <lct-input-text title="Input with icon left" icon="./assets/img/ico-camera-blue.svg" [showIcon]="true" (iconClick)="clickEnIcon()"
+                      placeholder="placeholder with icon and error" [error]="true" (enterEmitted)="enter($event)" iconPosition="left"></lct-input-text>
+    </div>
+    <div class="col-xs-12 col-md-8">
+        <pre><code class="language-html">
+  &lt;lct-input-text
+      title="Input with icon left"
+      placeholder="placeholder with icon and error"
+      icon="./assets/img/ico-camera-blue.svg"
+      iconPosition="left"
+      [showIcon]="true"
+      [error]="true"
+      (iconClick)="clickEnIcon()"
+      (enterEmitted)="enter($event)"
+  &gt;&lt;/lct-input-text&gt;
+        </code></pre>
+    </div>
+  </div>
+
+
+  <div class="row justify-content-center">
+    <div class="col-7">
+      <div class="row">
+        <div class="col">
+          <h2>icon</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <table class="table table-bordered">
+            <thead>
+            <tr>
+              <th scope="col">Type</th>
+              <th scope="col">Detail</th>
+              <th scope="col">Example</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>string</td>
+              <td>image path</td>
+              <td><code>icon="./assets/img/ico-camera-blue.svg"</code></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-7">
+      <div class="row">
+        <div class="col">
+          <h2>iconPosition</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <table class="table table-bordered">
+            <thead>
+            <tr>
+              <th scope="col">Values</th>
+              <th scope="col">Detail</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>'left' | 'right'</td>
+              <td>default value <code>right</code></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+  <div class="row justify-content-center">
+    <div class="col-7">
+      <div class="row">
+        <div class="col">
+          <h2>Events</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <table class="table table-bordered">
+            <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Detail</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>(enterEmitted)</td>
+              <td>Emitted when press enter or tab key, return input value</td>
+            </tr>
+            <tr>
+              <td>(iconClick)</td>
+              <td>Emitted when press the icon if exists</td>
+            </tr>
+            <tr>
+              <td>(inputClick)</td>
+              <td>Emitted when press the input</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

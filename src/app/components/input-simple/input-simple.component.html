@@ -7,9 +7,47 @@
     <div class="col-xs-12 col-md-4">
       <lct-input-text placeholder="Find by LPN"></lct-input-text>
     </div>
-    <div class="col-xs-12 col-md-8">
+    <div class="col-xs-12 col-md-8" >
         <pre><code class="language-html">
   &lt;lct-input-text placeholder="Find by LPN"&gt;&lt;/lct-input-text&gt;
+        </code></pre>
+    </div>
+  </div>
+  <div class="row align-items-center">
+    <div class="col-xs-12 col-md-4">
+      <lct-input-text placeholder="Input without title" title=""></lct-input-text>
+    </div>
+    <div class="col-xs-12 col-md-8">
+        <pre><code class="language-html">
+  &lt;lct-input-text placeholder="Input without title" title=""&gt;&lt;/lct-input-text&gt;
+        </code></pre>
+    </div>
+  </div>
+  <div class="row align-items-center">
+    <div class="col-xs-12 col-md-4">
+      <lct-input-text title="Example Email" type="email" placeholder="Enter Email"></lct-input-text>
+    </div>
+    <div class="col-xs-12 col-md-8">
+        <pre><code class="language-html">
+  &lt;lct-input-text
+      title="Example Email"
+      type="email"
+      placeholder="Enter Email"
+  &gt;&lt;/lct-input-text&gt;
+        </code></pre>
+    </div>
+  </div>
+  <div class="row align-items-center">
+    <div class="col-xs-12 col-md-4">
+      <lct-input-text title="Example Number" type="number" placeholder="Enter Number"></lct-input-text>
+    </div>
+    <div class="col-xs-12 col-md-8">
+        <pre><code class="language-html">
+  &lt;lct-input-text
+      title="Example Number"
+      type="number"
+      placeholder="Enter Number"
+  &gt;&lt;/lct-input-text&gt;
         </code></pre>
     </div>
   </div>
@@ -36,7 +74,7 @@
         <pre><code class="language-html">
   &lt;lct-input-text
       title="Title set by attribute"
-      placeholder="Buscar por Nº de la etiqueta"
+      placeholder="Find by LPN"
       [disabled]="true"
   &gt;&lt;/lct-input-text&gt;
   </code></pre>
@@ -46,10 +84,11 @@
 
 
   <div class="row justify-content-center">
-    <div class="col-6">
+    <div class="col-7">
       <div class="row">
         <div class="col">
           <h2>title</h2>
+          <p>title is up to input</p>
         </div>
       </div>
       <div class="row">
@@ -59,12 +98,16 @@
             <tr>
               <th scope="col">Type</th>
               <th scope="col">Detail</th>
+              <th scope="col">Example</th>
+              <th scope="col">Example without title</th>
             </tr>
             </thead>
             <tbody>
             <tr>
               <td>string</td>
-              <td>text value to button</td>
+              <td>text value for title</td>
+              <td><code>title="this is the title"</code></td>
+              <td><code>title=""</code></td>
             </tr>
             </tbody>
           </table>
@@ -74,11 +117,41 @@
   </div>
 
   <div class="row justify-content-center">
-    <div class="col-6">
+    <div class="col-7">
       <div class="row">
         <div class="col">
-          <h2>buttonType</h2>
-          <p>Button type is defined to background color of the button, default value <code>primary</code></p>
+          <h2>placeholder</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <table class="table table-bordered">
+            <thead>
+            <tr>
+              <th scope="col">Type</th>
+              <th scope="col">Detail</th>
+              <th scope="col">Example</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>string</td>
+              <td>text value for placeholder</td>
+              <td><code>placeholder="this is the placeholder"</code></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-7">
+      <div class="row">
+        <div class="col">
+          <h2>type</h2>
+          <p>type is defined to input type, default value <code>text</code></p>
         </div>
       </div>
       <div class="row">
@@ -92,28 +165,16 @@
             </thead>
             <tbody>
             <tr>
-              <td>primary</td>
-              <td>Background color <input type="color" value="#2A5AED" style="height: 18px; width: 18px" readonly> and text color <input type="color" value="#FFFFFF" style="height: 18px; width: 18px" readonly></td>
+              <td>text</td>
+              <td>set type to text, keyboard in mobile device is defined for each type configuration</td>
             </tr>
             <tr>
-              <td>secondary</td>
-              <td>Background color <input type="color" value="#FFFFFF" style="height: 18px; width: 18px" readonly> and text color <input type="color" value="#2649B6" style="height: 18px; width: 18px" readonly></td>
+              <td>email</td>
+              <td>set type to email, keyboard in mobile device is defined for each type configuration</td>
             </tr>
             <tr>
-              <td>tertiary</td>
-              <td>Background color <input type="color" value="#6A80B1" style="height: 18px; width: 18px" readonly> and text color <input type="color" value="#FFFFFF" style="height: 18px; width: 18px" readonly></td>
-            </tr>
-            <tr>
-              <td>quaternary</td>
-              <td>Background color <input type="color" value="#223359" style="height: 18px; width: 18px" readonly> and text color <input type="color" value="#FFFFFF" style="height: 18px; width: 18px" readonly></td>
-            </tr>
-            <tr>
-              <td>error</td>
-              <td>Background color <input type="color" value="#C60E4C" style="height: 18px; width: 18px" readonly> and text color <input type="color" value="#FFFFFF" style="height: 18px; width: 18px" readonly></td>
-            </tr>
-            <tr>
-              <td>success</td>
-              <td>Background color <input type="color" value="#8CBA37" style="height: 18px; width: 18px" readonly> and text color <input type="color" value="#FFFFFF" style="height: 18px; width: 18px" readonly></td>
+              <td>number</td>
+              <td>set type to number, keyboard in mobile device is defined for each type configuration</td>
             </tr>
             </tbody>
           </table>
@@ -123,7 +184,7 @@
   </div>
 
   <div class="row justify-content-center">
-    <div class="col-6">
+    <div class="col-7">
       <div class="row">
         <div class="col">
           <h2>disabled</h2>
@@ -151,11 +212,11 @@
   </div>
 
   <div class="row justify-content-center">
-    <div class="col-6">
+    <div class="col-7">
       <div class="row">
         <div class="col">
-          <h2>height and width</h2>
-          <p>Height and width is used to set static values, by default set width 100% and height 40px</p>
+          <h2>pdaAutoEnter</h2>
+          <p>If the value is <code>true</code>, when detect a key press, it emit enter after 200ms</p>
         </div>
       </div>
       <div class="row">
@@ -163,24 +224,51 @@
           <table class="table table-bordered">
             <thead>
             <tr>
-              <th scope="col">value</th>
               <th scope="col">Type</th>
               <th scope="col">Detail</th>
-              <th scope="col">Example</th>
             </tr>
             </thead>
             <tbody>
             <tr>
-              <td>height</td>
-              <td>string</td>
-              <td>set style height, can be set px, %, em, etc</td>
-              <td><code>height="40px"</code></td>
+              <td>boolean</td>
+              <td>default value <code>false</code></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+  <div class="row justify-content-center">
+    <div class="col-7">
+      <div class="row">
+        <div class="col">
+          <h2>Events</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <table class="table table-bordered">
+            <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Detail</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>(enterEmitted)</td>
+              <td>Emitted when press enter or tab key, return input value</td>
             </tr>
             <tr>
-              <td>width</td>
-              <td>string</td>
-              <td>set style width, can be set px, %, em, etc</td>
-              <td><code>width="200px"</code></td>
+              <td>(iconClick)</td>
+              <td>Emitted when press the icon if exists</td>
+            </tr>
+            <tr>
+              <td>(inputClick)</td>
+              <td>Emitted when press the input</td>
             </tr>
             </tbody>
           </table>

@@ -134,4 +134,12 @@ export class InputTextComponent implements ControlValueAccessor, OnInit, AfterVi
     }
   }
 
+  onPaste(ev: ClipboardEvent) {
+    ev.preventDefault();
+    const clipboard = ev.clipboardData?.getData('Text');
+    if (clipboard) {
+      this.writeValue(clipboard);
+    }
+  }
+
 }

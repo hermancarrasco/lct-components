@@ -14,6 +14,7 @@
            (keyup)="onKeyUpHandler($event)"
            (click)="clickInput()"
            (ngModelChange)="lpnUpdate.next(inputScan.value);"
+           (paste)="onPaste($event)"
     >
     <div class="icon" #iconDiv *ngIf="showIcon">
       <img [src]="icon" [ngStyle]="{'cursor': disabled ? 'not-allowed' : 'pointer'}" alt="" (click)="click()">
