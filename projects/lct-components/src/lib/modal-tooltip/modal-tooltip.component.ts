@@ -9,13 +9,7 @@ import { BehaviorSubject } from "rxjs";
 })
 export class ModalTooltipComponent {
 
-  @Input() title: string = '';
-  @Input() nodeNameToken: string = '';
-  @Output() closeModal = new EventEmitter<any>();
-  tooltip = false;
-
-  /* directive version */
-
+  /* directive variable */
   nameStore: string = '-';
   version :string = '-';
   dateVersion :string = '-';
@@ -23,11 +17,7 @@ export class ModalTooltipComponent {
 
   constructor() { }
 
-  VerTienda() {
-    this.tooltip = true;
-  }
   cerrarModal() {
-    this.tooltip = false;
     this.conditional2.next(true);
   }
 
