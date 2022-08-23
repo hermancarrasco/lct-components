@@ -91,7 +91,17 @@ npm i lct-components --save
   tooltipText="Tooltip from button 2"
   position="top"
   color="primary"
-  ></lct-button>  
+  ></lct-button> 
+
+  <lct-button 
+  buttonType="secondary"
+   title="Tienda"
+   tooltipText="FALABELLA LYON " 
+   version="3.4.5" 
+   dateVersion="10/08/2022" 
+   icon="./assets/img/Tienda.svg" 
+   lctModalTooltip>
+   </lct-button> 
 ```  
 
 ### Overlay loading
@@ -115,7 +125,7 @@ yourComponent.ts
 | show(): void | show overlay | this.lctLoading.show() |
 | dismiss(): void | hide overlay | this.lctLoading.dismiss()|
 
->Version 0.3.3
+>Version 0.4.0
 >
 >[(ngModel)] Can only be used at the moment for:
 > > lct-input-text  

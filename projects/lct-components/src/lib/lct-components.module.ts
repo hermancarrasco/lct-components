@@ -10,6 +10,8 @@ import { LoadingComponent } from './loading/loading.component';
 import {SwitchComponent} from "./switch/switch.component";
 import { TooltipDirective } from './tooltip.directive';
 import { TooltipComponent } from './tooltip/tooltip.component';
+import { ModalTooltipDirective } from './modal-tooltip.directive';
+import { ModalTooltipComponent } from './modal-tooltip/modal-tooltip.component';
 
 
 
@@ -23,7 +25,9 @@ import { TooltipComponent } from './tooltip/tooltip.component';
     LoadingComponent,
     SwitchComponent,
     TooltipDirective,
-    TooltipComponent
+    TooltipComponent,
+    ModalTooltipDirective,
+    ModalTooltipComponent
   ],
   imports: [
     CommonModule,
@@ -37,7 +41,8 @@ import { TooltipComponent } from './tooltip/tooltip.component';
     SelectMultipleComponent,
     LoadingComponent,
     SwitchComponent,
-    TooltipDirective
+    TooltipDirective,
+    ModalTooltipDirective
   ],
   entryComponents:[TooltipComponent]
 })

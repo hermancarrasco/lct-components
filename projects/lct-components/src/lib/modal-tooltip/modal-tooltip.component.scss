@@ -1,0 +1,105 @@
+.btn-ayuda {
+    cursor: pointer;
+    box-sizing: border-box;
+    border: 1px solid #2649b6;
+    border-radius: 5px;
+    background-color: #ffffff;
+    height: 40px;
+    width: 108px;
+    margin-right: 11px;
+
+    @media screen and (min-width: 320px) and (max-width: 561px) {
+        width: 35px;
+    }
+}
+
+.ico-help {
+    cursor: pointer;
+    float: left;
+    margin-left: 4px;
+    margin-top: 1px;
+    width: 19px;
+    @media screen and (min-width: 300px) and (max-width: 561px) {
+        margin-left: 0px;
+    }
+}
+
+.help {
+    margin-top: 2px;
+    display: flex;
+    justify-content: space-around;
+
+    @media screen and (min-width: 300px) and (max-width: 561px) {
+        display: none;
+    }
+}
+
+/* css tooltip */
+
+.tooltipTienda {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltipTienda .tooltiptext {
+    position: absolute;
+    width: 368px;
+    height: 137px;
+    left: -376px;
+    top: 17px;
+    background: #ffffff;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    z-index: 99;
+    .text {
+        position: absolute;
+        width: 53px;
+        height: 24px;
+        left: 17.75px;
+        top: 9.2px;
+        font-family: "Barlow";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 24px;
+    }
+    .icon-tooltip {
+        position: absolute !important;
+        left: 8.33% !important;
+        right: 8.33%;
+        top: 30.33% !important;
+        bottom: 8.33%;
+    }
+    .font-tienda {
+        margin-top: 14px;
+        margin-left: 70px;
+        font-family: "Barlow";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 24px;
+        color: #3c4149;
+        text-align: left !important;
+    }
+    .compilation-text {
+        font-size: 13px;
+        margin-left: 70px;
+        margin-top: 110px;
+        font-family: "Barlow";
+        text-align: left !important;
+        position: absolute;
+    }
+    .estoy {
+        margin-left: 27px;
+        margin-top: 9px;
+        text-align: left !important;
+        font-family: "Barlow";
+        font-family: "Barlow";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 24px;
+        color: #000000;
+    }
+}
