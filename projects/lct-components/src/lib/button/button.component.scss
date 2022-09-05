@@ -19,9 +19,6 @@ button{
     color: #FFFFFF;
     font-weight: unset;
   }
-  img {
-    margin-right: 8px;
-  }
   &:not([disabled]):active{
     img{
       -webkit-filter: hue-rotate(40deg) saturate(0.5) brightness(390%) saturate(4);
