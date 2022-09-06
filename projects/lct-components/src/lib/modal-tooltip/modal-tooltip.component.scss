@@ -1,39 +1,3 @@
-.btn-ayuda {
-    cursor: pointer;
-    box-sizing: border-box;
-    border: 1px solid #2649b6;
-    border-radius: 5px;
-    background-color: #ffffff;
-    height: 40px;
-    width: 108px;
-    margin-right: 11px;
-
-    @media screen and (min-width: 320px) and (max-width: 561px) {
-        width: 35px;
-    }
-}
-
-.ico-help {
-    cursor: pointer;
-    float: left;
-    margin-left: 4px;
-    margin-top: 1px;
-    width: 19px;
-    @media screen and (min-width: 300px) and (max-width: 561px) {
-        margin-left: 0px;
-    }
-}
-
-.help {
-    margin-top: 2px;
-    display: flex;
-    justify-content: space-around;
-
-    @media screen and (min-width: 300px) and (max-width: 561px) {
-        display: none;
-    }
-}
-
 /* css tooltip */
 
 .tooltipTienda {
@@ -49,16 +13,20 @@
     left: -376px;
     top: 17px;
     background: #ffffff;
-    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     border-radius: 8px;
     z-index: 99;
+    @media screen and (min-width: 320px) and (max-width: 561px) {
+      width: 310px;
+      left: -304px;
+    }
     .text {
         position: absolute;
         width: 53px;
         height: 24px;
         left: 17.75px;
         top: 9.2px;
-        font-family: "Barlow";
+        font-family: 'Barlow', serif;
         font-style: normal;
         font-weight: 400;
         font-size: 13px;
@@ -74,7 +42,7 @@
     .font-tienda {
         margin-top: 14px;
         margin-left: 70px;
-        font-family: "Barlow";
+        font-family: 'Barlow', serif;
         font-style: normal;
         font-weight: 700;
         font-size: 14px;
@@ -84,18 +52,17 @@
     }
     .compilation-text {
         font-size: 13px;
-        margin-left: 70px;
+        margin-left: 12px;
         margin-top: 110px;
-        font-family: "Barlow";
-        text-align: left !important;
+        font-family: 'Barlow', serif;
+        text-align: center !important;
         position: absolute;
     }
     .estoy {
         margin-left: 27px;
         margin-top: 9px;
         text-align: left !important;
-        font-family: "Barlow";
-        font-family: "Barlow";
+        font-family: 'Barlow', serif;
         font-style: normal;
         font-weight: 400;
         font-size: 13px;

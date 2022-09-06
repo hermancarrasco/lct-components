@@ -18,9 +18,9 @@
   box-sizing: border-box;
   position: relative;
   height: 40px;
-  @media (max-width: 375px) {
+  /*@media (max-width: 375px) { // descomentar si se necesita el input mas grande para pda
     height: 50px;
-  }
+  }*/
 }
 
 .input-with-icon .form-control-lct {

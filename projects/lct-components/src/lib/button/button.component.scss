@@ -63,6 +63,9 @@ button{
       border: 1px solid #2A5AED;
       color: #2A5AED;
     }
+    &:active{
+      color: #FFFFFF !important;
+    }
   }
 }
 
