@@ -1,17 +1,19 @@
 .tooltipLCT {
   position: relative;
-  display: inline-flex;
-  border-bottom: 1px dotted black;
+  display: inline-block;
+  // border-bottom: 1px dotted black;
 
   &.top {
+    display: flex;
     flex-direction: column-reverse;
-    right: 5%;
     align-items: center;
-    bottom: 20px;
+    bottom: 25px;
   }
 
   &.right {
+    display: inline-flex;
     align-items: center;
+    vertical-align: middle;
   }
 
   .tooltipLCTText {
@@ -38,25 +40,25 @@
     &.top {
       &.primary::after {
         bottom: -10px;
-        left: 50%;
+        left: 48%;
         border-color: #2649B6 transparent transparent transparent;
       }
 
       &.secondary::after {
         bottom: -10px;
-        left: 50%;
+        left: 48%;
         border-color: #8CBA37 transparent transparent transparent;
       }
 
       &.tertiary::after {
         bottom: -10px;
-        left: 50%;
+        left: 48%;
         border-color: #C60E4C transparent transparent transparent;
       }
     }
 
     &.right {
-      left: 10px;
+      left: 5px;
 
       &.primary::after {
         top: 50%;
