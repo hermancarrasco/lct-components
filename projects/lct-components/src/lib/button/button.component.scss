@@ -9,9 +9,6 @@ button{
   line-height: 18px;
   font-family: 'Barlow', serif;
   cursor: pointer;
-  justify-content: center;
-  align-items: center;
-  display: inline-flex;
 
   &:disabled{
     cursor: not-allowed;
@@ -71,27 +68,30 @@ button{
 
 .counterOn {
   position: relative;
-  left: -15%;
+  float: left;
+  left: 12px;
 }
 
 .btnCounter {
   background-color: #FFFFFF;
   color: #2649B6;
   position: relative;
-  right: -15%;
+  right: 12px;
+  float: right;
   padding: 0.1rem 0.4rem;
   border: 1px solid #2649B6;
   border-radius: 2px;
 }
 
 .counterAndIconTxt{
-  display: inline-flex;
   position: relative;
+  vertical-align: middle;
 }
 .counterAndIconImg{
-  display: inline-flex;
+  vertical-align: middle;
   position: relative;
-  left: -15%;
+  float: left;
+  left: 12px;
 }
 
 .tertiary {

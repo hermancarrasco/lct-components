@@ -126,7 +126,7 @@ yourComponent.ts
 | show(): void | show overlay | this.lctLoading.show() |
 | dismiss(): void | hide overlay | this.lctLoading.dismiss()|
 
->Version 0.4.5
+>Version 0.4.6
 >
 >[(ngModel)] Can only be used at the moment for:
 > > lct-input-text  
