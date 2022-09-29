@@ -1,5 +1,5 @@
 <!--<div class="tooltip">-->
-<div class="tooltipLCT" [ngClass]="classes">
+<div #tooltipContainer class="tooltipLCT" [ngClass]="classes">
   <span class="tooltipLCTText" [ngClass]="classes">
     {{message}}
     <span *ngIf="secondaryMessage"><br>{{secondaryMessage}}</span>
