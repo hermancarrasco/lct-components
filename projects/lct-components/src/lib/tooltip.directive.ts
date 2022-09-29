@@ -25,6 +25,7 @@ export class TooltipDirective {
   @Input() secondaryMessage?: string = '';
   @Input() position: 'top' | 'right' = 'top';
   @Input() color: 'primary' | 'secondary' | 'tertiary' = 'primary';
+  @Input() marginBottom?: string = '';
 
   @HostListener("mouseover") onMouseEnter(): void {
     const componentFactory = this.resolver.resolveComponentFactory(TooltipComponent);
@@ -35,7 +36,11 @@ export class TooltipDirective {
     if (this.secondaryMessage) {
       componentRef.instance.secondaryMessage = this.secondaryMessage;
     }
-    componentRef.instance.classes = `${this.position} ${this.color}`;
+    if(this.marginBottom){
+      componentRef.instance.marginBottom = this.marginBottom;
+    }
+    componentRef.instance.classes = `${this.position} ${this.color} `;
+    
   }
 
   @HostListener("mouseleave") onMouseLeave(): void {

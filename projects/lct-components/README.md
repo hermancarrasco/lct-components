@@ -90,6 +90,7 @@ npm i lct-components --save
   lctTooltip
   tooltipText="Tooltip from button 2"
   position="top"
+  marginBottom="55px"
   color="primary"
   ></lct-button> 
 
@@ -125,7 +126,7 @@ yourComponent.ts
 | show(): void | show overlay | this.lctLoading.show() |
 | dismiss(): void | hide overlay | this.lctLoading.dismiss()|
 
->Version 0.4.4
+>Version 0.4.5
 >
 >[(ngModel)] Can only be used at the moment for:
 > > lct-input-text  
