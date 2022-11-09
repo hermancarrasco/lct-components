@@ -9,7 +9,7 @@
 .tooltipTienda .tooltiptext {
     position: absolute;
     width: 368px;
-    height: 137px;
+    height: 157px;
     left: -376px;
     top: 17px;
     background: #ffffff;
@@ -17,8 +17,8 @@
     border-radius: 8px;
     z-index: 99;
     @media screen and (min-width: 320px) and (max-width: 561px) {
-      width: 310px;
-      left: -304px;
+        width: 310px;
+        left: -304px;
     }
     .text {
         position: absolute;
@@ -26,7 +26,7 @@
         height: 24px;
         left: 17.75px;
         top: 9.2px;
-        font-family: 'Barlow', serif;
+        font-family: "Barlow", serif;
         font-style: normal;
         font-weight: 400;
         font-size: 13px;
@@ -42,7 +42,7 @@
     .font-tienda {
         margin-top: 14px;
         margin-left: 70px;
-        font-family: 'Barlow', serif;
+        font-family: "Barlow", serif;
         font-style: normal;
         font-weight: 700;
         font-size: 14px;
@@ -50,11 +50,22 @@
         color: #3c4149;
         text-align: left !important;
     }
+    .font-change-store {
+        font-family: "Barlow";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 24px;
+        text-decoration-line: underline;
+        color: #2649b6;
+        margin-top: 17px !important;
+        text-align: center;
+    }
     .compilation-text {
         font-size: 13px;
         margin-left: 12px;
-        margin-top: 110px;
-        font-family: 'Barlow', serif;
+        margin-top: 130px;
+        font-family: "Barlow", serif;
         text-align: center !important;
         position: absolute;
     }
@@ -62,7 +73,7 @@
         margin-left: 27px;
         margin-top: 9px;
         text-align: left !important;
-        font-family: 'Barlow', serif;
+        font-family: "Barlow", serif;
         font-style: normal;
         font-weight: 400;
         font-size: 13px;

@@ -15,8 +15,6 @@ import { SelectMultipleComponent } from './select-multiple/select-multiple.compo
 import { SwitchComponent } from './switch/switch.component';
 import { TooltipComponent } from './tooltip/tooltip.component';
 
-
-
 @NgModule({
   declarations: [
     MenuComponent,

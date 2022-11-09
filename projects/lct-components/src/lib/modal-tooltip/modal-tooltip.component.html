@@ -23,6 +23,9 @@
                     </span>
                 </div>
             </div>
+            <div *ngIf="showChangeStore" class="col col-12 font-change-store" (click)="openChangeStore()">
+                Cambiar tienda
+            </div>
             <div class="compilation-text">
                 Version {{version}} / Compilación: {{dateVersion}}
             </div>
