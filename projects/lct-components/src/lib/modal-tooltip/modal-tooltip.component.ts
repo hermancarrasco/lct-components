@@ -11,14 +11,20 @@ export class ModalTooltipComponent {
 
   /* directive variable */
   nameStore: string = '-';
-  version :string = '-';
-  dateVersion :string = '-';
+  version: string = '-';
+  dateVersion: string = '-';
   conditional2: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  openModalStore: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  showChangeStore= false;
 
   constructor() { }
 
   cerrarModal() {
     this.conditional2.next(true);
+  }
+
+  openChangeStore() {
+    this.openModalStore.next(true);
   }
 
 }

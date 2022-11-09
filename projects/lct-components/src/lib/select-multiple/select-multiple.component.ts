@@ -67,7 +67,6 @@ export class SelectMultipleComponent implements OnInit, OnChanges {
     if (value) {
       this.currentSelected = {checked : status,name:name, value: value};
     } else {
-      console.log('no tiene value')
       this.currentSelected = {checked : status,name:name};
     }
 
@@ -85,7 +84,6 @@ export class SelectMultipleComponent implements OnInit, OnChanges {
   }
 
   uncheck(name: string, value?: string | number) {
-    console.log('desmarcar ', name);
     this.getSelectedValue(false, name, value);
   }
 
