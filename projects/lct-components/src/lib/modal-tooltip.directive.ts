@@ -8,17 +8,22 @@ import {
 import { ModalTooltipComponent } from "./modal-tooltip/modal-tooltip.component";
 import { ModalChangeStoreComponent } from './modal/modal-change-store/modal-change-store';
 
+interface Node {
+  nodeName: string;
+  nodeId: string;
+}
 @Directive({
   selector: '[lctModalTooltip]'
 })
 export class ModalTooltipDirective implements OnInit {
+
 
   constructor(
     private viewContainerRef: ViewContainerRef,
     private resolver: ComponentFactoryResolver,
   ) { }
 
-  @Input() tooltipText: string = '';
+  tooltipText: string = '';
   @Input() version?: string = '';
   @Input() dateVersion: string = '';
 
@@ -26,12 +31,15 @@ export class ModalTooltipDirective implements OnInit {
   @Input() heightModalConfig: string = '100px';
   @Input() iconModal: string = '';
   @Input() titleModal: string = '';
-  @Input() nodes: { nodeName: string, nodeId: string }[] = [];
+  @Input() nodes: Node[] = [];
 
   ngOnInit(): void {
-    const storeSelected = sessionStorage.getItem('storeSelected');
+    const storeSelected  = sessionStorage.getItem('storeSelected');
+    this.assingStore();
     if (this.nodes.length > 1 && !storeSelected) {
       this.openModal();
+    }else if(this.nodes.length === 1){
+      this.tooltipText = this.nodes[0].nodeName;
     }
   }
 
@@ -87,11 +95,20 @@ export class ModalTooltipDirective implements OnInit {
     componentRef2.instance.closeModalStore.subscribe(resp => {
       if (resp) {
         if (this.viewContainerRef) {
+          this.assingStore();
           this.viewContainerRef.clear();
         }
       }
     })
   }
+
+  assingStore(){
+    const storeSelected  = sessionStorage.getItem('storeSelected');
+    if(storeSelected){
+      this.tooltipText = JSON.parse(storeSelected)?.nodeName || '';
+    }
+  }
+
 
 
 }
