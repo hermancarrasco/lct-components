@@ -24,7 +24,6 @@ export class ModalTooltipComponent {
   }
 
   openChangeStore() {
-    console.log('ejecuta metodo');
     this.openModalStore.next(true);
   }
 
