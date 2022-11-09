@@ -1,23 +1,19 @@
 import {
-  ComponentFactoryResolver, ComponentRef,
-  Directive,
-  ElementRef,
-  HostListener,
+  ComponentFactoryResolver,
+  Directive, HostListener,
   Input,
-  Renderer2,
-  TemplateRef, ViewChild,
-  ViewContainerRef
+  ViewContainerRef,
+  OnInit
 } from '@angular/core';
 import { ModalTooltipComponent } from "./modal-tooltip/modal-tooltip.component";
-import { ModalChangeStoreComponent } from './modal/modal-chage-store/modal-change-store';
+import { ModalChangeStoreComponent } from './modal/modal-change-store/modal-change-store';
 
 @Directive({
   selector: '[lctModalTooltip]'
 })
-export class ModalTooltipDirective {
+export class ModalTooltipDirective implements OnInit {
 
   constructor(
-    private renderer: Renderer2,
     private viewContainerRef: ViewContainerRef,
     private resolver: ComponentFactoryResolver,
   ) { }
@@ -28,12 +24,16 @@ export class ModalTooltipDirective {
 
   @Input() widthModalConfig: string = '100px';
   @Input() heightModalConfig: string = '100px';
-  @Input() icon: any;
+  @Input() iconModal: string = '';
   @Input() titleModal: string = '';
-  @Input() tiendas: any;
-  @Input() showChangeStore: any;
+  @Input() nodes: { nodeName: string, nodeId: string }[] = [];
 
-  /*   @Input() color: 'primary' | 'secondary' | 'tertiary' = 'primary'; */
+  ngOnInit(): void {
+    const storeSelected = sessionStorage.getItem('storeSelected');
+    if (this.nodes.length > 1 && !storeSelected) {
+      this.openModal();
+    }
+  }
 
   @HostListener("click") onMouseEnter(): void {
     const componentFactory = this.resolver.resolveComponentFactory(ModalTooltipComponent);
@@ -47,8 +47,8 @@ export class ModalTooltipDirective {
     if (this.dateVersion) {
       componentRef.instance.dateVersion = this.dateVersion;
     }
-    if (this.showChangeStore) {
-      componentRef.instance.showChangeStore = this.showChangeStore;
+    if (this.nodes.length > 1) {
+      componentRef.instance.showChangeStore = true;
     }
     componentRef.instance.conditional2.subscribe(resp => {
       if (resp) {
@@ -61,32 +61,36 @@ export class ModalTooltipDirective {
     componentRef.instance.openModalStore.subscribe(reso => {
 
       if (reso) {
-        const componentFactory = this.resolver.resolveComponentFactory(ModalChangeStoreComponent);
-        const componentRef2 = this.viewContainerRef.createComponent(componentFactory);
-        if (this.titleModal) {
-          componentRef2.instance.titleModal = this.titleModal;
-        }
-        if (this.widthModalConfig) {
-          componentRef2.instance.widthModalConfig = this.widthModalConfig;
-        }
-        if (this.heightModalConfig) {
-          componentRef2.instance.heightModalConfig = this.heightModalConfig;
-        }
-        if (this.icon) {
-          componentRef2.instance.icon = this.icon;
-        }
-        if (this.tiendas) {
-          componentRef2.instance.tiendas = this.tiendas;
-        }
-        componentRef2.instance.closeModalStore.subscribe(resp => {
-          if (resp) {
-            if (this.viewContainerRef) {
-              this.viewContainerRef.clear();
-            }
-          }
-        })
+        this.openModal();
       }
     });
+  }
+
+  openModal() {
+    const componentFactory = this.resolver.resolveComponentFactory(ModalChangeStoreComponent);
+    const componentRef2 = this.viewContainerRef.createComponent(componentFactory);
+    if (this.titleModal) {
+      componentRef2.instance.titleModal = this.titleModal;
+    }
+    if (this.widthModalConfig) {
+      componentRef2.instance.widthModalConfig = this.widthModalConfig;
+    }
+    if (this.heightModalConfig) {
+      componentRef2.instance.heightModalConfig = this.heightModalConfig;
+    }
+    if (this.iconModal) {
+      componentRef2.instance.icon = this.iconModal;
+    }
+    if (this.nodes) {
+      componentRef2.instance.tiendas = this.nodes;
+    }
+    componentRef2.instance.closeModalStore.subscribe(resp => {
+      if (resp) {
+        if (this.viewContainerRef) {
+          this.viewContainerRef.clear();
+        }
+      }
+    })
   }
 
 

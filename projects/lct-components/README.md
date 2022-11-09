@@ -94,15 +94,20 @@ npm i lct-components --save
   color="primary"
   ></lct-button> 
 
-  <lct-button 
+<lct-button
+  [title]="'Estoy en'"
   buttonType="secondary"
-   title="Tienda"
-   tooltipText="FALABELLA LYON " 
-   version="3.4.5" 
-   dateVersion="10/08/2022" 
-   icon="./assets/img/Tienda.svg" 
-   lctModalTooltip>
-   </lct-button> 
+  icon="./assets/img/Tienda.svg"
+  lctModalTooltip
+  [dateVersion]="'10/08/2022'"
+  [tooltipText]="'Sodimac los dominicos'"
+   [version]="'1.0.0'"
+  [titleModal]="'Selección de tienda'"
+  [iconModal]="'./assets/img/circular-tienda.svg'"
+  [widthModalConfig]="'458px'"
+  [heightModalConfig]="'268px'"
+  [nodes]="tiendas"
+  ></lct-button>
 ```  
 
 ### Overlay loading
@@ -126,7 +131,7 @@ yourComponent.ts
 | show(): void | show overlay | this.lctLoading.show() |
 | dismiss(): void | hide overlay | this.lctLoading.dismiss()|
 
->Version 0.4.6
+>Version 0.5.0
 >
 >[(ngModel)] Can only be used at the moment for:
 > > lct-input-text  

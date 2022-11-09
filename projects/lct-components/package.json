@@ -12,7 +12,8 @@
     "select",
     "select multiple",
     "switch",
-    "tooltip"
+    "tooltip",
+    "change Store"
   ],
   "homepage": "https://github.com/hermancarrasco/lct-components",
   "license": "MIT",
@@ -21,6 +22,11 @@
     "email": "hermancarrasco@outlook.com",
     "url": "https://github.com/hermancarrasco"
   },
+  "contributors": [{
+    "email": "n.gallardo.alejandro@gmail.com",
+    "name": "Nahuel Gallardo",
+    "url": "https://github.com/ngallardo35"
+  }],
   "repository": {
     "type": "git",
     "url": "https://github.com/hermancarrasco/lct-components.git",

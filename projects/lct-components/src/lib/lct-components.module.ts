@@ -12,7 +12,7 @@ import { TooltipDirective } from './tooltip.directive';
 import { TooltipComponent } from './tooltip/tooltip.component';
 import { ModalTooltipDirective } from './modal-tooltip.directive';
 import { ModalTooltipComponent } from './modal-tooltip/modal-tooltip.component';
-import { ModalChangeStoreComponent } from './modal/modal-chage-store/modal-change-store';
+import { ModalChangeStoreComponent } from './modal/modal-change-store/modal-change-store';
 
 
 

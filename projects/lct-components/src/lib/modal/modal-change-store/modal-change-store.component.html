@@ -15,12 +15,11 @@
         </div>
         <div class="selector">
             <lct-select title="" placeholder="Seleccione tienda"
-                (value)="orderCard($event)" [options]="stores">
+                (value)="selectedValue($event)" [options]="storeName">
             </lct-select>
         </div>
         <div class="button-accept">
-            <lct-button *ngIf="!buttonDisable" buttonType="secondary" title="Seleccionar" [disabled]="true"></lct-button>
-            <lct-button *ngIf="buttonDisable" buttonType="primary" title="Seleccionar" (click)="selectStore()" ></lct-button>
+            <lct-button buttonType="primary" title="Seleccionar" (click)="selectStore()" [disabled]="buttonDisable"></lct-button>
         </div>
     </div>
 </div>

@@ -28,6 +28,9 @@
         &.movedown {
             margin: 0 auto;
             margin-top: 20%;
+            @media screen and (min-width: 100px) and (max-width: 490px) {
+                margin-top: 0% !important;
+            }
         }
         .title-modal {
             margin-top: 15px;
@@ -42,6 +45,7 @@
             width: 288px;
             margin: 0 auto;
             margin-top: 20px;
+
         }
         .button-accept{
             width: 288px;

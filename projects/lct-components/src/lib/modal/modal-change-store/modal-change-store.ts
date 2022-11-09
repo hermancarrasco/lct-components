@@ -6,27 +6,24 @@ import { BehaviorSubject, Observable } from "rxjs";
   styleUrls: ['./modal-change-store.scss']
 })
 export class ModalChangeStoreComponent implements OnInit {
-  modalOpen = false;
 
   @Input() widthModalConfig: string = '100px';
   @Input() heightModalConfig: string = '100px';
-  @Input() icon: any;
+  @Input() icon: string ='';
   @Input() titleModal: string = '';
-  @Input() tiendas: any;
+  @Input() tiendas:{ nodeName: string, nodeId: string }[] = [];
   @Output() sendSelectStore = new EventEmitter<string>();
   closeModalStore: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
-  storeSelect: any;
+  storeSelect:{ nodeName: string, nodeId: string } | undefined = undefined;
   buttonDisable = false;
-  tipoBoton: any;
-  stores:any =[];
+  storeName : string[] =[];
   constructor() { }
 
   ngOnInit(): void {
     this.tiendas.forEach((element: any) => {
-      this.stores.push(element.nodeName);
+      this.storeName.push(element.nodeName);
     });
-    this.tipoBoton = 'primary';
-    if (this.storeSelect != '') {
+    if (!this.storeSelect) {
       this.buttonDisable = true;
     }
   }
@@ -34,16 +31,17 @@ export class ModalChangeStoreComponent implements OnInit {
     this.closeModalStore.next(true);
   }
 
-  orderCard(evento: any) {
-    this.buttonDisable = true;
-    this.storeSelect = this.tiendas.filter((str:any) => str.nodeName === evento);
+  selectedValue(evento: string) {
+    this.buttonDisable = false;
+    this.storeSelect = this.tiendas.find((str:any) => str.nodeName === evento);
   }
 
   selectStore() {
-    sessionStorage.setItem('nodeName',this.storeSelect[0].nodeName);
-    sessionStorage.setItem('nodeId',this.storeSelect[0].nodeId);
-    this.sendSelectStore.emit(this.storeSelect);
-    this.closeModalStore.next(true);
+    if(!this.buttonDisable){
+      sessionStorage.setItem('storeSelected',JSON.stringify(this.storeSelect))
+      this.closeModalStore.next(true);
+    }
+
   }
 
 }
