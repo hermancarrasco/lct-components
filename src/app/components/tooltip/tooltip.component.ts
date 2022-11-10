@@ -10,7 +10,7 @@ import { ModalChangeStoreComponent } from 'projects/lct-components/src/lib/modal
 })
 export class TooltipComponent implements OnInit  {
 
-  tiendas = [{ nodeName: 'hola', nodeId: '1' },{ nodeName: 'hola como estas', nodeId: '2' }]
+  tiendas = [{ nodeName: 'hola', nodeId: '1' }]
   openModalSelectStore = true;
   showChangeStore = true;
 

@@ -43,6 +43,7 @@ export class ModalTooltipDirective implements OnInit {
       this.openModal();
     }else if(this.nodes.length === 1){
       this.tooltipText = this.nodes[0].nodeName;
+      sessionStorage.setItem('storeSelected',JSON.stringify(this.nodes[0]));
     }
   }
 
