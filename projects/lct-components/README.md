@@ -107,6 +107,7 @@ npm i lct-components --save
   [widthModalConfig]="'458px'"
   [heightModalConfig]="'268px'"
   [nodes]="tiendas"
+  (changeNode)="changeNode($event)"
   ></lct-button>
 ```  
 
@@ -131,7 +132,7 @@ yourComponent.ts
 | show(): void | show overlay | this.lctLoading.show() |
 | dismiss(): void | hide overlay | this.lctLoading.dismiss()|
 
->Version 0.5.2
+>Version 0.5.3
 >
 >[(ngModel)] Can only be used at the moment for:
 > > lct-input-text  
