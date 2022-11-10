@@ -127,8 +127,9 @@
                   [version]="'1.0.0'"
                   [titleModal]="'Selección de tienda'"
                   [iconModal]="'./assets/img/circular-tienda.svg'"
-                  [widthModalConfig]="'100%'"
-                  [heightModalConfig]="'100%'"
+                  [widthModalConfig]="'458px'"
+                  [heightModalConfig]="'268px'"
                   [nodes]="tiendas"
+                  (selectedChangeStore)="selectedChangeStore($event)"
                 ></lct-button>
 

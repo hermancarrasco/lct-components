@@ -3,7 +3,9 @@ import {
   Directive, HostListener,
   Input,
   ViewContainerRef,
-  OnInit
+  OnInit,
+  Output,
+  EventEmitter
 } from '@angular/core';
 import { ModalTooltipComponent } from "./modal-tooltip/modal-tooltip.component";
 import { ModalChangeStoreComponent } from './modal/modal-change-store/modal-change-store';
@@ -32,6 +34,7 @@ export class ModalTooltipDirective implements OnInit {
   @Input() iconModal: string = '';
   @Input() titleModal: string = '';
   @Input() nodes: Node[] = [];
+  @Output() selectedChangeStore = new EventEmitter<boolean>()
 
   ngOnInit(): void {
     const storeSelected  = sessionStorage.getItem('storeSelected');
@@ -96,6 +99,7 @@ export class ModalTooltipDirective implements OnInit {
       if (resp) {
         if (this.viewContainerRef) {
           this.assingStore();
+          this.selectedChangeStore.next(true);
           this.viewContainerRef.clear();
         }
       }

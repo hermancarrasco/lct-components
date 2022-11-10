@@ -19,4 +19,8 @@ export class TooltipComponent implements OnInit  {
   ngOnInit(): void {
   }
 
+  selectedChangeStore(evento:Boolean){
+    console.log('cambio de tienda',evento);
+  }
+
 }
