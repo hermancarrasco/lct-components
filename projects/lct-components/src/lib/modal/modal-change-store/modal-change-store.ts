@@ -9,7 +9,6 @@ export class ModalChangeStoreComponent implements OnInit {
 
   @Input() widthModalConfig: string = '100px';
   @Input() heightModalConfig: string = '100px';
-  @Input() icon: string ='';
   @Input() titleModal: string = '';
   @Input() tiendas:{ nodeName: string, nodeId: string }[] = [];
   @Output() sendSelectStore = new EventEmitter<string>();

@@ -31,7 +31,6 @@ export class ModalTooltipDirective implements OnInit {
 
   @Input() widthModalConfig: string = '100px';
   @Input() heightModalConfig: string = '100px';
-  @Input() iconModal: string = '';
   @Input() titleModal: string = '';
   @Input() nodes: Node[] = [];
   @Output() changeNode = new EventEmitter<boolean>()
@@ -89,9 +88,6 @@ export class ModalTooltipDirective implements OnInit {
     }
     if (this.heightModalConfig) {
       componentRef2.instance.heightModalConfig = this.heightModalConfig;
-    }
-    if (this.iconModal) {
-      componentRef2.instance.icon = this.iconModal;
     }
     if (this.nodes) {
       componentRef2.instance.tiendas = this.nodes;
