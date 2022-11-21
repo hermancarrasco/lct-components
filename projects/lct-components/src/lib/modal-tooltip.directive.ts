@@ -28,21 +28,18 @@ export class ModalTooltipDirective implements OnInit {
   tooltipText: string = '';
   @Input() version?: string = '';
   @Input() dateVersion: string = '';
-
-  @Input() widthModalConfig: string = '100px';
-  @Input() heightModalConfig: string = '100px';
-  @Input() titleModal: string = '';
   @Input() nodes: Node[] = [];
   @Output() changeNode = new EventEmitter<boolean>()
+  @Input() isMobile: boolean = false;
 
   ngOnInit(): void {
-    const storeSelected  = sessionStorage.getItem('storeSelected');
+    const storeSelected = sessionStorage.getItem('storeSelected');
     this.assingStore();
     if (this.nodes.length > 1 && !storeSelected) {
       this.openModal();
-    }else if(this.nodes.length === 1){
+    } else if (this.nodes.length === 1) {
       this.tooltipText = this.nodes[0].nodeName;
-      sessionStorage.setItem('storeSelected',JSON.stringify(this.nodes[0]));
+      sessionStorage.setItem('storeSelected', JSON.stringify(this.nodes[0]));
     }
   }
 
@@ -80,32 +77,29 @@ export class ModalTooltipDirective implements OnInit {
   openModal() {
     const componentFactory = this.resolver.resolveComponentFactory(ModalChangeStoreComponent);
     const componentRef2 = this.viewContainerRef.createComponent(componentFactory);
-    if (this.titleModal) {
-      componentRef2.instance.titleModal = this.titleModal;
-    }
-    if (this.widthModalConfig) {
-      componentRef2.instance.widthModalConfig = this.widthModalConfig;
-    }
-    if (this.heightModalConfig) {
-      componentRef2.instance.heightModalConfig = this.heightModalConfig;
-    }
+
+    componentRef2.instance.widthModalConfig = this.isMobile ? "100%" : '458px';
+    componentRef2.instance.heightModalConfig = this.isMobile ? "100%" : '268px';
+
     if (this.nodes) {
       componentRef2.instance.tiendas = this.nodes;
     }
     componentRef2.instance.closeModalStore.subscribe(resp => {
-      if (resp) {
+      if (typeof resp.change === 'boolean') {
         if (this.viewContainerRef) {
-          this.assingStore();
-          this.changeNode.next(true);
+          if (resp.change) {
+            this.assingStore();
+          }
+          this.changeNode.next(resp.change);
           this.viewContainerRef.clear();
         }
       }
     })
   }
 
-  assingStore(){
-    const storeSelected  = sessionStorage.getItem('storeSelected');
-    if(storeSelected){
+  assingStore() {
+    const storeSelected = sessionStorage.getItem('storeSelected');
+    if (storeSelected) {
       this.tooltipText = JSON.parse(storeSelected)?.nodeName || '';
     }
   }

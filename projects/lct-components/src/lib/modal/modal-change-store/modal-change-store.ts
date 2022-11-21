@@ -9,16 +9,19 @@ export class ModalChangeStoreComponent implements OnInit {
 
   @Input() widthModalConfig: string = '100px';
   @Input() heightModalConfig: string = '100px';
-  @Input() titleModal: string = '';
-  @Input() tiendas:{ nodeName: string, nodeId: string }[] = [];
+  @Input() tiendas: { nodeName: string, nodeId: string }[] = [];
   @Output() sendSelectStore = new EventEmitter<string>();
-  closeModalStore: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
-  storeSelect:{ nodeName: string, nodeId: string } | undefined = undefined;
+  closeModalStore: BehaviorSubject<{change :boolean | undefined}> = new BehaviorSubject<{change :boolean | undefined}>({change :undefined});
+  storeSelect: { nodeName: string, nodeId: string } | undefined = undefined;
   buttonDisable = false;
-  storeName : string[] =[];
+  storeName: string[] = [];
+  closeIcon = false;
   constructor() { }
 
   ngOnInit(): void {
+
+    this.checkStoreSelected();
+
     this.tiendas.forEach((element: any) => {
       this.storeName.push(element.nodeName);
     });
@@ -27,20 +30,38 @@ export class ModalChangeStoreComponent implements OnInit {
     }
   }
   cerrarModal() {
-    this.closeModalStore.next(true);
+    this.closeModalStore.next({change: false});
   }
 
   selectedValue(evento: string) {
     this.buttonDisable = false;
-    this.storeSelect = this.tiendas.find((str:any) => str.nodeName === evento);
+    this.storeSelect = this.tiendas.find((str: any) => str.nodeName === evento);
   }
 
   selectStore() {
-    if(!this.buttonDisable){
-      sessionStorage.setItem('storeSelected',JSON.stringify(this.storeSelect))
-      this.closeModalStore.next(true);
+    if (!this.buttonDisable) {
+      const storeSelected = sessionStorage.getItem('storeSelected');
+      console.log('store selec', storeSelected);
+      if (storeSelected) {
+        const storeSelectedJson: { nodeName: string, nodeId: string } | undefined = JSON.parse(storeSelected)
+        if (storeSelectedJson?.nodeId === this.storeSelect?.nodeId) {
+          this.closeModalStore.next({change :false});
+          return;
+        }else{
+          sessionStorage.setItem('storeSelected', JSON.stringify(this.storeSelect))
+          this.closeModalStore.next({change :true});
+        }
+      }else{
+        sessionStorage.setItem('storeSelected', JSON.stringify(this.storeSelect))
+        this.closeModalStore.next({change :true});
+      }
+     
     }
 
+  }
+
+  checkStoreSelected() {
+    this.closeIcon = !!sessionStorage.getItem('storeSelected');
   }
 
 }
