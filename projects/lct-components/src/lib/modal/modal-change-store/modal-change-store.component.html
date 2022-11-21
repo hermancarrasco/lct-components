@@ -1,16 +1,18 @@
 <div class="modalmask open" >
     <div class="modalbox movedown" [ngStyle]="{'width': widthModalConfig,'height': heightModalConfig}">
-        <div class="row" style="margin-top: 25px;">
+        <div class="row" [ngStyle]="{'margin-top': closeIcon? '0px': '25px'}" >
             <!-- X close -->
-<!--             <div class="col col-12 text-end">
-                <svg (click)="cerrarModal()" style="margin-top: 9px;
+
+            <div *ngIf="closeIcon" >
+                <svg (click)="cerrarModal()" style="margin-top: 9px; float: right;     margin-right: 20px;
              cursor: pointer" width="15" height="14" viewBox="0 0 15 14" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd"
                         d="M13.7704 0.937266C13.3804 0.547266 12.7504 0.547266 12.3604 0.937266L7.47043 5.81727L2.58043 0.927266C2.19043 0.537266 1.56043 0.537266 1.17043 0.927266C0.78043 1.31727 0.78043 1.94727 1.17043 2.33727L6.06043 7.22727L1.17043 12.1173C0.78043 12.5073 0.78043 13.1373 1.17043 13.5273C1.56043 13.9173 2.19043 13.9173 2.58043 13.5273L7.47043 8.63727L12.3604 13.5273C12.7504 13.9173 13.3804 13.9173 13.7704 13.5273C14.1604 13.1373 14.1604 12.5073 13.7704 12.1173L8.88043 7.22727L13.7704 2.33727C14.1504 1.95727 14.1504 1.31727 13.7704 0.937266Z"
                         fill="#3C4149" />
                 </svg>
-            </div> -->
+            </div>
+
             <div class="col col-2">
 <!--              <img [src]="icon">-->
               <svg width="61" height="61" viewBox="0 0 61 61" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -19,7 +21,7 @@
               </svg>
 
             </div>
-            <div class="col col-10 title-modal">{{titleModal}}</div>
+            <div class="col col-10 title-modal">Selección de tienda</div>
         </div>
         <div class="selector">
             <lct-select title="" placeholder="Seleccione tienda"
