@@ -87,4 +87,11 @@ export class SelectMultipleComponent implements OnInit, OnChanges {
     this.getSelectedValue(false, name, value);
   }
 
+  cleanSelecteds() {
+    this.checkedList = [];
+    this.list = this.list?.map((item) =>{
+      return {name: item.name, value: item.value, checked: false};
+    })
+  }
+
 }
