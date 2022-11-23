@@ -31,15 +31,21 @@ export class ModalTooltipDirective implements OnInit {
   @Input() nodes: Node[] = [];
   @Output() changeNode = new EventEmitter<boolean>()
   @Input() isMobile: boolean = false;
+  @Input() userId: string = '';
 
   ngOnInit(): void {
     const storeSelected = sessionStorage.getItem('storeSelected');
+    const userID = sessionStorage.getItem('userId');
     this.assingStore();
-    if (this.nodes.length > 1 && !storeSelected) {
+    if (userID !== this.userId) {
       this.openModal();
-    } else if (this.nodes.length === 1) {
-      this.tooltipText = this.nodes[0].nodeName;
-      sessionStorage.setItem('storeSelected', JSON.stringify(this.nodes[0]));
+    } else {
+      if (this.nodes.length > 1 && !storeSelected) {
+        this.openModal();
+      } else if (this.nodes.length === 1) {
+        this.tooltipText = this.nodes[0].nodeName;
+        sessionStorage.setItem('storeSelected', JSON.stringify(this.nodes[0]));
+      }
     }
   }
 
@@ -83,6 +89,9 @@ export class ModalTooltipDirective implements OnInit {
 
     if (this.nodes) {
       componentRef2.instance.tiendas = this.nodes;
+    }
+    if(this.userId){
+      componentRef2.instance.userId = this.userId;
     }
     componentRef2.instance.closeModalStore.subscribe(resp => {
       if (typeof resp.change === 'boolean') {

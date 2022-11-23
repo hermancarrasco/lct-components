@@ -16,6 +16,7 @@ export class ModalChangeStoreComponent implements OnInit {
   buttonDisable = false;
   storeName: string[] = [];
   closeIcon = false;
+  @Input() userId: string ='';
   constructor() { }
 
   ngOnInit(): void {
@@ -49,9 +50,11 @@ export class ModalChangeStoreComponent implements OnInit {
           return;
         }else{
           sessionStorage.setItem('storeSelected', JSON.stringify(this.storeSelect))
+          sessionStorage.setItem('userId',this.userId);
           this.closeModalStore.next({change :true});
         }
       }else{
+        sessionStorage.setItem('userId',this.userId);
         sessionStorage.setItem('storeSelected', JSON.stringify(this.storeSelect))
         this.closeModalStore.next({change :true});
       }

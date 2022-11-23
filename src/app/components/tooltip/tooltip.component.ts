@@ -13,6 +13,7 @@ export class TooltipComponent implements OnInit  {
   tiendas = [{ nodeName: 'hola', nodeId: '1' },{ nodeName: 'hola como estas', nodeId: '2' }]
   openModalSelectStore = true;
   showChangeStore = true;
+  userId='123123123';
 
   constructor() { }
 
