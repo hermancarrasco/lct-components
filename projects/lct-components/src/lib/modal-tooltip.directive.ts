@@ -34,19 +34,14 @@ export class ModalTooltipDirective implements OnInit {
   @Input() userId: string = '';
 
   ngOnInit(): void {
-    const storeSelected = sessionStorage.getItem('storeSelected');
+  
     const userID = sessionStorage.getItem('userId');
     this.assingStore();
     if (userID !== this.userId) {
-      this.openModal();
-    } else {
-      if (this.nodes.length > 1 && !storeSelected) {
-        this.openModal();
-      } else if (this.nodes.length === 1) {
-        this.tooltipText = this.nodes[0].nodeName;
-        sessionStorage.setItem('storeSelected', JSON.stringify(this.nodes[0]));
-      }
+      sessionStorage.clear();
     }
+    const storeSelected = sessionStorage.getItem('storeSelected');
+    this.selectedStore(storeSelected);
   }
 
   @HostListener("click") onMouseEnter(): void {
@@ -90,7 +85,7 @@ export class ModalTooltipDirective implements OnInit {
     if (this.nodes) {
       componentRef2.instance.tiendas = this.nodes;
     }
-    if(this.userId){
+    if (this.userId) {
       componentRef2.instance.userId = this.userId;
     }
     componentRef2.instance.closeModalStore.subscribe(resp => {
@@ -110,6 +105,17 @@ export class ModalTooltipDirective implements OnInit {
     const storeSelected = sessionStorage.getItem('storeSelected');
     if (storeSelected) {
       this.tooltipText = JSON.parse(storeSelected)?.nodeName || '';
+    }
+  }
+
+  private selectedStore(storeSelected: string | null) {
+    if (this.nodes.length > 1 && !storeSelected) {
+      this.openModal();
+    } else if (this.nodes.length === 1) {
+      this.tooltipText = this.nodes[0].nodeName;
+      sessionStorage.setItem('storeSelected', JSON.stringify(this.nodes[0]));
+    }else{
+      console.error('You don`t have store');
     }
   }
 
