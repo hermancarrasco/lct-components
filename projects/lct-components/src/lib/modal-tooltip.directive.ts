@@ -38,7 +38,8 @@ export class ModalTooltipDirective implements OnInit {
     const userID = sessionStorage.getItem('userId');
     this.assingStore();
     if (userID !== this.userId) {
-      sessionStorage.clear();
+      sessionStorage.removeItem('userId');
+      sessionStorage.removeItem('storeSelected');
     }
     const storeSelected = sessionStorage.getItem('storeSelected');
     this.selectedStore(storeSelected);
