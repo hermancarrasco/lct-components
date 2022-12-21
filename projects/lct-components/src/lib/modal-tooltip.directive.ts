@@ -41,13 +41,7 @@ export class ModalTooltipDirective implements OnInit {
   @Input() userId: string = '';
   componentRef2: ComponentRef<ModalChangeStoreComponent> | undefined = undefined;
 
-  @HostListener('input', ['$event'])
-  selectCountry(event:Event) {
-   console.error('Country', event);
-  }
-
   ngOnInit(): void {
-    console.error('NODES', this.nodes);
     const userID = sessionStorage.getItem('userId');
     this.formatStore();
     this.assingStore();
