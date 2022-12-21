@@ -45,7 +45,7 @@ import { ModalChangeStoreComponent } from './modal/modal-change-store/modal-chan
     SwitchComponent,
     TooltipDirective,
     ModalTooltipDirective,
-    ModalChangeStoreComponent
+    ModalChangeStoreComponent,
   ],
   entryComponents:[TooltipComponent]
 })

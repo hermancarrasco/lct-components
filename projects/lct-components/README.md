@@ -100,14 +100,12 @@ npm i lct-components --save
   icon="./assets/img/Tienda.svg"
   lctModalTooltip
   [dateVersion]="'10/08/2022'"
-  [tooltipText]="'Sodimac los dominicos'"
-   [version]="'1.0.0'"
-  [titleModal]="'Selección de tienda'"
-  [iconModal]="'./assets/img/circular-tienda.svg'"
+  [version]="'1.0.0'"
   [widthModalConfig]="'458px'"
   [heightModalConfig]="'268px'"
   [nodes]="tiendas"
   (changeNode)="changeNode($event)"
+  [country]="'CL'"
   ></lct-button>
 ```  
 
@@ -132,7 +130,7 @@ yourComponent.ts
 | show(): void | show overlay | this.lctLoading.show() |
 | dismiss(): void | hide overlay | this.lctLoading.dismiss()|
 
->Version 0.5.11
+>Version 0.6.0
 >
 >[(ngModel)] Can only be used at the moment for:
 > > lct-input-text  

@@ -5,7 +5,10 @@ import {
   ViewContainerRef,
   OnInit,
   Output,
-  EventEmitter
+  EventEmitter,
+  SimpleChanges,
+  ComponentFactory,
+  ComponentRef
 } from '@angular/core';
 import { ModalTooltipComponent } from "./modal-tooltip/modal-tooltip.component";
 import { ModalChangeStoreComponent } from './modal/modal-change-store/modal-change-store';
@@ -13,12 +16,14 @@ import { ModalChangeStoreComponent } from './modal/modal-change-store/modal-chan
 interface Node {
   nodeName: string;
   nodeId: string;
+  country: string;
+  commerce: string;
 }
+
 @Directive({
   selector: '[lctModalTooltip]'
 })
 export class ModalTooltipDirective implements OnInit {
-
 
   constructor(
     private viewContainerRef: ViewContainerRef,
@@ -28,14 +33,17 @@ export class ModalTooltipDirective implements OnInit {
   tooltipText: string = '';
   @Input() version?: string = '';
   @Input() dateVersion: string = '';
-  @Input() nodes: Node[] = [];
+  @Input() country: string = '';
+  @Input() nodes: AccessFilter[] = [];
+  stores: LctNode[] = [];
   @Output() changeNode = new EventEmitter<boolean>()
   @Input() isMobile: boolean = false;
   @Input() userId: string = '';
+  componentRef2: ComponentRef<ModalChangeStoreComponent> | undefined = undefined;
 
   ngOnInit(): void {
-  
     const userID = sessionStorage.getItem('userId');
+    this.formatStore();
     this.assingStore();
     if (userID !== this.userId) {
       sessionStorage.removeItem('userId');
@@ -45,9 +53,26 @@ export class ModalTooltipDirective implements OnInit {
     this.selectedStore(storeSelected);
   }
 
+  formatStore() {
+    this.nodes.forEach(e => {
+      e.node.forEach(nEl => {
+        let obj = new LctNode(e.operator, nEl);
+        this.stores.push(obj);
+      });
+    });
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+   if(this.componentRef2 !== undefined) {
+      this.viewContainerRef.clear();
+      this.openModal();
+   }
+  }
+
   @HostListener("click") onMouseEnter(): void {
     const componentFactory = this.resolver.resolveComponentFactory(ModalTooltipComponent);
     const componentRef = this.viewContainerRef.createComponent(componentFactory);
+
     if (this.tooltipText) {
       componentRef.instance.nameStore = this.tooltipText;
     }
@@ -57,7 +82,7 @@ export class ModalTooltipDirective implements OnInit {
     if (this.dateVersion) {
       componentRef.instance.dateVersion = this.dateVersion;
     }
-    if (this.nodes.length > 1) {
+    if (this.stores.length > 1) {
       componentRef.instance.showChangeStore = true;
     }
     componentRef.instance.conditional2.subscribe(resp => {
@@ -78,18 +103,19 @@ export class ModalTooltipDirective implements OnInit {
 
   openModal() {
     const componentFactory = this.resolver.resolveComponentFactory(ModalChangeStoreComponent);
-    const componentRef2 = this.viewContainerRef.createComponent(componentFactory);
+    this.componentRef2 = this.viewContainerRef.createComponent(componentFactory);
 
-    componentRef2.instance.widthModalConfig = this.isMobile ? "100%" : '458px';
-    componentRef2.instance.heightModalConfig = this.isMobile ? "100%" : '268px';
+    this.componentRef2.instance.widthModalConfig = this.isMobile ? "100%" : '458px';
+    this.componentRef2.instance.heightModalConfig = this.isMobile ? "100%" : '268px';
 
-    if (this.nodes) {
-      componentRef2.instance.tiendas = this.nodes;
+    if (this.stores) {
+      // Filtra las tiendas en base al pais
+      this.componentRef2.instance.tiendas = this.stores.filter( x => x.country === this.country );
     }
     if (this.userId) {
-      componentRef2.instance.userId = this.userId;
+      this.componentRef2.instance.userId = this.userId;
     }
-    componentRef2.instance.closeModalStore.subscribe(resp => {
+    this.componentRef2.instance.closeModalStore.subscribe(resp => {
       if (typeof resp.change === 'boolean') {
         if (this.viewContainerRef) {
           if (resp.change) {
@@ -110,16 +136,40 @@ export class ModalTooltipDirective implements OnInit {
   }
 
   private selectedStore(storeSelected: string | null) {
-    if (this.nodes.length > 1 && !storeSelected) {
+    if (this.stores.length > 1 && !storeSelected) {
       this.openModal();
-    } else if (this.nodes.length === 1) {
-      this.tooltipText = this.nodes[0].nodeName;
-      sessionStorage.setItem('storeSelected', JSON.stringify(this.nodes[0]));
+    } else if (this.stores.length === 1) {
+      this.tooltipText = this.stores[0].nodeName;
+      sessionStorage.setItem('storeSelected', JSON.stringify(this.stores[0]));
     }else{
       console.error('You don`t have store');
     }
   }
-
-
-
 }
+
+interface Operator {
+  name: string;
+  id: string;
+  country: string;
+  commerce: string;
+}
+interface ANode {
+  nodeId: string;
+  nodeName: string;
+}
+interface AccessFilter {
+  operator:Operator;
+  node: ANode[];
+}
+
+export class LctNode implements Node {
+  nodeName: string;
+  nodeId: string;
+  country: string;
+  commerce: string;
+  constructor(_operator:any, _node: any) {
+      this.nodeName = _node.nodeName;
+      this.nodeId = _node.nodeId;
+      this.country = _operator.country;
+      this.commerce = _operator.commerce;}
+};
