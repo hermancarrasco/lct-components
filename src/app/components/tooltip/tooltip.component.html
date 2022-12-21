@@ -115,19 +115,27 @@
   </div>
 </div>
 
+<select [(ngModel)]="country" style="
+    z-index: 100000;
+    position: relative;
+" >
+  <option disabled>Seleccionar País</option>
+  <option value="CL" >Chile</option>
+  <option value="PE" >Perú</option>
+</select>
 
 
-
-                <lct-button
-                  [title]="'Estoy en'"
-                  buttonType="secondary"
-                  icon="./assets/img/Tienda.svg"
-                  lctModalTooltip
-                  [dateVersion]="'10/08/2022'"
-                  [version]="'1.0.0'"
-                  [isMobile] ="false"
-                  [nodes]="tiendas"
-                  (changeNode)="changeNode($event)"
-                  [userId]="userId"
-                ></lct-button>
+<lct-button
+  [title]="'Estoy en'"
+  buttonType="secondary"
+  icon="./assets/img/Tienda.svg"
+  lctModalTooltip
+  [dateVersion]="'10/08/2022'"
+  [version]="'1.0.0'"
+  [isMobile] ="false"
+  [country]="country"
+  [nodes]="tiendas"
+  (changeNode)="changeNode($event)"
+  [userId]="userId"
+></lct-button>
 

@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ModalChangeStoreComponent } from 'projects/lct-components/src/lib/modal/modal-change-store/modal-change-store';
+import { ACCESSFILTER, TIENDAS } from 'src/app/mocks/stores.mock';
 
 
 
@@ -10,10 +11,12 @@ import { ModalChangeStoreComponent } from 'projects/lct-components/src/lib/modal
 })
 export class TooltipComponent implements OnInit  {
 
-  tiendas = [{ nodeName: 'hola', nodeId: '1' },{ nodeName: 'hola como estas', nodeId: '2' }]
+  // tiendas = [{ nodeName: 'hola', nodeId: '1' },{ nodeName: 'hola como estas', nodeId: '2' }]
+  tiendas = ACCESSFILTER;
   openModalSelectStore = true;
   showChangeStore = true;
   userId='123123123';
+  country = 'CL';
 
   constructor() { }
 

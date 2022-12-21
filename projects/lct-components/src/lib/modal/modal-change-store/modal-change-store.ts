@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { BehaviorSubject, Observable } from "rxjs";
+import { LctNode } from '../../modal-tooltip.directive';
 @Component({
   selector: 'lct-modal',
   templateUrl: './modal-change-store.component.html',
@@ -9,7 +10,7 @@ export class ModalChangeStoreComponent implements OnInit {
 
   @Input() widthModalConfig: string = '100px';
   @Input() heightModalConfig: string = '100px';
-  @Input() tiendas: { nodeName: string, nodeId: string }[] = [];
+  @Input() tiendas: LctNode[] = [];
   @Output() sendSelectStore = new EventEmitter<string>();
   closeModalStore: BehaviorSubject<{change :boolean | undefined}> = new BehaviorSubject<{change :boolean | undefined}>({change :undefined});
   storeSelect: { nodeName: string, nodeId: string } | undefined = undefined;
@@ -66,5 +67,4 @@ export class ModalChangeStoreComponent implements OnInit {
   checkStoreSelected() {
     this.closeIcon = !!sessionStorage.getItem('storeSelected');
   }
-
 }
