@@ -47,6 +47,18 @@ export class InputTextComponent implements ControlValueAccessor, OnInit, AfterVi
   public propagateChange = (_: any) => { };
 
   constructor(private render: Renderer2) {
+    this.lpnUpdate
+        .pipe(
+          debounceTime(200),
+          // distinctUntilChanged() // esto previene que el valor ser repita
+        )
+        .subscribe(async value => {
+          if (value && this.pdaAutoEnter) {
+            this.enterEmit();
+          } else {
+            return;
+          }
+        });
   }
 
   ngAfterViewInit() {
@@ -72,21 +84,6 @@ export class InputTextComponent implements ControlValueAccessor, OnInit, AfterVi
       } else {
         this.render.removeClass(this.inputScan?.nativeElement, 'error');
         this.render.removeClass(this.titleRef?.nativeElement, 'error');
-      }
-    } else if (changes['pdaAutoEnter']) {
-      if (this.pdaAutoEnter) {
-        this.lpnUpdate
-            .pipe(
-              debounceTime(200),
-              distinctUntilChanged() // esto previene que el valor ser repita
-            )
-            .subscribe(async value => {
-              if (value && this.pdaAutoEnter) {
-                this.enterEmit();
-              } else {
-                return;
-              }
-            });
       }
     }
   }
