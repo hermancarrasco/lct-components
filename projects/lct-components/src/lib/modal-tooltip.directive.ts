@@ -39,6 +39,7 @@ export class ModalTooltipDirective implements OnInit {
   @Output() changeNode = new EventEmitter<boolean>()
   @Input() isMobile: boolean = false;
   @Input() userId: string = '';
+  @Input() active: boolean = true;
   componentRef2: ComponentRef<ModalChangeStoreComponent> | undefined = undefined;
 
   ngOnInit(): void {
@@ -63,42 +64,44 @@ export class ModalTooltipDirective implements OnInit {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-   if(this.componentRef2 !== undefined) {
+    if (this.componentRef2 !== undefined) {
       this.viewContainerRef.clear();
       this.openModal();
-   }
+    }
   }
 
   @HostListener("click") onMouseEnter(): void {
-    const componentFactory = this.resolver.resolveComponentFactory(ModalTooltipComponent);
-    const componentRef = this.viewContainerRef.createComponent(componentFactory);
+    if (this.active) {
+      const componentFactory = this.resolver.resolveComponentFactory(ModalTooltipComponent);
+      const componentRef = this.viewContainerRef.createComponent(componentFactory);
 
-    if (this.tooltipText) {
-      componentRef.instance.nameStore = this.tooltipText;
-    }
-    if (this.version) {
-      componentRef.instance.version = this.version;
-    }
-    if (this.dateVersion) {
-      componentRef.instance.dateVersion = this.dateVersion;
-    }
-    if (this.stores.length > 1) {
-      componentRef.instance.showChangeStore = true;
-    }
-    componentRef.instance.conditional2.subscribe(resp => {
-      if (resp) {
-        if (this.viewContainerRef) {
-          this.viewContainerRef.clear();
+      if (this.tooltipText) {
+        componentRef.instance.nameStore = this.tooltipText;
+      }
+      if (this.version) {
+        componentRef.instance.version = this.version;
+      }
+      if (this.dateVersion) {
+        componentRef.instance.dateVersion = this.dateVersion;
+      }
+      if (this.stores.length > 1) {
+        componentRef.instance.showChangeStore = true;
+      }
+      componentRef.instance.conditional2.subscribe(resp => {
+        if (resp) {
+          if (this.viewContainerRef) {
+            this.viewContainerRef.clear();
+          }
         }
-      }
-    });
+      });
 
-    componentRef.instance.openModalStore.subscribe(reso => {
+      componentRef.instance.openModalStore.subscribe(reso => {
 
-      if (reso) {
-        this.openModal();
-      }
-    });
+        if (reso) {
+          this.openModal();
+        }
+      });
+    }
   }
 
   openModal() {
@@ -110,7 +113,7 @@ export class ModalTooltipDirective implements OnInit {
 
     if (this.stores) {
       // Filtra las tiendas en base al pais
-      this.componentRef2.instance.tiendas = this.stores.filter( x => x.country === this.country );
+      this.componentRef2.instance.tiendas = this.stores.filter(x => x.country === this.country);
     }
     if (this.userId) {
       this.componentRef2.instance.userId = this.userId;
@@ -141,13 +144,13 @@ export class ModalTooltipDirective implements OnInit {
     } else if (this.stores.length === 1) {
       this.tooltipText = this.stores[0].nodeName;
       sessionStorage.setItem('storeSelected', JSON.stringify(this.stores[0]));
-    }else{
+    } else {
       console.error('You don`t have store');
     }
   }
 }
 
-interface Operator {
+interface Operator {
   name: string;
   id: string;
   country: string;
@@ -158,7 +161,7 @@ interface ANode {
   nodeName: string;
 }
 interface AccessFilter {
-  operator:Operator;
+  operator: Operator;
   node: ANode[];
 }
 
@@ -167,9 +170,10 @@ export class LctNode implements Node {
   nodeId: string;
   country: string;
   commerce: string;
-  constructor(_operator:any, _node: any) {
-      this.nodeName = _node.nodeName;
-      this.nodeId = _node.nodeId;
-      this.country = _operator.country;
-      this.commerce = _operator.commerce;}
+  constructor(_operator: any, _node: any) {
+    this.nodeName = _node.nodeName;
+    this.nodeId = _node.nodeId;
+    this.country = _operator.country;
+    this.commerce = _operator.commerce;
+  }
 };
