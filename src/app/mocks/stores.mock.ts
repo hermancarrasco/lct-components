@@ -107,6 +107,28 @@ export const ACCESSFILTER = [
             },
             {
                 "nodeId": "SORD03",
+                "nodeName": "TIENDA Prueba 03"
+            },{
+                "nodeId": "SORD01",
+                "nodeName": "TIENDA Prueba 01"
+            },
+            {
+                "nodeId": "SORD02",
+                "nodeName": "TIENDA Prueba 02"
+            },
+            {
+                "nodeId": "SORD03",
+                "nodeName": "TIENDA Testing 03"
+            },{
+                "nodeId": "SORD01",
+                "nodeName": "TIENDA Testing 01"
+            },
+            {
+                "nodeId": "SORD02",
+                "nodeName": "TIENDA Testing 02"
+            },
+            {
+                "nodeId": "SORD03",
                 "nodeName": "TIENDA SORDIC 03"
             }
         ]

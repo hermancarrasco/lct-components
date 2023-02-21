@@ -21,13 +21,15 @@ export interface IListLCTSelect {
 })
 export class SelectComponent implements OnInit, OnChanges {
 
-  @Input() options = ['Insert Values as string array']
+  @Input() options = ['Insert Values as string array'];
   @Input() title = 'Insert title'
   @Input() disabled: 'true'| 'false' | 'disabled'| boolean | '' = 'false';
   @Input() showIcon = true;
   @Input() placeholder = 'Insert placeholder';
   @Output() value = new EventEmitter<string>();
 
+  filterStore = '';
+  filteredOptions:string[]=[];
   disabledValue = false;
   selected : string;
   showDropDown = false;
@@ -38,6 +40,7 @@ export class SelectComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     this.disabledValue = this.disabled === true || this.disabled == 'true' || this.disabled === '';
+    this.filteredOptions=this.options;
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -48,6 +51,10 @@ export class SelectComponent implements OnInit, OnChanges {
         this.disabledValue = false;
       }
     }
+  }
+
+  filterData(value:string){
+    this.filteredOptions=this.options.filter(opt=>opt.toLowerCase().includes(value.toLowerCase()));
   }
 
   changeValue(value: string) {
