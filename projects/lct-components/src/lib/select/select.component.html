@@ -16,12 +16,13 @@
     </button>
     <div class="drop-show" *ngIf="showDropDown" >
       <div *ngIf="options.length>7"  style="width: 95%;padding-left:5%;">
-        <lct-input-text placeholder="Buscar" title="" 
-          [showIcon]="true"
-          #inputFilter
+        <lct-input-text placeholder="Buscar" title=""
           [(ngModel)]="filterStore"
           (ngModelChange)="filterData($event)"
-          icon="assets/img/Buscar.svg" ></lct-input-text>
+          [icon]="iconFinder"
+          [showIcon]="true"
+        ></lct-input-text>
+
       </div>
       <div [ngStyle]="{'height': options.length>7 ? '200px' : 'auto','overflow-y':options.length>7 ? 'auto':''}">
         <label class="main" *ngFor="let option of filteredOptions; let i = index" >

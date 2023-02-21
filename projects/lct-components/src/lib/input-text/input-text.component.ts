@@ -12,6 +12,7 @@ import {
 import {Subject} from "rxjs";
 import {debounceTime, distinctUntilChanged} from "rxjs/operators";
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
+import { SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'lct-input-text',
@@ -26,7 +27,7 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
 export class InputTextComponent implements ControlValueAccessor, OnInit, AfterViewInit, OnChanges {
 
   @Input() disabled = false;
-  @Input() icon = ''
+  @Input() icon: string | SafeResourceUrl = ''
   @Input() iconPosition: 'left' | 'right' = 'right';
   @Input() pdaAutoEnter = false;
   @Input() placeholder = '';
