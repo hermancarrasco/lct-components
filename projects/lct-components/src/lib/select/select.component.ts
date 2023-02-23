@@ -53,6 +53,9 @@ export class SelectComponent implements OnInit, OnChanges {
         this.disabledValue = false;
       }
     }
+    if (changes['options'] && !changes['options'].firstChange) {
+      this.filteredOptions=this.options=changes['options'].currentValue;
+    }
   }
 
   filterData(value:string){
