@@ -43,6 +43,8 @@ export class InputTextComponent implements ControlValueAccessor, OnInit, AfterVi
   @ViewChild('iconDiv') iconDiv: ElementRef | undefined;
 
   inputValue = '';
+  private selectionStart = 0;
+  private selectionEnd = 0;
   public lpnUpdate = new Subject<string>();
 
   public propagateChange = (_: any) => { };
@@ -57,6 +59,10 @@ export class InputTextComponent implements ControlValueAccessor, OnInit, AfterVi
           if (value && this.pdaAutoEnter) {
             this.enterEmit();
           } else {
+            if (!value) {
+              this.selectionStart = 0
+              this.selectionEnd = 0;
+            }
             return;
           }
         });
@@ -138,8 +144,24 @@ export class InputTextComponent implements ControlValueAccessor, OnInit, AfterVi
     ev.preventDefault();
     const clipboard = ev.clipboardData?.getData('Text');
     if (clipboard) {
-      this.writeValue(clipboard);
+      if (this.selectionEnd){
+        const slice1 = this.inputValue.slice(0, this.selectionStart);
+        const slice2 = this.inputValue.slice(this.selectionEnd);
+        this.inputValue = slice1 + clipboard + slice2;
+        this.selectionStart = 0;
+        this.selectionEnd = 0;
+      } else {
+        this.inputValue = this.inputValue+clipboard;
+      }
     }
+  }
+
+  selectionChange(ev: any) {
+    // console.log('selection asdf:', ev.target.value.substring(ev.target.selectionStart, ev.target.selectionEnd));
+    // console.log('start: ',ev.target.selectionStart, 'end:', ev.target.selectionEnd)
+    // this.selectedText = ev.target.value.substring(ev.target.selectionStart, ev.target.selectionEnd);
+    this.selectionStart = ev.target.selectionStart;
+    this.selectionEnd = ev.target.selectionEnd;
   }
 
 }
