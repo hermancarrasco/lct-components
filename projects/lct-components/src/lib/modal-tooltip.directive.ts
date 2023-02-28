@@ -63,11 +63,14 @@ export class ModalTooltipDirective implements OnInit {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-   if(this.componentRef2 !== undefined) {
-    console.log('ejecuta limpiza de conponente y abre el modal');
-      this.viewContainerRef.clear();
-      this.openModal();
-   }
+    const storeSelected = sessionStorage.getItem('storeSelected');
+    if (!storeSelected) {
+      if (this.componentRef2 !== undefined) {
+        console.log('ejecuta limpiza de conponente y abre el modal');
+        this.viewContainerRef.clear();
+        this.openModal();
+      }
+    }
   }
 
   @HostListener("click") onMouseEnter(): void {
@@ -97,7 +100,7 @@ export class ModalTooltipDirective implements OnInit {
     componentRef.instance.openModalStore.subscribe(reso => {
       console.log('respuesta en click subcribe', reso);
       if (reso) {
-        console.log('entro en condicional de sub',reso);
+        console.log('entro en condicional de sub', reso);
         this.openModal();
       }
     });
@@ -112,7 +115,7 @@ export class ModalTooltipDirective implements OnInit {
 
     if (this.stores) {
       // Filtra las tiendas en base al pais
-      this.componentRef2.instance.tiendas = this.stores.filter( x => x.country === this.country );
+      this.componentRef2.instance.tiendas = this.stores.filter(x => x.country === this.country);
     }
     if (this.userId) {
       this.componentRef2.instance.userId = this.userId;
@@ -145,13 +148,13 @@ export class ModalTooltipDirective implements OnInit {
     } else if (this.stores.length === 1) {
       this.tooltipText = this.stores[0].nodeName;
       sessionStorage.setItem('storeSelected', JSON.stringify(this.stores[0]));
-    }else{
+    } else {
       console.error('You don`t have store');
     }
   }
 }
 
-interface Operator {
+interface Operator {
   name: string;
   id: string;
   country: string;
@@ -162,7 +165,7 @@ interface ANode {
   nodeName: string;
 }
 interface AccessFilter {
-  operator:Operator;
+  operator: Operator;
   node: ANode[];
 }
 
@@ -171,9 +174,10 @@ export class LctNode implements Node {
   nodeId: string;
   country: string;
   commerce: string;
-  constructor(_operator:any, _node: any) {
-      this.nodeName = _node.nodeName;
-      this.nodeId = _node.nodeId;
-      this.country = _operator.country;
-      this.commerce = _operator.commerce;}
+  constructor(_operator: any, _node: any) {
+    this.nodeName = _node.nodeName;
+    this.nodeId = _node.nodeId;
+    this.country = _operator.country;
+    this.commerce = _operator.commerce;
+  }
 };
