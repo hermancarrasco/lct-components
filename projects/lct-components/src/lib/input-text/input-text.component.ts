@@ -144,14 +144,23 @@ export class InputTextComponent implements ControlValueAccessor, OnInit, AfterVi
     ev.preventDefault();
     const clipboard = ev.clipboardData?.getData('Text');
     if (clipboard) {
-      if (this.selectionEnd){
+      if ( this.selectionEnd && this.selectionStart === this.inputScan?.nativeElement.selectionStart ){
         const slice1 = this.inputValue.slice(0, this.selectionStart);
         const slice2 = this.inputValue.slice(this.selectionEnd);
         this.inputValue = slice1 + clipboard + slice2;
+        setTimeout(()=> {
+          this.inputScan?.nativeElement.setSelectionRange(slice1.length+clipboard.length, slice1.length+clipboard.length)
+        },20)
         this.selectionStart = 0;
         this.selectionEnd = 0;
       } else {
-        this.inputValue = this.inputValue+clipboard;
+        const slice1 = this.inputValue.slice(0, this.inputScan?.nativeElement.selectionStart);
+        const slice2 = this.inputValue.slice(this.inputScan?.nativeElement.selectionStart);
+        this.inputValue = slice1 + clipboard + slice2;
+        setTimeout(()=> {
+          this.inputScan?.nativeElement.setSelectionRange(slice1.length+clipboard.length, slice1.length+clipboard.length)
+        },20)
+        // this.inputValue = this.inputValue+clipboard;
       }
     }
   }
@@ -163,5 +172,6 @@ export class InputTextComponent implements ControlValueAccessor, OnInit, AfterVi
     this.selectionStart = ev.target.selectionStart;
     this.selectionEnd = ev.target.selectionEnd;
   }
+
 
 }
