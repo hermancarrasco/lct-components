@@ -63,9 +63,8 @@ export class ModalTooltipDirective implements OnInit {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    const storeSelected = sessionStorage.getItem('storeSelected');
-    console.log('change',changes);
-    if (!storeSelected) {
+
+    if (changes.country.currentValue !== this.country) {
       if (this.componentRef2 !== undefined) {
         console.log('ejecuta limpiza de conponente y abre el modal');
         this.viewContainerRef.clear();
