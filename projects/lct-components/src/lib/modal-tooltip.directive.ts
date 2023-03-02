@@ -64,7 +64,7 @@ export class ModalTooltipDirective implements OnInit {
 
   ngOnChanges(changes: SimpleChanges) {
 
-    if (changes.country.currentValue !== this.country) {
+    if (changes.country?.currentValue !== changes.country?.previousValue) {
       if (this.componentRef2 !== undefined) {
         console.log('ejecuta limpiza de conponente y abre el modal');
         this.viewContainerRef.clear();
@@ -98,9 +98,7 @@ export class ModalTooltipDirective implements OnInit {
     });
 
     componentRef.instance.openModalStore.subscribe(reso => {
-      console.log('respuesta en click subcribe', reso);
       if (reso) {
-        console.log('entro en condicional de sub', reso);
         this.openModal();
       }
     });
@@ -141,9 +139,7 @@ export class ModalTooltipDirective implements OnInit {
   }
 
   private selectedStore(storeSelected: string | null) {
-    console.log('tienda seleccion', storeSelected);
     if (this.stores.length > 1 && !storeSelected) {
-      console.log('entro a abrir el modal ');
       this.openModal();
     } else if (this.stores.length === 1) {
       this.tooltipText = this.stores[0].nodeName;
