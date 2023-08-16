@@ -1,4 +1,4 @@
-<button [disabled]="disabledValue" #button>
+<button [disabled]="disabledValue" #button [ngStyle]="{'padding': title ? '0px 14px': '0px'}" >
   <img
     *ngIf="icon" [ngClass]="{'counterAndIconImg': counter >= 0 && icon}"
     [width]="iconWidth"
