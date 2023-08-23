@@ -37,6 +37,7 @@ export class ModalTooltipDirective implements OnInit {
   @Input() nodes: AccessFilter[] = [];
   stores: LctNode[] = [];
   @Output() changeNode = new EventEmitter<boolean>()
+  @Output() openModalChangeNode = new EventEmitter<boolean>()
   @Input() isMobile: boolean = false;
   @Input() userId: string = '';
   componentRef2: ComponentRef<ModalChangeStoreComponent> | undefined = undefined;
@@ -108,6 +109,7 @@ export class ModalTooltipDirective implements OnInit {
     const componentFactory = this.resolver.resolveComponentFactory(ModalChangeStoreComponent);
     this.componentRef2 = this.viewContainerRef.createComponent(componentFactory);
 
+    if(this.openModalChangeNode)this.openModalChangeNode.next(true);
     this.componentRef2.instance.widthModalConfig = this.isMobile ? "100%" : '458px';
     this.componentRef2.instance.heightModalConfig = this.isMobile ? "100%" : '268px';
 
