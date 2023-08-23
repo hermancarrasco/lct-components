@@ -125,7 +125,7 @@
 </select>
 
 
-<lct-button
+<lct-button 
   [title]="'Estoy en'"
   buttonType="secondary"
   icon="./assets/img/Tienda.svg"
@@ -136,6 +136,7 @@
   [country]="country"
   [nodes]="tiendas"
   (changeNode)="changeNode($event)"
+  (openModalChangeNode)="openModalChangeNode($event)"
   [userId]="userId"
 ></lct-button>
 

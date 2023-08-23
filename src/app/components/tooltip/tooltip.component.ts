@@ -26,5 +26,8 @@ export class TooltipComponent implements OnInit  {
   changeNode(evento:Boolean){
     console.log('cambio de tienda',evento);
   }
+  openModalChangeNode(evento:boolean){
+    console.log("Abrir modal", evento)//Desactivar autofocus
+  }
 
 }
