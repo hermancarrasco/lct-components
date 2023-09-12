@@ -15,6 +15,9 @@
     align-items: center;
     vertical-align: middle;
   }
+  &.left {
+    display: block;
+  }
 
   .tooltipLCTText {
     width: max-content;
@@ -76,6 +79,31 @@
         top: 50%;
         right: 100%;
         border-color: transparent #C60E4C transparent transparent;
+      }
+    }
+    &.left {
+      right: 105%;
+      bottom: -8px;
+      &:after {
+        display: block;
+        width: 14px;
+        height: 14px;
+        transform: rotate(45deg);
+        right: -7px;
+        top: 50%;
+        border-width: 0;
+        border-style: none;
+      }
+      &.primary::after {
+        background: #2649B6;
+      }
+
+      &.secondary::after {
+        background: #8CBA37;
+      }
+
+      &.tertiary::after {
+        background: #C60E4C;
       }
     }
   }

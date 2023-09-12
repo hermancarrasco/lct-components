@@ -23,7 +23,7 @@ export class TooltipDirective {
 
   @Input() tooltipText: string= '';
   @Input() secondaryMessage?: string = '';
-  @Input() position: 'top' | 'right' = 'top';
+  @Input() position: 'top' | 'right' | 'left' = 'top';
   @Input() color: 'primary' | 'secondary' | 'tertiary' = 'primary';
   @Input() marginBottom?: string = '';
 
