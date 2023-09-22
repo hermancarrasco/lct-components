@@ -47,6 +47,5 @@ import { ModalChangeStoreComponent } from './modal/modal-change-store/modal-chan
     ModalTooltipDirective,
     ModalChangeStoreComponent,
   ],
-  entryComponents:[TooltipComponent]
 })
 export class LctComponentsModule { }

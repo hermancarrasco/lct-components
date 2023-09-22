@@ -1,3 +1,10 @@
+.containerBtnRound{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 button{
   width: 100%;
   height: 40px;
@@ -23,6 +30,27 @@ button{
     }
   }
 }
+
+.button-round {
+  height: 44px;
+  width: 44px;
+  border-radius: 22px;
+  padding: 0 !important;
+  img{
+    margin: 0 !important;
+    width: 28px;
+    height: 28px;
+  }
+}
+.titleBtnRound{
+  color: #3c4149;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px;
+  margin-top: 6px;
+}
+
 .primary {
   background-color: #2649B6;
   color: #FFFFFF;
@@ -87,7 +115,7 @@ button{
   position: relative;
   vertical-align: middle;
 }
-.counterAndIconImg{
+.counterAndIconImg {
   vertical-align: middle;
   position: relative;
   float: left;
