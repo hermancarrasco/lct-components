@@ -1,11 +1,16 @@
-<button [disabled]="disabledValue" #button [ngStyle]="{'padding': title ? '0px 14px': '0px'}" >
-  <img
-    *ngIf="icon" [ngClass]="{'counterAndIconImg': counter >= 0 && icon}"
-    [width]="iconWidth"
-    [height]="iconHeight"
-    [ngStyle]="{'margin-right': title ? '8px': ''}" [src]="icon" alt="icon">
-  <span *ngIf="title"
-        [ngClass]="{'counterOn': counter >= 0 && !icon, 'counterAndIconTxt': counter >= 0 && icon}"
+<div [ngClass]="{'containerBtnRound': shape==='round'}">
+  <button [disabled]="disabledValue" #button [ngClass]="{'button-round': shape==='round'}" [ngStyle]="{'padding': title && shape==='normal' ? '0px 14px': ''}" >
+    <img
+      *ngIf="icon" [ngClass]="{'counterAndIconImg': counter >= 0 && icon}"
+      [width]="iconWidth"
+      [height]="iconHeight"
+      [ngStyle]="{'margin-right': title ? '8px': ''}" [src]="icon" alt="icon">
+    <span *ngIf="title"
+          [ngClass]="{'counterOn': counter >= 0 && !icon, 'counterAndIconTxt': counter >= 0 && icon}"
+    >{{shape==='normal' ? title : ''}}</span>
+    <span *ngIf="counter >= 0" class="btnCounter">{{counter}}</span>
+  </button>
+  <span *ngIf="shape==='round'"
+        class="titleBtnRound"
   >{{title}}</span>
-  <span *ngIf="counter >= 0" class="btnCounter">{{counter}}</span>
-</button>
+</div>

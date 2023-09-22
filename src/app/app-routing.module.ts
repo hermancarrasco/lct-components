@@ -9,10 +9,12 @@ import {SelectSimpleComponent} from "./components/select-simple/select-simple.co
 import {SelectMultipleComponent} from "./components/select-multiple/select-multiple.component";
 import {SwitchComponent} from "./components/switch/switch.component";
 import {TooltipComponent} from "./components/tooltip/tooltip.component";
+import { ButtonRoundComponent } from './components/button-round/button-round.component';
 
 const routes: Routes = [
   { path: 'buttonSimple', component: ButtonSimpleComponent },
   { path: 'buttonWithIcon', component: ButtonWithIconComponent },
+  { path: 'buttonRound', component: ButtonRoundComponent },
   { path: 'buttonWithCounter', component: ButtonWithCounterComponent },
   { path: 'inputSimple', component: InputSimpleComponent},
   { path: 'inputWithIcon', component: InputWithIconComponent},

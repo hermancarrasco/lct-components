@@ -20,6 +20,10 @@ export class MenuComponent implements OnInit {
           key: 'buttonWithIcon'
         },
         {
+          title: 'button round',
+          key: 'buttonRound'
+        },
+        {
           title: 'button with counter',
           key: 'buttonWithCounter'
         },

@@ -18,7 +18,8 @@ import {
 export class ButtonComponent implements OnInit, AfterViewInit, OnChanges {
   @Input() title = 'Insert Title'
   @Input() buttonType: 'primary' | 'secondary' | 'tertiary' | 'quaternary' | 'error' | 'success' = 'primary'
-  @Input() disabled: 'true'| 'false' | 'disabled'| boolean | '' = 'false';
+  @Input() disabled: 'true' | 'false' | 'disabled'| boolean | '' = 'false';
+  @Input() shape: 'normal' | 'round' = 'normal';
   @Input() icon = '';
   @Input() width = '';
   @Input() height = '';
