@@ -32,12 +32,29 @@
            aria-hidden="true"/>
     </button>
     <div class="drop-show" *ngIf="showDropDown">
-      <label class="main" *ngFor="let a of list"><span class="text">{{a.name}}</span>
-        <input type="checkbox" [(ngModel)]="a.checked"
-               (change)="getSelectedValue(a.checked,a.name, a?.value)">
-        <span class="mark"></span>
-      </label>
+      <div *ngIf="list.length>=quantityToFilter" class="main">
+        <lct-input-text [placeholder]="placeholderFilter" title=""
+                        [(ngModel)]="filter"
+                        (ngModelChange)="filterData($event)"
+                        [icon]="iconFinder"
+                        [showIcon]="true"
+        ></lct-input-text>
+      </div>
+      <div [ngStyle]="{'height': list.length>=quantityToFilter ? heightOptions : 'auto','overflow-y':list.length>=quantityToFilter ? 'auto':''}" *ngIf="!filter.length">
+        <label class="main" *ngFor="let a of list"><span class="text" >{{a.name}}</span>
+          <input type="checkbox" [(ngModel)]="a.checked"
+                 (change)="getSelectedValue(a.checked,a.name, a?.value)">
+          <span class="mark"></span>
+        </label>
 
+      </div>
+      <div [ngStyle]="{'height': list.length>=quantityToFilter ? heightOptions : 'auto','overflow-y':list.length>=quantityToFilter ? 'auto':''}" *ngIf="filter.length">
+        <label class="main" *ngFor="let a of listFiltered"><span class="text" >{{a.name}}</span>
+          <input type="checkbox" [(ngModel)]="a.checked"
+                 (change)="getSelectedValue(a.checked,a.name, a?.value)">
+          <span class="mark"></span>
+        </label>
+      </div>
     </div>
   </div>
 </div>
