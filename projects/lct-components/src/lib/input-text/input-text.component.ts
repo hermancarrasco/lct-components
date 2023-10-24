@@ -9,9 +9,9 @@ import {
   Renderer2, SimpleChanges,
   ViewChild
 } from '@angular/core';
-import {Subject} from "rxjs";
-import {debounceTime, distinctUntilChanged} from "rxjs/operators";
-import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
+import { Subject } from "rxjs";
+import { debounceTime, distinctUntilChanged } from "rxjs/operators";
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
 import { SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
@@ -34,7 +34,7 @@ export class InputTextComponent implements ControlValueAccessor, OnInit, AfterVi
   @Input() showIcon = false;
   @Input() title = 'Insert Title';
   @Input() type: 'email' | 'number' | 'text' = 'text';
-  @Input() error : boolean = false;
+  @Input() error: boolean = false;
   @Output() enterEmitted = new EventEmitter<string>()
   @Output() iconClick = new EventEmitter();
   @Output() inputClick = new EventEmitter();
@@ -51,21 +51,21 @@ export class InputTextComponent implements ControlValueAccessor, OnInit, AfterVi
 
   constructor(private render: Renderer2) {
     this.lpnUpdate
-        .pipe(
-          debounceTime(200),
-          distinctUntilChanged() // esto previene que el valor ser repita
-        )
-        .subscribe(async value => {
-          if (value && this.pdaAutoEnter) {
-            this.enterEmit();
-          } else {
-            if (!value) {
-              this.selectionStart = 0
-              this.selectionEnd = 0;
-            }
-            return;
+      .pipe(
+        debounceTime(200),
+        distinctUntilChanged() // esto previene que el valor ser repita
+      )
+      .subscribe(async value => {
+        if (value && this.pdaAutoEnter) {
+          this.enterEmit();
+        } else {
+          if (!value) {
+            this.selectionStart = 0
+            this.selectionEnd = 0;
           }
-        });
+          return;
+        }
+      });
   }
 
   ngAfterViewInit() {
@@ -84,6 +84,9 @@ export class InputTextComponent implements ControlValueAccessor, OnInit, AfterVi
   }
 
   ngOnChanges(changes: SimpleChanges) {
+    if (changes['pdaAutoEnter'] && !changes['pdaAutoEnter'].firstChange) {      
+      this.pdaAutoEnter = changes['pdaAutoEnter'].currentValue;
+    }
     if (changes['error'] && !changes['error'].firstChange) {
       if (changes.error.currentValue) {
         this.render.addClass(this.inputScan?.nativeElement, 'error');
@@ -113,10 +116,10 @@ export class InputTextComponent implements ControlValueAccessor, OnInit, AfterVi
     if (!this.inputValue && typeof event === 'string') {
       this.inputValue = event;
     }
-    if (this.inputValue && event === null){
+    if (this.inputValue && event === null) {
       this.inputValue = '';
     }
-    if (this.inputValue && typeof event === 'string' && event==='') {
+    if (this.inputValue && typeof event === 'string' && event === '') {
       this.inputValue = '';
     }
     this.propagateChange(this.inputValue);
@@ -128,7 +131,7 @@ export class InputTextComponent implements ControlValueAccessor, OnInit, AfterVi
     }
   }
 
-  clickInput( ) {
+  clickInput() {
     if (!this.disabled) {
       this.inputClick.emit('inputClick')
     }
@@ -144,22 +147,22 @@ export class InputTextComponent implements ControlValueAccessor, OnInit, AfterVi
     ev.preventDefault();
     const clipboard = ev.clipboardData?.getData('Text');
     if (clipboard) {
-      if ( this.selectionEnd && this.selectionStart === this.inputScan?.nativeElement.selectionStart ){
+      if (this.selectionEnd && this.selectionStart === this.inputScan?.nativeElement.selectionStart) {
         const slice1 = this.inputValue.slice(0, this.selectionStart);
         const slice2 = this.inputValue.slice(this.selectionEnd);
         this.inputValue = slice1 + clipboard + slice2;
-        setTimeout(()=> {
-          this.inputScan?.nativeElement.setSelectionRange(slice1.length+clipboard.length, slice1.length+clipboard.length)
-        },20)
+        setTimeout(() => {
+          this.inputScan?.nativeElement.setSelectionRange(slice1.length + clipboard.length, slice1.length + clipboard.length)
+        }, 20)
         this.selectionStart = 0;
         this.selectionEnd = 0;
       } else {
         const slice1 = this.inputValue.slice(0, this.inputScan?.nativeElement.selectionStart);
         const slice2 = this.inputValue.slice(this.inputScan?.nativeElement.selectionStart);
         this.inputValue = slice1 + clipboard + slice2;
-        setTimeout(()=> {
-          this.inputScan?.nativeElement.setSelectionRange(slice1.length+clipboard.length, slice1.length+clipboard.length)
-        },20)
+        setTimeout(() => {
+          this.inputScan?.nativeElement.setSelectionRange(slice1.length + clipboard.length, slice1.length + clipboard.length)
+        }, 20)
         // this.inputValue = this.inputValue+clipboard;
       }
     }
