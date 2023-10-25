@@ -52,8 +52,8 @@ export class InputTextComponent implements ControlValueAccessor, OnInit, AfterVi
   constructor(private render: Renderer2) {
     this.lpnUpdate
       .pipe(
-        debounceTime(200),
-        distinctUntilChanged() // esto previene que el valor ser repita
+        debounceTime(200)
+     /*    distinctUntilChanged() */ // esto previene que el valor ser repita
       )
       .subscribe(async value => {
         if (value && this.pdaAutoEnter) {
