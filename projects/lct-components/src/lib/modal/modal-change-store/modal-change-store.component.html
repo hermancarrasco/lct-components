@@ -25,7 +25,9 @@
         </div>
         <div class="selector">
             <lct-select title="" placeholder="Seleccione tienda"
-                (value)="selectedValue($event)" [options]="storeName">
+                [options]="storeName"    
+                sort="asc"
+                (value)="selectedValue($event)">
             </lct-select>
         </div>
         <div class="button-accept">
