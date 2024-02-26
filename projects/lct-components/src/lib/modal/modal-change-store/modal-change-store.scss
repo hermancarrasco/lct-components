@@ -27,7 +27,7 @@
         transition: all 500ms ease-in;
         &.movedown {
             margin: 0 auto;
-            margin-top: 20%;
+            margin-top: calc(50vh - 134px);
             @media screen and (min-width: 100px) and (max-width: 490px) {
                 margin-top: 0% !important;
             }
