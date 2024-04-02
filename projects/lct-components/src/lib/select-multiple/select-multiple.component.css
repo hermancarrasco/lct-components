@@ -69,6 +69,15 @@ button:disabled {
   box-shadow: 0 6px 10px rgba(0,0,0,.15);
   margin-left: 1px;
 }
+.mark-disabled {
+  background-color: #C8CCD4 !important;
+}
+.text-disabled {
+  color: #C8CCD4 !important;
+}
+.icon-disabled {
+  pointer-events: none;
+}
 
 .selected {
   display: inline-block;
