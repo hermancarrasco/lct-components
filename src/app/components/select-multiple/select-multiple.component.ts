@@ -16,7 +16,7 @@ export class SelectMultipleComponent implements OnInit {
     this.list =
       [
         {name : 'J1001 - Jeans Mujer' , checked : false, value: 'RELABEL_PENDING'},
-        {name : 'J1002 - Jeans Hombre' , checked : false, value: 'READY_TO_DISPATCH'},
+        {name : 'J1002 - Jeans Hombre' , checked : false, value: 'READY_TO_DISPATCH', disabled: true},
         {name : 'T1001 - Consolas' , checked : false, value: 'READY_TO_DISPATCH'},
         {name : 'T1002 - Juegos consolas' , checked : false, value: 'READY_TO_DISPATCH'},
         {name : 'O1001 - Otro 1' , checked : false, value: 'READY_TO_DISPATCH'},

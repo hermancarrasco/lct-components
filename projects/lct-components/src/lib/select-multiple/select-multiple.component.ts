@@ -5,6 +5,7 @@ export interface IListLCTSelectMultiple {
   name: string;
   checked: boolean;
   value?: string | number;
+  disabled?: boolean;
 }
 
 @Component({
@@ -32,12 +33,10 @@ export class SelectMultipleComponent implements OnInit, OnChanges {
   iconFinder;
   filter: string = '';
 
-  checkedList : IListLCTSelectMultiple[];
   currentSelected : IListLCTSelectMultiple | undefined;
   showDropDown = false;
 
   constructor(private sanitizer: DomSanitizer) {
-    this.checkedList = [];
     this.iconFinder = this.sanitizer.bypassSecurityTrustResourceUrl(`data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjEiIHZpZXdCb3g9IjAgMCAyMCAyMSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyLjE1MDMgMTIuNDE2M0MxMi4yOTUgMTIuMjcxNyAxMi41MTk1IDEyLjI1NTYgMTIuNjgxOSAxMi4zNjgxTDEyLjczOTYgMTIuNDE2M0wxNi40MDYxIDE2LjA4MjhDMTYuNTY4OCAxNi4yNDU1IDE2LjU2ODggMTYuNTA5MyAxNi40MDYxIDE2LjY3MkMxNi4yNjE0IDE2LjgxNjcgMTYuMDM2OSAxNi44MzI4IDE1Ljg3NDUgMTYuNzIwM0wxNS44MTY4IDE2LjY3MkwxMi4xNTAzIDEzLjAwNTZDMTEuOTg3NiAxMi44NDI4IDExLjk4NzYgMTIuNTc5IDEyLjE1MDMgMTIuNDE2M1oiIGZpbGw9IiMyNjQ5QjYiLz4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xMi4zOTcxIDUuNTkxOTFDMTAuNDQ0NSAzLjYzOTI5IDcuMjc4NjggMy42MzkyOSA1LjMyNjA2IDUuNTkxOTFDMy4zNzM0NCA3LjU0NDUzIDMuMzczNDQgMTAuNzEwNCA1LjMyNjA2IDEyLjY2M0M3LjI3ODY4IDE0LjYxNTYgMTAuNDQ0NSAxNC42MTU2IDEyLjM5NzEgMTIuNjYzQzE0LjM0OTggMTAuNzEwNCAxNC4zNDk4IDcuNTQ0NTMgMTIuMzk3MSA1LjU5MTkxWk01LjkxNTMyIDEyLjA3MzdDNC4yODgxMyAxMC40NDY1IDQuMjg4MTMgNy44MDgzNSA1LjkxNTMyIDYuMTgxMTZDNy41NDI1IDQuNTUzOTggMTAuMTgwNyA0LjU1Mzk4IDExLjgwNzkgNi4xODExNkMxMy40MzUxIDcuODA4MzUgMTMuNDM1MSAxMC40NDY1IDExLjgwNzkgMTIuMDczN0MxMC4xODA3IDEzLjcwMDkgNy41NDI1IDEzLjcwMDkgNS45MTUzMiAxMi4wNzM3WiIgZmlsbD0iIzI2NDlCNiIvPgo8L3N2Zz4K`);
   }
 
@@ -55,23 +54,11 @@ export class SelectMultipleComponent implements OnInit, OnChanges {
     }
   }
 
-  getSelectedValue(status: boolean,name: string, value? : string | number){
-    if(status) {
-      if (value) {
-        this.checkedList.push({checked : status,name:name, value: value});
-      } else {
-        this.checkedList.push({checked : status,name:name});
-      }
-    }else{
-      console.log(this.list)
-      const index = this.checkedList.findIndex(checked => checked.name === name);
-      const indexList = this.list?.findIndex(list => list.name === name);
-      this.checkedList.splice(index,1);
-      if (indexList! >= 0 ) {
-        this.list![indexList!].checked = false;
-      }
-    }
+  getListChecked(): IListLCTSelectMultiple[] {
+    return this.list.filter((o => { return o.checked === true }))
+  }
 
+  getSelectedValue(status: boolean,name: string, value? : string | number){
     if (value) {
       this.currentSelected = {checked : status,name:name, value: value};
     } else {
@@ -85,7 +72,7 @@ export class SelectMultipleComponent implements OnInit, OnChanges {
     this.shareIndividualStatus();
   }
   shareChecked(){
-    this.shareCheckedList.emit(this.checkedList);
+    this.shareCheckedList.emit(this.getListChecked());
   }
   shareIndividualStatus(){
     this.shareIndividualCheckedList.emit(this.currentSelected);
@@ -96,7 +83,6 @@ export class SelectMultipleComponent implements OnInit, OnChanges {
   }
 
   cleanSelecteds() {
-    this.checkedList = [];
     this.list = this.list?.map((item) =>{
       return {name: item.name, value: item.value, checked: false};
     })
