@@ -79,6 +79,7 @@ export class SelectMultipleComponent implements OnInit, OnChanges {
   }
 
   uncheck(name: string, value?: string | number) {
+    this.list.filter((el)=>{return el.name === name})[0].checked = false;
     this.getSelectedValue(false, name, value);
   }
 
