@@ -36,20 +36,23 @@ export class ClipboardComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
   }
 
-  copyToClipboard(): void {
-    navigator.clipboard.writeText(this.message)
-      .then(() => {
-        console.log('Texto copiado al portapapeles: ', this.message);
-        this.copyActive = true;
-       
-        setTimeout(() => {
-          this.copyActive = false;
-        }, 3000)
-      })
-      .catch(err => {
-        console.error('Error al copiar al portapapeles: ', err);
-      });
+  copyToClipboard() {
+    this.copyActive = true;
+    const input = document.createElement("input");
+    input.setAttribute("value", this.message);
+    input.setAttribute('inputMode', 'none');
+    document.body.appendChild(input);
+
+    setTimeout(() => {
+      input.select();
+      document.execCommand("copy");
+      document.body.removeChild(input);
+    });
+    setTimeout(() => {
+      this.copyActive = false;
+    }, 3000)
   }
+  
   close() {
     this.copyActive = false;
   }
