@@ -1,0 +1,24 @@
+.copy_icon {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+
+.copy-message {
+  background-color: #2649B6;
+  color: white;
+  width: 147px;
+  padding: 5px 10px !important;
+  display: block;
+  position: absolute;
+  border-radius: 5px;
+  font-size: 16px;
+  top: 90px;
+  height: 37px;
+  /* right: -10px; */
+  font-weight: 400 !important;
+  align-items: center;
+  display: flex;
+  z-index: 3;
+  margin-left: -55px;
+}

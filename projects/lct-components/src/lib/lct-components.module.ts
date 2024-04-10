@@ -13,6 +13,8 @@ import { TooltipComponent } from './tooltip/tooltip.component';
 import { ModalTooltipDirective } from './modal-tooltip.directive';
 import { ModalTooltipComponent } from './modal-tooltip/modal-tooltip.component';
 import { ModalChangeStoreComponent } from './modal/modal-change-store/modal-change-store';
+import { ClipboardComponent } from './clipboard/clipboard.component';
+import { ClipboardDirective } from './clipboard.directive'
 
 
 
@@ -29,7 +31,9 @@ import { ModalChangeStoreComponent } from './modal/modal-change-store/modal-chan
     TooltipComponent,
     ModalTooltipDirective,
     ModalTooltipComponent,
-    ModalChangeStoreComponent
+    ModalChangeStoreComponent,
+    ClipboardComponent,
+    ClipboardDirective
   ],
   imports: [
     CommonModule,
@@ -46,6 +50,7 @@ import { ModalChangeStoreComponent } from './modal/modal-change-store/modal-chan
     TooltipDirective,
     ModalTooltipDirective,
     ModalChangeStoreComponent,
+    ClipboardDirective
   ],
 })
 export class LctComponentsModule { }
