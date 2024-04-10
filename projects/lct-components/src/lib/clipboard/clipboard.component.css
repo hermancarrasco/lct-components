@@ -13,7 +13,7 @@
   position: absolute;
   border-radius: 5px;
   font-size: 16px;
-  top: 90px;
+  /* top: 90px; */
   height: 37px;
   /* right: -10px; */
   font-weight: 400 !important;
@@ -21,4 +21,5 @@
   display: flex;
   z-index: 3;
   margin-left: -55px;
+  margin-top: -40px;
 }
