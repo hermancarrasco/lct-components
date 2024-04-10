@@ -8,7 +8,7 @@ import {InputWithIconComponent} from "./components/input-with-icon/input-with-ic
 import {SelectSimpleComponent} from "./components/select-simple/select-simple.component";
 import {SelectMultipleComponent} from "./components/select-multiple/select-multiple.component";
 import {SwitchComponent} from "./components/switch/switch.component";
-import {TooltipComponent} from "./components/tooltip/tooltip.component";
+import { TooltipComponent } from "./components/tooltip/tooltip.component";
 import { ButtonRoundComponent } from './components/button-round/button-round.component';
 
 const routes: Routes = [
