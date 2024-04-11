@@ -6,6 +6,7 @@ export interface IListLCTSelectMultiple {
   checked: boolean;
   value?: string | number;
   disabled?: boolean;
+  secondaryValue?: string | number;
 }
 
 @Component({
