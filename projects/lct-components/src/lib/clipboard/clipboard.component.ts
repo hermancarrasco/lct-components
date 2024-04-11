@@ -41,12 +41,11 @@ export class ClipboardComponent implements OnInit, AfterViewInit {
     input.setAttribute("value", this.message);
     input.setAttribute('inputMode', 'none');
     document.body.appendChild(input);
+    console.error('Se Copia al portapapeles: ', input.value);//CONSOLE PARA DEBUG
     if (input.value !== '') {
-      console.error('Se Copia al portapapeles: ', input.value);
       this.copyActive = true;
     }
     setTimeout(() => {
-      
       input.select();
       document.execCommand("copy");
       document.body.removeChild(input);
@@ -54,7 +53,6 @@ export class ClipboardComponent implements OnInit, AfterViewInit {
     setTimeout(() => {
       this.copyActive = false;
     }, 3000)
-
   }
   
   close() {
