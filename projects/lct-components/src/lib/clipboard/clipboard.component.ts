@@ -46,10 +46,17 @@ export class ClipboardComponent implements OnInit, AfterViewInit {
       this.copyActive = true;
     }
     setTimeout(() => {
-      input.select();
-      document.execCommand("copy");
-      document.body.removeChild(input);
+
+      navigator.clipboard.writeText(input.value)
+      .then(() => {
+        console.log('Texto copiado al portapapeles!');
+      })
+      .catch(err => {
+        console.error('Error al copiar al portapapeles: ', err);
+      });
+
     });
+    
     setTimeout(() => {
       this.copyActive = false;
     }, 3000)
