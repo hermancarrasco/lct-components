@@ -54,7 +54,7 @@ export class ClipboardComponent implements OnInit, AfterViewInit {
       this.copyActive = false;
     }, 3000)
   }
-  
+
   close() {
     this.copyActive = false;
   }
