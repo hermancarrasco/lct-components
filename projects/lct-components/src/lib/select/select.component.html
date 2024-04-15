@@ -15,7 +15,7 @@
            aria-hidden="true"/>
     </button>
     <div class="drop-show" *ngIf="showDropDown" >
-      <div *ngIf="options.length>7"  style="width: 95%;padding-left:5%;">
+      <div *ngIf="options.length>=quantityToFilter"  style="width: 95%;padding-left:5%;">
         <lct-input-text placeholder="Buscar" title=""
           [(ngModel)]="filterStore"
           (ngModelChange)="filterData($event)"

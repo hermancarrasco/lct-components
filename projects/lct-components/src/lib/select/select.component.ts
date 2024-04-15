@@ -28,6 +28,7 @@ export class SelectComponent implements OnInit, OnChanges {
   @Input() disabled: 'true'| 'false' | 'disabled'| boolean | '' = 'false';
   @Input() showIcon = true;
   @Input() placeholder = 'Insert placeholder';
+  @Input() quantityToFilter: number = 7;
   @Output() value = new EventEmitter<string>();
 
   filterStore = '';
