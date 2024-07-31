@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import {DomSanitizer} from '@angular/platform-browser';
 
-export interface IListLCTSelectMultiple {
+export interface ILCTSelectMultiple {
   name: string;
   checked: boolean;
   value?: string | number;
@@ -12,7 +12,7 @@ export interface IListLCTSelectMultiple {
 export interface IListSelectMultipleNested {
   name: string;
   checkedAll?: boolean;
-  listOptions: IListLCTSelectMultiple[];
+  listOptions: ILCTSelectMultiple[];
   disabled?: boolean | string;
   open?: boolean;
 }
@@ -42,7 +42,7 @@ export class SelectMultipleNestedComponent implements OnInit, OnChanges  {
   iconFinder;
   filter: string = '';
 
-  currentSelected : IListLCTSelectMultiple | null = null;
+  currentSelected : ILCTSelectMultiple | null = null;
   showDropDown = false;
   searchValue: string = '';
 
@@ -66,8 +66,8 @@ export class SelectMultipleNestedComponent implements OnInit, OnChanges  {
     }
   }
 
-  getListChecked(): IListLCTSelectMultiple[] {
-    return this.listFiltered.reduce((accumulator: IListLCTSelectMultiple[], category) => {
+  getListChecked(): ILCTSelectMultiple[] {
+    return this.listFiltered.reduce((accumulator: ILCTSelectMultiple[], category) => {
       const checkedOptions = category.listOptions.filter(option => option.checked);
       return accumulator.concat(checkedOptions);
     }, []);
@@ -111,7 +111,7 @@ export class SelectMultipleNestedComponent implements OnInit, OnChanges  {
     this.shareChecked();
   }
 
-  toggleOption(category: IListSelectMultipleNested | null, option: IListLCTSelectMultiple): void {
+  toggleOption(category: IListSelectMultipleNested | null, option: ILCTSelectMultiple): void {
     if (category) {
       category.checkedAll = category.listOptions.filter(option => !option.disabled).every(option => option.checked);
       this.currentSelected = option;
@@ -120,7 +120,7 @@ export class SelectMultipleNestedComponent implements OnInit, OnChanges  {
     }
   }
 
-  discardOption(category: IListSelectMultipleNested | null, option: IListLCTSelectMultiple):void {
+  discardOption(category: IListSelectMultipleNested | null, option: ILCTSelectMultiple):void {
     this.showDropDown = !this.showDropDown;
     if (category) {
       option.checked = false;
@@ -155,7 +155,7 @@ export class SelectMultipleNestedComponent implements OnInit, OnChanges  {
   }
 
 
-  findOptionCategory(option: IListLCTSelectMultiple): IListSelectMultipleNested | null {
+  findOptionCategory(option: ILCTSelectMultiple): IListSelectMultipleNested | null {
     for (let category of this.list) {
       if (category.listOptions.includes(option)) {
         return category;
