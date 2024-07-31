@@ -14,6 +14,7 @@ import { SelectSimpleComponent } from './select-simple/select-simple.component';
 import { SelectMultipleComponent } from './select-multiple/select-multiple.component';
 import { SwitchComponent } from './switch/switch.component';
 import { TooltipComponent } from './tooltip/tooltip.component';
+import { SelectMultipleNestedComponent } from './select-multiple-nested/select-multiple-nested.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { TooltipComponent } from './tooltip/tooltip.component';
     SelectMultipleComponent,
     SwitchComponent,
     TooltipComponent,
+    SelectMultipleNestedComponent,
   ],
   exports: [
     ContentComponent,

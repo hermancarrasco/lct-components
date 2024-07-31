@@ -7,6 +7,7 @@ import {InputSimpleComponent} from "./components/input-simple/input-simple.compo
 import {InputWithIconComponent} from "./components/input-with-icon/input-with-icon.component";
 import {SelectSimpleComponent} from "./components/select-simple/select-simple.component";
 import {SelectMultipleComponent} from "./components/select-multiple/select-multiple.component";
+import {SelectMultipleNestedComponent} from "./components/select-multiple-nested/select-multiple-nested.component";
 import {SwitchComponent} from "./components/switch/switch.component";
 import { TooltipComponent } from "./components/tooltip/tooltip.component";
 import { ButtonRoundComponent } from './components/button-round/button-round.component';
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'inputWithIcon', component: InputWithIconComponent},
   { path: 'selectSimple', component: SelectSimpleComponent},
   { path: 'selectMultiple', component: SelectMultipleComponent},
+  { path: 'selectMultipleNested', component: SelectMultipleNestedComponent},
   { path: 'switch', component: SwitchComponent},
   { path: 'tooltip', component: TooltipComponent},
   { path: '', redirectTo: '/buttonSimple', pathMatch: 'full' },
