@@ -10,7 +10,7 @@ import { LctComponentsModule } from '../../projects/lct-components/src/lib/lct-c
 @NgModule({
   declarations: [
     AppComponent,
-    ButtonRoundComponent
+    ButtonRoundComponent,
   ],
   imports: [
     BrowserModule,

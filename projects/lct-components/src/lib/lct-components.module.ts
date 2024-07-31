@@ -14,7 +14,8 @@ import { ModalTooltipDirective } from './modal-tooltip.directive';
 import { ModalTooltipComponent } from './modal-tooltip/modal-tooltip.component';
 import { ModalChangeStoreComponent } from './modal/modal-change-store/modal-change-store';
 import { ClipboardComponent } from './clipboard/clipboard.component';
-import { ClipboardDirective } from './clipboard.directive'
+import { ClipboardDirective } from './clipboard.directive';
+import { SelectMultipleNestedComponent } from './select-multiple-nested/select-multiple-nested.component'
 
 
 
@@ -33,7 +34,8 @@ import { ClipboardDirective } from './clipboard.directive'
     ModalTooltipComponent,
     ModalChangeStoreComponent,
     ClipboardComponent,
-    ClipboardDirective
+    ClipboardDirective,
+    SelectMultipleNestedComponent
   ],
   imports: [
     CommonModule,
@@ -50,7 +52,8 @@ import { ClipboardDirective } from './clipboard.directive'
     TooltipDirective,
     ModalTooltipDirective,
     ModalChangeStoreComponent,
-    ClipboardDirective
+    ClipboardDirective,
+    SelectMultipleNestedComponent
   ],
 })
 export class LctComponentsModule { }

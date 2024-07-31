@@ -52,6 +52,10 @@ export class MenuComponent implements OnInit {
         {
           title: 'select multiple',
           key: 'selectMultiple'
+        },
+        {
+          title: 'select multiple nested',
+          key: 'selectMultipleNested'
         }
       ]
     },
