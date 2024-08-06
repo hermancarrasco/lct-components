@@ -16,3 +16,4 @@ export * from './lib/tooltip.directive';
 export * from './lib/clipboard.directive';
 export * from './lib/modal-tooltip.directive';
 export * from './lib/modal/modal-change-store/modal-change-store';
+export * from './lib/rate-experience/rate-experience.component';

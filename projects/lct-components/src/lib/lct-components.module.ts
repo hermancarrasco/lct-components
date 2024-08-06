@@ -15,7 +15,8 @@ import { ModalTooltipComponent } from './modal-tooltip/modal-tooltip.component';
 import { ModalChangeStoreComponent } from './modal/modal-change-store/modal-change-store';
 import { ClipboardComponent } from './clipboard/clipboard.component';
 import { ClipboardDirective } from './clipboard.directive';
-import { SelectMultipleNestedComponent } from './select-multiple-nested/select-multiple-nested.component'
+import { SelectMultipleNestedComponent } from './select-multiple-nested/select-multiple-nested.component';
+import { RateExperienceComponent } from './rate-experience/rate-experience.component'
 
 
 
@@ -35,7 +36,8 @@ import { SelectMultipleNestedComponent } from './select-multiple-nested/select-m
     ModalChangeStoreComponent,
     ClipboardComponent,
     ClipboardDirective,
-    SelectMultipleNestedComponent
+    SelectMultipleNestedComponent,
+    RateExperienceComponent
   ],
   imports: [
     CommonModule,
@@ -53,7 +55,8 @@ import { SelectMultipleNestedComponent } from './select-multiple-nested/select-m
     ModalTooltipDirective,
     ModalChangeStoreComponent,
     ClipboardDirective,
-    SelectMultipleNestedComponent
+    SelectMultipleNestedComponent,
+    RateExperienceComponent
   ],
 })
 export class LctComponentsModule { }

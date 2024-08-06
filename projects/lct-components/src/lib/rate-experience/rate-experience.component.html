@@ -1,0 +1,182 @@
+<div class="container-rate-experience" *ngIf="!respVote && !finallyThanks">
+    <div class="container mt-3" style="padding-left: 25px;">
+
+        <div class="row mt-4">
+            <div class="col-11 text-question mt-2">
+            <b>{{titleQuestion}}</b>
+            </div>
+            <div class="col-1 p-0">
+                <svg (click)="close()" style=" cursor: pointer; margin-top: 15px; margin-left: 23px;" width="15"
+                height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M13.7704 0.937266C13.3804 0.547266 12.7504 0.547266 12.3604 0.937266L7.47043 5.81727L2.58043 0.927266C2.19043 0.537266 1.56043 0.537266 1.17043 0.927266C0.78043 1.31727 0.78043 1.94727 1.17043 2.33727L6.06043 7.22727L1.17043 12.1173C0.78043 12.5073 0.78043 13.1373 1.17043 13.5273C1.56043 13.9173 2.19043 13.9173 2.58043 13.5273L7.47043 8.63727L12.3604 13.5273C12.7504 13.9173 13.3804 13.9173 13.7704 13.5273C14.1604 13.1373 14.1604 12.5073 13.7704 12.1173L8.88043 7.22727L13.7704 2.33727C14.1504 1.95727 14.1504 1.31727 13.7704 0.937266Z"
+                    fill="#3C4149" />
+                </svg>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-auto ps-2 pe-1">
+                <lct-button buttonType="quintary" (click)="response(0)" width="40px" title="0"></lct-button>
+            </div>
+            <div class="col-auto ps-2 pe-1">
+                 <lct-button buttonType="quintary" (click)="response(1)" width="40px" title="1"></lct-button>
+            </div>
+            <div class="col-auto ps-2 pe-1">
+                 <lct-button buttonType="quintary" (click)="response(2)" width="40px" title="2"></lct-button>
+            </div>
+            <div class="col-auto ps-2 pe-1">
+                <lct-button buttonType="quintary" (click)="response(3)" width="40px" title="3"></lct-button>
+            </div>
+            <div class="col-auto ps-2 pe-1">
+                <lct-button buttonType="quintary" (click)="response(4)" width="40px" title="4"></lct-button>
+            </div>
+            <div class="col-auto ps-2 pe-1">
+                <lct-button buttonType="quintary" (click)="response(5)" width="40px" title="5"></lct-button>
+            </div>
+            <div class="col-auto ps-2 pe-1">
+                 <lct-button buttonType="quintary" (click)="response(6)" width="40px" title="6"></lct-button>
+            </div>
+            <div class="col-auto ps-2 pe-1">
+                <lct-button buttonType="quintary" (click)="response(7)" width="40px" title="7"></lct-button>
+            </div>
+            <div class="col-auto ps-2 pe-1">
+                <lct-button buttonType="quintary" (click)="response(8)" width="40px" title="8"></lct-button>
+            </div>
+            <div class="col-auto ps-2 pe-1">
+                <lct-button buttonType="quintary" (click)="response(9)" width="40px" title="9"></lct-button>
+            </div>
+            <div class="col-auto ps-2 pe-1">
+                <lct-button buttonType="quintary" (click)="response(10)" width="40px" title="10"></lct-button>
+            </div>
+        </div>
+
+        <div class="row mt-2 mb-4">
+            <div class="col-6 font-footer text-start">Mal, tuve inconvenientes</div>
+            <div class="col-6 font-footer text-end">Muy bien, fue muy fácil</div>
+        </div>
+    </div>
+</div>
+
+<div class="rate-expeciente-write" *ngIf="respVote && !finallyThanks">
+    <div class="container mt-3" style="padding-left: 25px;">
+        <div class="row mt-4">
+            <div class="col-11 pe-0 text-question mt-2">
+            <b>Marcaste que tuviste inconvenientes,</b> ¿nos puedes dar detalles de qué <br>
+             pasó?, esto nos ayudara a mejorar la experiencia en Backstore.
+            </div>
+            <div class="col-1 p-0">
+                <svg (click)="close()" style=" cursor: pointer; margin-top: 15px;" width="15"
+                height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M13.7704 0.937266C13.3804 0.547266 12.7504 0.547266 12.3604 0.937266L7.47043 5.81727L2.58043 0.927266C2.19043 0.537266 1.56043 0.537266 1.17043 0.927266C0.78043 1.31727 0.78043 1.94727 1.17043 2.33727L6.06043 7.22727L1.17043 12.1173C0.78043 12.5073 0.78043 13.1373 1.17043 13.5273C1.56043 13.9173 2.19043 13.9173 2.58043 13.5273L7.47043 8.63727L12.3604 13.5273C12.7504 13.9173 13.3804 13.9173 13.7704 13.5273C14.1604 13.1373 14.1604 12.5073 13.7704 12.1173L8.88043 7.22727L13.7704 2.33727C14.1504 1.95727 14.1504 1.31727 13.7704 0.937266Z"
+                    fill="#3C4149" />
+                </svg>
+            </div>
+        </div>
+
+        <div class="row mt-2">
+            <div class="form-group">
+                <textarea   [(ngModel)]="inputValue" class="form-control"  rows="3" [placeholder]="'Ingresa tu comentario acá'"></textarea>
+              </div>
+        </div>  
+        <div class="row mt-2 mb-4 d-flex justify-content-end">
+            <div class="col-3 pe-0 font-footer"><lct-button buttonType="sextary" title="Primary" (click)="back()" title="Volver Atras"></lct-button></div>
+            <div class="col-2 font-footer"><lct-button title="Primary" (click)="sendComentary()" title="Enviar"></lct-button></div>
+        </div>
+
+    </div>
+    
+</div>
+
+
+<div class="rate-expeciente-thanks" *ngIf="finallyThanks">
+
+
+
+
+
+
+    <div class="container mt-3" style="padding-left: 25px;">
+        <div class="row mt-4 justify-content-center">
+            <div class="col-10 text-center text-question mt-2">
+                    <svg style="width: 50px; height: 50px; margin-left:22px" version="1.1" viewBox="0 0 2048 1782" width="1280" height="1280" xmlns="http://www.w3.org/2000/svg">
+<path transform="translate(0)" d="m0 0h2048v1782h-2048z" fill="#FEFEFE"/>
+<path transform="translate(989,82)" d="m0 0 26 1 20 3 20 6 19 8 14 8 12 9 10 9 10 10 11 14 10 14 9 15 10 18 13 26 13 34 8 24 8 36 4 25 2 20 1 20v30l-3 39-4 28-7 33-4 15-1 8h409l60 1 17 1 24 4 20 6 25 12 17 12 14 12 7 7 9 11 11 16 9 16 7 16 9 27 3 15 1 11v25l-4 19-11 29-8 17-8 12-14 18-11 12-11 11-18 13-11 8 1 7 10 26 3 11 1 7v41l-3 16-6 21-9 19-10 15-9 15-13 15-16 16-28 16 1 10 10 28 3 14 1 12v23l-3 21-12 36-8 16-7 11-12 16-11 12-7 7-11 9-13 10-11 9-2 3 1 5 8 16 5 12 2 13 1 13v20l-2 15-7 24-9 21-13 22-9 12-12 13-9 10-13 11-13 9-19 10-19 7-19 5-21 3-20 1-141 1h-51l-121-1-36-1-39-3-38-5-34-7-41-11-41-14-29-11-62-23-47-17-18-8-8-2h-8l-5 3-5 5-4 3-10 2-38 1h-316l-12-2-11-6-12-8-6-5-8-11-3-9-2-21v-232l1-506 1-68 2-15 5-13 6-8 11-8 16-9 4-1 23-1 296-1 17-1 10-2 24-13 15-10 22-15 13-10 11-10 8-7 9-9 10-13 12-18 17-28 8-17 9-24 9-32 6-35 3-27 2-27 1-31 3-18 10-30 8-16 8-12 11-13 18-18 18-13 16-9 18-8 14-5 21-4z" fill="#2E4FB3"/>
+<path transform="translate(999,202)" d="m0 0 8 1 9 3 10 6 10 10 10 14 9 16 9 19 9 27 9 33 4 23 3 32v37l-3 23-9 42-7 25-10 28-15 35-4 13v16l5 13 6 11 9 10 13 8 12 5 12 2 559 1 17 2 11 6 13 11 6 9 4 13 1 16-2 12-8 17-11 11-11 7-9 4-13 2-93 1-9 3-11 8-12 10-10 16-4 11v20l4 13 7 11 11 13 14 7 20 5h10l21 9 11 6 8 8 4 10 4 18v10l-5 17-4 8-12 13-6 5-8 3-8 2-10 1h-76l-15 1-15 4-15 8-7 6-6 10-4 9-2 11v22l4 12 10 16 6 7 5 3 17 6 11 4 5 1 22 2 10 4 15 20 4 8 4 14v13l-4 14-7 14-4 5-9 6-14 7-6 2-13 2h-87l-12 3-14 7-11 10-7 11-4 10-2 11v11l2 10 8 16 8 11 8 7 14 7 31 3 15 8 12 9 6 5 6 10 3 11v18l-2 8-5 13-8 10-9 6-3 3-1 4h-5l-2 2-13 2-45 1h-312l-44-4-29-5-36-9-25-8-28-10-89-33-37-14-53-18-5-3-1-16-2-204v-236l1-162 1-71 7-6 27-16 16-11 13-10 16-12 14-12 12-11 26-26 9-11 12-15 22-33 10-18 9-19 10-26 9-27 8-31 7-36 5-38 2-24 2-46 6-8 5-6 14-9 12-4z" fill="#FEFEFE"/>
+<path transform="translate(539,675)" d="m0 0h53l7 2v653l-2 11-5 6-6 12-5 4-138 1h-61l-2-4-1-116-1-565 2-2 27-1z" fill="#FEFEFE"/>
+<path transform="translate(723,1472)" d="m0 0 7 1 16 6 21 7 21 8 24 9 14 5 9 1v2l4 1 13 6 34 12 23 8 16 4 37 9 25 4 26 2 2 1h17l14 1h72l13 1h7l3 1 7-1h17l21 1h78l22-1h42l26 2h65l17-1 5-1 28-7 8-3h3v-2l7-4 12-3 2-4 3 1v-2l8-4 6-5 5-1v4l-5 5-13 9-19 10-19 7-19 5-21 3-20 1-141 1h-51l-121-1-36-1-39-3-38-5-34-7-41-11-41-14-29-11-81-30-1-2-25-9-6-4z" fill="#3A5DC3"/>
+<path transform="translate(1189,528)" d="m0 0h1v7h409l60 1 17 1 24 4 20 6 25 12 17 12 14 12 7 7 9 11 11 16 9 16 7 16 9 27 3 15 1 11v25l-4 19-11 29-8 17-8 12-6 8-4-1 7-14 4-7 4-9 1-9 3-10 3-8 2-18 1-17v-25l-1-25-1-10-2-10 1-6-5-13-8-13-4-6-4-1-1-3h-2l-2-5h-2l-9-11-4-3v-2h-2v-2l-6-3v-2l-4-1-16-11-8-5-5-2-11-5-9-3h-3v-2l-12-2-5-1-17-4-7-1-13-1h-24l-48 1-26 1-75-1h-135l-78-1h-58l-16-1-8-2 1-6z" fill="#3B5EC4"/>
+<path transform="translate(396,673)" d="m0 0h22l15 1h164l5 5 2 40-1 20-2 86v66l1 10 1 15-1 2 3 1 1 16v22l1 3-1 4 1 7v211l-1 36v28l-1 39-2 23-1 3-2 25-2 2v-661l-6-1h-53l-132 1-27 1-2 1 1-4 3-1z" fill="#3B5EC4"/>
+<path transform="translate(267,593)" d="m0 0 2 4 1 9-1 7h-2l-1 36v214l-1 99v25l1 125 1 6v26l1 5v14l1 7v152l-1 21 1 13v52l1 4-1 4 1 13 1 6 4 13 2 6 2 7-3 2-9-11-4-11-2-21v-232l1-506 1-68 2-15z" fill="#3A5DC3"/>
+<path transform="translate(1055,550)" d="m0 0 4 1-4 16-2 16-2 6-1 2v12l5 14 3 11 5 5 6 4v2l4 1 11 6 18 3h3v2l7-1h8l2-1v2l7-1h17l2-1 4 1 3-1 20-1h71l1 2-1 2h-19-2l-12 1h403l17-2h30l10 3 7 1 16 9 8 8 8 16 2 5 2 12v11l-4 11-2 6-5 9-7 9-6 1-2 5h-2l1 3-7 3-9 2-10-1v-1l10-3 9-5 9-7 7-7 8-17 2-12-1-16-4-13-6-9-12-10-11-6-17-2-559-1-12-2-12-5-14-9-7-7-8-14-5-13v-16l6-18z" fill="#3A5DC3"/>
+<path transform="translate(1655,1091)" d="m0 0h1l4 16 8 22 3 14 1 12v23l-3 21-12 36-8 16-7 11-12 16-11 12-7 7-11 9-13 10-8 7-2-1 1-5 6-5h2v-2l8-7 10-8 10-9 5-5 8-11 3-5 6-9v-5h2l2-6 2-4 3-8 2-4 4-16 1-10 2-22v-36l-1-18-1-12z" fill="#3A5DC3"/>
+<path transform="translate(1809,631)" d="m0 0h2l8 18 9 27 3 15 1 11v25l-4 19-11 29-8 17-8 12-6 8-4-1 7-14 4-7 4-9 1-9 3-10 3-8 2-18 1-17v-25l-1-25-1-10-2-10 1-6-4-10z" fill="#3A5DC3"/>
+<path transform="translate(1574,1326)" d="m0 0 1 2 1 5 8 16 5 12 2 13 1 13v20l-2 15-7 24-9 21-13 22h-3l-2-2 8-16 5-9v-8l4-12 2-4 3-28v-32l-2-12-1-25h-2v-3l-4-1-1-2h2l2-6z" fill="#3A5DC3"/>
+<path transform="translate(1380,1233)" d="m0 0 2 1-3 7-1 2h-2l-2 4-6 7-5 10-2 12 1 15 11 23 4 4v2l4 2 4 1v3l6 2 7 2v2l7 1 7 2h6l4 2 9 2 5 2 6 2 13 9 5 4v2h2l7 10 5 16v18l-2 7-4 10-3 9-3 6-3 1-2 4-5 5-7 2-1 1h-6v2h-8l4-2 2-2h5l1-4h2l2-4 8-5 8-11 5-13 1-6v-18l-4-13-6-9-12-9-13-8-6-3-31-3-14-7-11-10-9-14-5-11-2-10v-11l3-14 7-14 10-11z" fill="#3A5DC3"/>
+<path transform="translate(1734,866)" d="m0 0 2 4 11 29 3 11 1 7v41l-3 16-6 21-9 19-10 15-3 5-3-3 8-18 5-7 2-14 4-10 1-7 2-23v-22l-3-30-2-14v-7l1-4z" fill="#3B5EC4"/>
+<path transform="translate(1633,651)" d="m0 0h30l10 3 7 1 16 9 8 8 8 16 2 5 2 12v11l-4 11-2 6-5 9-7 9-6 1-2 5h-2l1 3-7 3-9 2-10-1v-1l10-3 9-5 9-7 7-7 8-17 2-12-1-16-4-13-6-9-12-10-11-6-17-2-445-1v-1l404-1z" fill="#3B5EC4"/>
+<path transform="translate(1456 1e3)" d="m0 0h2l1 4-3 7-3 5-2 19-5 7-1 3v7l1 8 2 2v4h2l4 7 3 11 6 2 6 4 9 3 5 3 11 3 7 2 11 3 5 4v2l-22-1-12-3-17-7-7-3-7-6-11-17-4-10-1-4v-22l3-14 7-13 6-7z" fill="#3A5DC3"/>
+<path transform="translate(992,197)" d="m0 0 20 1 8 3 12 9 9 10 10 15 14 27 8 20 8 25 7 25 3 17-1 3v71h-1l-1-37-3-32-4-23-10-36-8-24-12-25-10-16-9-11-10-9-10-5-8-2-14 1-14 5-13 9-6 7-2-1 1-6 5-6 11-8 15-6z" fill="#3A5DC3"/>
+<path transform="translate(1529,787)" d="m0 0 2 1-2 12-3 10-3 6v11l1 3 1 5 3 6 5 7 2 6h2l3 4v2h2l3 4v2h2l2 3 3 1v2l10 3 11 3 15 2 26 13 4 3v2l4 2 4 6h-5l-7-7-16-8-16-7h-10l-20-5-14-7-10-11-9-14-4-13v-20l4-11 8-13z" fill="#3A5DC3"/>
+<path transform="translate(791,1375)" d="m0 0h7l26 10 84 31 24 9 34 10 25 6v1h-21l-6-4h-11l-15-4-11-3-4-3-4-1v-2l-7-1v-2l-3 1-9-3-7-2v-2l-7-1-8-3-3-1v-2h-6l-4-2-12-3-7-3-7-4h-2l-1-2-6-1-10-4-10-2-8-3-4-3v-2h-3v-2h-3z" fill="#3A5DC3"/>
+<path transform="translate(1501,992)" d="m0 0h86v1h-5l-1 3h-2v2h-2v2l-2 1-21 1h-78l-3-2-3 4-1-1h-5l-1-2 11-5 12-3z" fill="#3A5DC3"/>
+<path transform="translate(953,228)" d="m0 0 1 2-2 46-2 24-5 38-4-3-1 2v-8l2-13 1-15 1-58 4-10z" fill="#3A5DC3"/>
+<path transform="translate(1042,89)" d="m0 0 7 1 21 8 15 8 14 10 12 11 9 9 11 14 4 5-1 4-4-2-4-5-9-11-10-12-8-6-7-3-2-1v-2l-6-2-8-6-8-4-10-4-9-4-4-1v-2h-3v-2h-2v-2z" fill="#3A5DC3"/>
+<path transform="translate(1531,1120)" d="m0 0 4 2 11 14 5 11 3 9 1 13-2 10h-2l-2 14-3 7h-2l-2 5-4 5-7 5h-3l-1 3-8 1-5 2-3-1 12-7 8-4 5-4 6-11 5-12 2-8v-13l-5-17-5-9-2-6z" fill="#3B5EC4"/>
+<path transform="translate(916,433)" d="m0 0 3 3-3 9-8 20-10 20-6 10-6 9-3-2h2l-1-4 4-8 6-11 4-9 6-13 2-10 7-12z" fill="#3A5DC3"/>
+<path transform="translate(1623,908)" d="m0 0 5 1 5 16 2 10-1 7-1 2-1 12h-2v5h-2l-3 11-2 3h-2v2h-3v2l-8 7h-5l6-7 10-11 5-13 3-11v-10l-5-21z" fill="#3B5EC4"/>
+<path transform="translate(891,124)" d="m0 0 2 2-5 7-4 1v2h-2l-1 3h-2l-1 4h-2l-1 3h-2l-2 5-4 2-2 5-4 4-2-1v3h-2l-2 5-5 3 2-5 9-14 11-13 15-15z" fill="#3A5DC3"/>
+<path transform="translate(1712,1037)" d="m0 0v3l1 5-12 14-16 16-12 7-2-1 2-2v-3l9-6 7-7h2v-2h2l3-6h2l2-4 8-9h2l1-4z" fill="#3A5DC3"/>
+<path transform="translate(765,468)" d="m0 0 1 3-4 8h-2l-2 5-5 4-3 4h-2l-2 4h-2l-2 4-14 11-3-2 13-12 8-7 9-9z" fill="#3B5EC4"/>
+<path transform="translate(443,1363)" d="m0 0h137v1l-17 2-37-1-83-1z" fill="#3B5EC4"/>
+<path transform="translate(762,1489)" d="m0 0 6 1 12 4 10 4 14 5h2v2l5 1 27 10v1l-7-1-30-11-27-10-12-5z" fill="#3153B8"/>
+<path transform="translate(923,1546)" d="m0 0 7 1 36 8 14 3v1h-9l-28-6-19-5z" fill="#3254B8"/>
+<path transform="translate(789,430)" d="m0 0 3 1-2 5-1 2h-2l-1 5-7 11-4 5-3-1 13-21z" fill="#3B5EC4"/>
+<path transform="translate(1068,643)" d="m0 0 6 2 8 4 14 3 33 1v1h-39l-12-4-9-5z" fill="#3052B6"/>
+<path transform="translate(1031,216)" d="m0 0 4 2 6 7 4 5 5 11h-2l-10-15-7-8z" fill="#3152B7"/>
+<path transform="translate(799,412)" d="m0 0 3 1-3 10-4 6-2-1 1-6z" fill="#3B5EC4"/>
+<path transform="translate(1663,1082)" d="m0 0h8l-3 3-9 5h-2l1-5z" fill="#3B5EC4"/>
+<path transform="translate(1051,243)" d="m0 0 4 5 4 8v2h-2l-6-12z" fill="#3355BA"/>
+<path transform="translate(1535,1512)" d="m0 0 4 1-2 5h-6l2-4z" fill="#3A5DC3"/>
+                    </svg>
+            </div>
+
+            <div class="col-auto p-0">
+                <svg (click)="close()" style=" cursor: pointer; margin-top: 15px;" width="15"
+                height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M13.7704 0.937266C13.3804 0.547266 12.7504 0.547266 12.3604 0.937266L7.47043 5.81727L2.58043 0.927266C2.19043 0.537266 1.56043 0.537266 1.17043 0.927266C0.78043 1.31727 0.78043 1.94727 1.17043 2.33727L6.06043 7.22727L1.17043 12.1173C0.78043 12.5073 0.78043 13.1373 1.17043 13.5273C1.56043 13.9173 2.19043 13.9173 2.58043 13.5273L7.47043 8.63727L12.3604 13.5273C12.7504 13.9173 13.3804 13.9173 13.7704 13.5273C14.1604 13.1373 14.1604 12.5073 13.7704 12.1173L8.88043 7.22727L13.7704 2.33727C14.1504 1.95727 14.1504 1.31727 13.7704 0.937266Z"
+                    fill="#3C4149" />
+                </svg>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-auto text-question mt-2">
+                <b>¡Gracias!</b>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-auto text-question mt-1">
+                Tus comentarios nos ayudarán a mejorar.
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-auto text-question mt-4">
+                mensaje se cerrara en {{second}} segundos ...
+            </div>
+        </div>
+    
+
+    </div>
+    
+</div>
+
+
+
+
+
+

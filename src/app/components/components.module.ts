@@ -15,6 +15,7 @@ import { SelectMultipleComponent } from './select-multiple/select-multiple.compo
 import { SwitchComponent } from './switch/switch.component';
 import { TooltipComponent } from './tooltip/tooltip.component';
 import { SelectMultipleNestedComponent } from './select-multiple-nested/select-multiple-nested.component';
+import { RateExperienceComponent } from './rate-experience/rate-experience.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { SelectMultipleNestedComponent } from './select-multiple-nested/select-m
     SwitchComponent,
     TooltipComponent,
     SelectMultipleNestedComponent,
+    RateExperienceComponent,
   ],
   exports: [
     ContentComponent,
