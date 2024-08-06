@@ -143,7 +143,19 @@ yourComponent.ts
 | show(): void    | show overlay | this.lctLoading.show()    |
 | dismiss(): void | hide overlay | this.lctLoading.dismiss() |
 
-> Version 0.10.7
+
+
+## Rate experience 
+```
+...
+
+<lct-rate-experience  class="fixed-bottom-right" *ngIf="show" (sendVote)="sendVote($event)" (closeRate)="closeRate($event)" [titleQuestion]="'¿Cómo te fue con la entrega al cliente?'"></lct-rate-experience>
+
+...
+
+
+
+> Version 0.11.2
 >
 > [(ngModel)] Can only be used at the moment for:
 >

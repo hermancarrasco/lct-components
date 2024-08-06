@@ -1,0 +1,37 @@
+.container-rate-experience{
+    box-shadow: 1px 1px 5px 0px  rgba(0, 0, 0, 0.3);
+    width: 590px;
+    height: 120px;
+    border-radius: 10px;
+}
+.rate-expeciente-write{
+    box-shadow: 1px 1px 5px 0px  rgba(0, 0, 0, 0.3);
+    width: 580px;
+    height: 220px;
+    border-radius: 10px;
+}
+
+.rate-expeciente-thanks{
+    box-shadow: 1px 1px 5px 0px  rgba(0, 0, 0, 0.3);
+    width: 537px;
+    height: 190px;
+    border-radius: 10px;
+}
+
+
+.text-question{
+    font-size: 15px;
+    
+}
+.font-footer{
+    font-size: 12px;
+}
+#comentary {
+    width: 100%;  /* Ancho específico */
+    height: 100%; /* Largo específico */
+    padding: 10px; /* Espaciado interno */
+    font-size: 16px; /* Tamaño de fuente */
+    border: 1px solid #ccc; /* Borde */
+    border-radius: 5px; /* Bordes redondeados */
+    resize: none; /* Evita que el usuario cambie el tamaño */
+}

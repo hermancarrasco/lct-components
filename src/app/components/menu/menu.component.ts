@@ -76,6 +76,15 @@ export class MenuComponent implements OnInit {
           key: 'tooltip'
         }
       ]
+    },
+    {
+      title: 'Rate Experience',
+      items: [
+        {
+          title: 'Rate Experience',
+          key: 'Rate-Experience'
+        }
+      ]
     }
   ]
 
