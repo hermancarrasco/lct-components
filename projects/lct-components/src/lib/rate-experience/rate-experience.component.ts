@@ -15,6 +15,7 @@ export class RateExperienceComponent implements OnInit {
 
   @Output() sendVote = new EventEmitter<{ vote: number, commentary: string }>();
   @Output() closeRate = new EventEmitter<boolean>();
+  @Output() skip = new EventEmitter<boolean>();
   @Input() titleQuestion: string | undefined;
 
 
@@ -61,7 +62,7 @@ export class RateExperienceComponent implements OnInit {
       }
     }, 1000);
     setTimeout(() => {
-      this.close();
+      this.skipRate();
     }, 5000); // Ejecutar close() después de 5 segundos
     this.sendVote.emit(voteResponse);
   }
@@ -72,7 +73,11 @@ export class RateExperienceComponent implements OnInit {
       clearInterval(this.intervalId);
     }
   }
-
+  skipRate(){
+    this.inputValue = '';
+    this.finallyThanks = false;
+    this.skip.emit(true)
+  }
   
   close(){
     this.inputValue = '';
