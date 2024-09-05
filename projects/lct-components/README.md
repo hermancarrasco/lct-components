@@ -149,13 +149,14 @@ yourComponent.ts
 ```
 ...
 
-<lct-rate-experience  class="fixed-bottom-right" *ngIf="show" (sendVote)="sendVote($event)" (closeRate)="closeRate($event)" [titleQuestion]="'¿Cómo te fue con la entrega al cliente?'"></lct-rate-experience>
+<lct-rate-experience  class="fixed-bottom-right" *ngIf="show" (sendVote)="sendVote($event)" (closeRate)="closeRate($event)" (skip)="skipRate($event)" [titleQuestion]="'¿Cómo te fue con la entrega al cliente?'"></lct-rate-experience>
+
 
 ...
 
 
 
-> Version 0.11.4
+> Version 0.11.5
 >
 > [(ngModel)] Can only be used at the moment for:
 >
