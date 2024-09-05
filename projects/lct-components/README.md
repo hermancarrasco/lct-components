@@ -149,7 +149,8 @@ yourComponent.ts
 ```
 ...
 
-<lct-rate-experience  class="fixed-bottom-right" *ngIf="show" (sendVote)="sendVote($event)" (closeRate)="closeRate($event)" [titleQuestion]="'¿Cómo te fue con la entrega al cliente?'"></lct-rate-experience>
+<lct-rate-experience  class="fixed-bottom-right" *ngIf="show" (sendVote)="sendVote($event)" (closeRate)="closeRate($event)" (skip)="skipRate($event)" [titleQuestion]="'¿Cómo te fue con la entrega al cliente?'"></lct-rate-experience>
+
 
 ...
 
