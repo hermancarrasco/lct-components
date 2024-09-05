@@ -13,10 +13,13 @@ export class RateExperienceComponent implements OnInit {
   ngOnInit(): void {
   }
   sendVote(evento:any){
-    console.log('evento',evento);
   }
   closeRate(evento:boolean){
     this.show = evento;
+  }
+  skipRate(resp:boolean){
+    console.log(resp);
+    this.show = !resp;
   }
 
 }

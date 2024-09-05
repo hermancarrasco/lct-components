@@ -7,7 +7,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class RateExperienceComponent implements OnInit {
 
-  respVote :number =0;
+  respVote :number | undefined ;
   inputValue = '';
   finallyThanks = false;
   second = 5;
@@ -49,6 +49,9 @@ export class RateExperienceComponent implements OnInit {
 
   }
   sendComentary(){
+    if(this.respVote===null || this.respVote === undefined){
+      return;
+    }
     this.finallyThanks = true;
     const voteResponse = {
       vote: this.respVote,
@@ -59,21 +62,24 @@ export class RateExperienceComponent implements OnInit {
         this.second--;
       } else {
         this.clearInterval();
+        this.close();
       }
-    }, 1000);
+    }, 800);
     setTimeout(() => {
       this.skipRate();
     }, 5000); // Ejecutar close() después de 5 segundos
-    this.sendVote.emit(voteResponse);
+      this.sendVote.emit(voteResponse);
   }
 
 
   clearInterval() {
     if (this.intervalId) {
+      this.respVote= undefined;
       clearInterval(this.intervalId);
     }
   }
   skipRate(){
+    this.respVote =undefined;
     this.inputValue = '';
     this.finallyThanks = false;
     this.skip.emit(true)
@@ -85,7 +91,7 @@ export class RateExperienceComponent implements OnInit {
     this.closeRate.emit(false)
   }
   back(){
-    this.respVote= 0;
+    this.respVote= undefined;
     this.finallyThanks = false;
   }
  
