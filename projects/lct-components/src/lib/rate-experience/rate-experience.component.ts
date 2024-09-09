@@ -18,6 +18,9 @@ export class RateExperienceComponent implements OnInit {
   @Output() skip = new EventEmitter<boolean>();
   @Input() titleQuestion: string | undefined;
 
+  @Output() focusInOption = new EventEmitter<boolean>();
+  @Output() focusOutOption = new EventEmitter<boolean>();
+
 
   constructor() { }
 
@@ -93,6 +96,16 @@ export class RateExperienceComponent implements OnInit {
   back(){
     this.respVote= undefined;
     this.finallyThanks = false;
+  }
+
+  onClick() {
+    this.focusInOption.emit(true);
+  
+  }
+
+  onFocusOut() {
+    this.focusOutOption.emit(false);
+   
   }
  
   
