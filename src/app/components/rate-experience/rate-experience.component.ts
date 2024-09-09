@@ -21,5 +21,11 @@ export class RateExperienceComponent implements OnInit {
     console.log(resp);
     this.show = !resp;
   }
+  focusInOption(option:boolean){
+    console.log('focus',option);
+  }
+  focusOutOption(option:boolean){
+    console.log('focus',option);
+  }
 
 }
