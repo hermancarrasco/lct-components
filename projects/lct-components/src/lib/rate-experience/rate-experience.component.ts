@@ -44,7 +44,7 @@ export class RateExperienceComponent implements OnInit {
         }
       }, 1000);
       setTimeout(() => {
-        this.close();
+        this.close(true);
       }, 5000); // Ejecutar close() después de 5 segundos
       this.sendVote.emit(voteResponse);
     }
@@ -58,14 +58,15 @@ export class RateExperienceComponent implements OnInit {
     this.finallyThanks = true;
     const voteResponse = {
       vote: this.respVote,
-      commentary: this.inputValue
+      commentary: this.inputValue,
+      finallythanks : true
     };
     this.intervalId = setInterval(() => {
       if (this.second > 0) {
         this.second--;
       } else {
         this.clearInterval();
-        this.close();
+        this.close(true);
       }
     }, 800);
     setTimeout(() => {
@@ -88,10 +89,14 @@ export class RateExperienceComponent implements OnInit {
     this.skip.emit(true)
   }
   
-  close(){
+  close(option?:boolean){
+   let closeOption = false;
+   if(option){
+      closeOption = option;
+    }
     this.inputValue = '';
     this.finallyThanks = false;
-    this.closeRate.emit(false)
+    this.closeRate.emit(closeOption)
   }
   back(){
     this.respVote= undefined;
