@@ -56,7 +56,6 @@ export class RateExperienceComponent implements OnInit {
       return;
     }
     if((this.inputValue.length >0 && this.inputValue.length < 10) || this.inputValue.length > 300 ){
-      console.log('return');
       return;
     }
     this.finallyThanks = true;
