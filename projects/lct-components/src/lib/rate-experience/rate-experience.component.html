@@ -84,7 +84,31 @@
   [placeholder]="'Ingresa tu comentario acá'"
   (click)="onClick()"
   (focusout)="onFocusOut()"
+  required
+  minlength="10"
+  maxlength="300"
+  #comment="ngModel"
+  [ngClass]="{'is-invalid': comment.invalid && comment.touched && inputValue.length > 0}"
+
+  
 ></textarea>
+<div class="row">
+    <div class="col-10">
+        <div *ngIf="comment.invalid && comment.touched" class="text-dangerous">
+            <small *ngIf="comment.errors?.minlength">
+              Su comentario debe tener al menos 10 caracteres.
+            </small>
+            <small *ngIf="comment.errors?.maxlength">
+              Su comentario no debe exceder los 300 caracteres.
+            </small>
+        </div>
+    </div>
+    <div class="col-auto">
+        <div class="character-count text-end">
+            {{ inputValue.length }}/300
+        </div>
+    </div>
+</div>
               </div>
         </div>  
         <div class="row mt-2 mb-4 d-flex justify-content-end">
