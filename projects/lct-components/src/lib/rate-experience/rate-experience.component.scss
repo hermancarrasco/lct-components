@@ -35,3 +35,9 @@
     border-radius: 5px; /* Bordes redondeados */
     resize: none; /* Evita que el usuario cambie el tamaño */
 }
+.is-invalid {
+    border: 2px solid #C60E4C;
+  }
+.text-dangerous{
+    color: #C60E4C;
+}

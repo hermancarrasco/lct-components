@@ -55,6 +55,9 @@ export class RateExperienceComponent implements OnInit {
     if(this.respVote===null || this.respVote === undefined){
       return;
     }
+    if((this.inputValue.length >0 && this.inputValue.length < 10) || this.inputValue.length > 300 ){
+      return;
+    }
     this.finallyThanks = true;
     const voteResponse = {
       vote: this.respVote,
