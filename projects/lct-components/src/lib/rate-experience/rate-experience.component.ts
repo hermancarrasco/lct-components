@@ -44,7 +44,6 @@ export class RateExperienceComponent implements OnInit {
         }
       }, 1000);
       setTimeout(() => {
-        console.log('se ejecuta el close');
         this.close(true);
       }, 5000); // Ejecutar close() después de 5 segundos
       this.sendVote.emit(voteResponse);
