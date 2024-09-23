@@ -17,6 +17,8 @@ import { ClipboardComponent } from './clipboard/clipboard.component';
 import { ClipboardDirective } from './clipboard.directive';
 import { SelectMultipleNestedComponent } from './select-multiple-nested/select-multiple-nested.component';
 import { RateExperienceComponent } from './rate-experience/rate-experience.component'
+import { ToastComponent } from './toast/toast.component'
+import { ToastService } from './toast.service';
 
 
 
@@ -37,12 +39,14 @@ import { RateExperienceComponent } from './rate-experience/rate-experience.compo
     ClipboardComponent,
     ClipboardDirective,
     SelectMultipleNestedComponent,
-    RateExperienceComponent
+    RateExperienceComponent,
+    ToastComponent,
   ],
   imports: [
     CommonModule,
     FormsModule
   ],
+  providers: [ToastService],
   exports: [
     ButtonComponent,
     InputTextComponent,
@@ -56,7 +60,8 @@ import { RateExperienceComponent } from './rate-experience/rate-experience.compo
     ModalChangeStoreComponent,
     ClipboardDirective,
     SelectMultipleNestedComponent,
-    RateExperienceComponent
+    RateExperienceComponent,
+    ToastComponent
   ],
 })
 export class LctComponentsModule { }

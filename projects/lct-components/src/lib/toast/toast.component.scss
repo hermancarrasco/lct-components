@@ -1,0 +1,54 @@
+/* toast.component.css */
+.toast-container {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+}
+
+.toast {
+  margin: 5px;
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+  display: flex !important;
+  justify-content: space-between;
+  /* Cambia esto según el tipo de toast */
+  animation: slide-in-left 1s ease-out forwards;
+    /* Duración y tipo de animación */
+
+}
+@keyframes slide-in-left {
+  0% {
+    opacity: 0;
+    transform:
+      translateX (100%);
+    /* Comienza fuera de la pantalla, a la derecha */
+  }
+
+  100% {
+    opacity: 1;
+    transform:
+      translateX (0);
+    /* Termina en su posición normal */
+  }
+}
+
+.toastPrimary {
+  background-color: #2649B6;
+}
+
+.toastSecondary {
+  background-color: #B19300;
+}
+
+.toastError {
+  background-color: #C60E4C;
+}
+
+button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
