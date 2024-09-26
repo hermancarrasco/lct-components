@@ -24,7 +24,7 @@ export class IToastComponent implements OnInit {
   }
   showToastWarning() {
     // this.toastComponent.showToast('This is a custom toast message', 'success');
-    this.toastService.showToast('Probando TOAST Warning', 'toastSecondary', 6000);
+    this.toastService.showToast('ProbandoProbandoProbandoProbando TOAST Warning', 'toastSecondary', 6000);
   }
   showToastError() {
     // this.toastComponent.showToast('This is a custom toast message', 'success');
