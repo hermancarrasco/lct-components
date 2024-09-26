@@ -52,7 +52,7 @@ export class SelectMultipleNestedComponent implements OnInit, OnChanges  {
 
   ngOnInit() {
     this.listFiltered = [...this.list];
-    console.log(this.listFiltered);
+    // console.log(this.listFiltered);
     this.disabledValue = this.disabled === true || this.disabled == 'true' || this.disabled === '';
   }
 
@@ -62,6 +62,12 @@ export class SelectMultipleNestedComponent implements OnInit, OnChanges  {
         this.disabledValue = true;
       } else {
         this.disabledValue = false;
+      }
+    }
+    if(changes['list']){
+      if(Array.isArray(changes['list'].currentValue)){
+        this.list = changes['list'].currentValue;
+        this.applyFilter();
       }
     }
   }

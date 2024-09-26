@@ -13,6 +13,30 @@ export class SelectMultipleNestedComponent implements OnInit {
   constructor() {
     this.list = [
       {
+        name : 'AYSEN',
+        checkedAll: false,
+        listOptions : [
+          {name : 'Coyhaique' , checked : false, value: 'Coyhaique'}
+        ],
+      }
+    ]
+  }
+
+  ngOnInit(): void {
+  }
+
+  shareCheckedList(item:any[]){
+    console.log(item);
+  }
+
+  shareIndividualCheckedList(item:{}){
+    console.log(item);
+  }
+
+  updateList(){
+    // this.list = []
+    this.list = [
+      {
         name : 'metropolitana',
         listOptions : [
           {name : 'LAS CONDES' , checked : false, value: 'LAS CONDES'},
@@ -70,17 +94,6 @@ export class SelectMultipleNestedComponent implements OnInit {
         ],
       }
     ]
-  }
-
-  ngOnInit(): void {
-  }
-
-  shareCheckedList(item:any[]){
-    console.log(item);
-  }
-
-  shareIndividualCheckedList(item:{}){
-    console.log(item);
   }
 
 }
