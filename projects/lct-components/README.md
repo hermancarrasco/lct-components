@@ -143,9 +143,8 @@ yourComponent.ts
 | show(): void    | show overlay | this.lctLoading.show()    |
 | dismiss(): void | hide overlay | this.lctLoading.dismiss() |
 
+## Rate experience
 
-
-## Rate experience 
 ```
 ...
 
@@ -156,9 +155,10 @@ yourComponent.ts
 
 
 
-> Version 0.11.8
+> Version 0.11.9
 >
 > [(ngModel)] Can only be used at the moment for:
 >
-> > lct-input-text  
+> > lct-input-text
 > > lct-switch
+```

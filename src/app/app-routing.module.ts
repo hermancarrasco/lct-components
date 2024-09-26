@@ -12,6 +12,7 @@ import {SwitchComponent} from "./components/switch/switch.component";
 import { TooltipComponent } from "./components/tooltip/tooltip.component";
 import { ButtonRoundComponent } from './components/button-round/button-round.component';
 import { RateExperienceComponent } from './components/rate-experience/rate-experience.component';
+import { IToastComponent } from './components/toast/toast.component';
 
 const routes: Routes = [
   { path: 'buttonSimple', component: ButtonSimpleComponent },
@@ -25,7 +26,8 @@ const routes: Routes = [
   { path: 'selectMultipleNested', component: SelectMultipleNestedComponent},
   { path: 'switch', component: SwitchComponent},
   { path: 'tooltip', component: TooltipComponent},
-  { path: 'Rate-Experience', component: RateExperienceComponent},
+  { path: 'Rate-Experience', component: RateExperienceComponent },
+  { path: 'Toast', component: IToastComponent},
   { path: '', redirectTo: '/buttonSimple', pathMatch: 'full' },
   { path: '**', redirectTo: '/buttonSimple', pathMatch: 'full' },
 ];
