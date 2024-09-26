@@ -85,6 +85,15 @@ export class MenuComponent implements OnInit {
           key: 'Rate-Experience'
         }
       ]
+    },
+    {
+      title: 'Toast',
+      items: [
+        {
+          title: 'Toast',
+          key: 'Toast'
+        }
+      ]
     }
   ]
 
