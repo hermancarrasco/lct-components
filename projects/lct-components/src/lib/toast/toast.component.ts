@@ -12,7 +12,6 @@ export class ToastComponent implements OnInit, OnDestroy {
   constructor(private toastService: ToastService) {}
 
   ngOnInit() {
-    console.log('444444');
     this.toastService.toasts$.subscribe(toasts => {
       this.toasts = toasts;
     });

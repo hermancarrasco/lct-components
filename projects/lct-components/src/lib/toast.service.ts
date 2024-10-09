@@ -16,10 +16,8 @@ export class ToastService {
     private injector: Injector
   ) {}
 
-  showToast(message: string, type: string = 'toastPrimary', duration: number = 600000) {
-    console.log('message', message)
-    console.log('type', type)
-    console.log('duration',duration)
+  showToast(message: string, type: string = 'toastPrimary', duration: number = 6000) {
+
     const toast = { message, type };
     const currentToasts = this.toastsSubject.value;
     this.toastsSubject.next([toast,...currentToasts]);
