@@ -10,13 +10,13 @@
   margin: 5px;
   padding: 10px;
   border-radius: 5px;
-  color: white;
+  color: #FFFFFF;
+  font-family: "Barlow";
   display: flex !important;
   justify-content: space-between;
   /* Cambia esto según el tipo de toast */
   animation: slide-in-left 1s ease-out forwards;
     /* Duración y tipo de animación */
-
 }
 @keyframes slide-in-left {
   0% {
