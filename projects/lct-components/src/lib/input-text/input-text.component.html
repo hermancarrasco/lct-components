@@ -3,7 +3,8 @@
     {{title}}
   </div>
   <div class="input-with-icon iconLeft">
-    <input [type]="type"
+    <input [attr.id]="inputId"
+           [type]="type"
            class="form-control-lct"
            #inputScan
            [disabled]="disabled"

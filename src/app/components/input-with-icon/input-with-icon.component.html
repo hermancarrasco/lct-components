@@ -5,7 +5,7 @@
 
   <div class="row align-items-center">
     <div class="col-xs-12 col-md-4">
-      <lct-input-text title="Input with icon right" icon="./assets/img/ico-camera-blue.svg" [showIcon]="true" (iconClick)="clickEnIcon()"
+      <lct-input-text [id]="'withIcon'" title="Input with icon right" icon="./assets/img/ico-camera-blue.svg" [showIcon]="true" (iconClick)="clickEnIcon()"
                       placeholder="placeholder with icon" (enterEmitted)="enter($event)" (inputClick)="inputClick()"
                       [pdaAutoEnter]="true"></lct-input-text>
     </div>
