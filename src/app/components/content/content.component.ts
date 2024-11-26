@@ -45,7 +45,6 @@ export class ContentComponent implements OnInit {
 
   clickButton(){
     this.value1 = '';
-    console.log('click in button')
   }
 
 

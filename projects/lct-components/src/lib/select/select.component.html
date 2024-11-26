@@ -1,7 +1,7 @@
 <div>
   <div class="title">{{title}}</div>
   <div class="containerSelectMultiple" (mouseleave)="showDropDown = false">
-    <button class="drop-toggle" [disabled]="disabledValue" (click)="showDropDown=!showDropDown">
+    <button [attr.id]="selectId" class="drop-toggle" [disabled]="disabledValue" (click)="showDropDown=!showDropDown">
       <span *ngIf="!selected">{{placeholder}}</span>
       <span *ngIf="selected">
         <div>
