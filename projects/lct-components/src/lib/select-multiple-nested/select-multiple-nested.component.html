@@ -5,7 +5,7 @@
       <span *ngIf="getListChecked().length<=0">{{placeholder}}</span>
       <span *ngIf="getListChecked().length>0">
         <div class="selected">
-          <span [ngClass]="{'text-disabled':getListChecked()[0].disabled || false}">{{getListChecked()[0].name}}</span>
+          <span [ngClass]="{'text-disabled':getListChecked()[0].disabled || false}">{{getListChecked()[0].name | labelPipe}}</span>
           <div class="icon" (click)="discardOption(findOptionCategory(getListChecked()[0]), getListChecked()[0])" [ngClass]="{'icon-disabled':getListChecked()[0].disabled || false}">
             <svg [ngClass]="{'text-disabled':getListChecked()[0].disabled || false}"
               width="20"
@@ -54,7 +54,7 @@
              src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gU3ZnIFZlY3RvciBJY29ucyA6IGh0dHA6Ly93d3cub25saW5ld2ViZm9udHMuY29tL2ljb24gLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgMTAwMCAxMDAwIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCAxMDAwIDEwMDAiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPG1ldGFkYXRhPiBTdmcgVmVjdG9yIEljb25zIDogaHR0cDovL3d3dy5vbmxpbmV3ZWJmb250cy5jb20vaWNvbiA8L21ldGFkYXRhPg0KPGc+PHBhdGggZD0iTTUwMCw3NzUuNEwxMCwyODcuMmw2NC40LTYyLjZMNTAwLDY1MC4ybDQyNS42LTQyNS42bDY0LjQsNjIuNkw1MDAsNzc1LjR6Ii8+PC9nPg0KPC9zdmc+" alt="Arrow Icon"
              aria-hidden="true" height="17px" width="17px" (click)="toggleCategory(category)"/> -->
             <label class="main">
-              <span class="text-capitalize" style="margin-left: 21px;">{{ category.name.toLowerCase() }}</span>
+              <span class="text-capitalize" style="margin-left: 21px;">{{ category.name.toLowerCase() | labelPipe }} ({{category.quantity}})</span>
               <input type="checkbox" [(ngModel)]="category.checkedAll"
                      (change)="toggleAllOptions(category)" [disabled]="category.disabled || false || searchValue.length > 0">
               <span class="mark" [ngClass]="{'mark-disabled': category.disabled || false || searchValue.length > 0}"></span>
@@ -63,7 +63,7 @@
 
           <ul *ngIf="category.open">
             <label class="main" *ngFor="let option of category.listOptions">
-              <span class="text-capitalize" style="margin-left: 21px;" [ngClass]="{ 'text-disabled': option.disabled }">{{ option.name.toLowerCase() }}</span>
+              <span class="text-capitalize" style="margin-left: 21px;" [ngClass]="{ 'text-disabled': option.disabled }">{{ option.name.toLowerCase() | labelPipe }} ({{option.quantity}})</span>
               <input type="checkbox" [(ngModel)]="option.checked"
                 (change)="toggleOption(category, option)" [disabled]="option.disabled || false"/>
               <span class="mark" [ngClass]="{'mark-disabled': option.disabled || false}"></span>

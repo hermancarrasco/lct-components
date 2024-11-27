@@ -5,7 +5,7 @@
       <span *ngIf="getListChecked().length<=0">{{placeholder}}</span>
       <span *ngIf="getListChecked().length>0">
         <div class="selected">
-          <span [ngClass]="{'text-disabled':getListChecked()[0].disabled?true: false}">{{getListChecked()[0].name}}</span>
+          <span [ngClass]="{'text-disabled':getListChecked()[0].disabled?true: false}">{{getListChecked()[0].name | labelPipe}}</span>
           <div class="icon" (click)="uncheck(getListChecked()[0].name, getListChecked()[0].value)" [ngClass]="{'icon-disabled':getListChecked()[0].disabled?true: false}">
             <svg [ngClass]="{'text-disabled':getListChecked()[0].disabled?true: false}"
               width="20"
@@ -41,7 +41,7 @@
         ></lct-input-text>
       </div>
       <div [ngStyle]="{'height': list.length>=quantityToFilter ? heightOptions : 'auto','overflow-y':list.length>=quantityToFilter ? 'auto':''}" *ngIf="!filter.length">
-        <label class="main" *ngFor="let a of list"><span class="text" [ngClass]="{'text-disabled': a.disabled?true: false}">{{a.name}}</span>
+        <label class="main" *ngFor="let a of list"><span class="text" [ngClass]="{'text-disabled': a.disabled?true: false}">{{a.name | labelPipe}}</span>
           <input type="checkbox" [(ngModel)]="a.checked"
                  (change)="getSelectedValue(a.checked,a.name, a?.value)" [disabled]="a.disabled?true: false">
           <span class="mark" [ngClass]="{'mark-disabled': a.disabled?true: false}"></span>

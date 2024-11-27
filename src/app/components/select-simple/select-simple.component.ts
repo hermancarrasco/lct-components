@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./select-simple.component.scss']
 })
 export class SelectSimpleComponent implements OnInit {
-  array = ['AAA','BBB']
+  array = ['AAA','BBB','Metropolitana de Santiago de Chile']
   constructor() { }
   
   ngOnInit(): void {

@@ -5,7 +5,7 @@
       <span *ngIf="!selected">{{placeholder}}</span>
       <span *ngIf="selected">
         <div>
-          <span>{{selected}}</span>
+          <span>{{selected | labelPipe}}</span>
         </div>
       </span>
       <img *ngIf="showIcon"
@@ -22,11 +22,10 @@
           [icon]="iconFinder"
           [showIcon]="true"
         ></lct-input-text>
-
       </div>
       <div [ngStyle]="{'height': options.length>7 ? '200px' : 'auto','overflow-y':options.length>7 ? 'auto':''}">
         <label class="main" *ngFor="let option of filteredOptions; let i = index" >
-          <span class="text" [ngStyle]="{'padding-top': i===0 ? '8px' : ''}" (click)="changeValue(option)">{{option}}</span>
+          <span class="text" [ngStyle]="{'padding-top': i===0 ? '8px' : ''}" (click)="changeValue(option)">{{option | labelPipe}}</span>
         </label>
       </div>
 
