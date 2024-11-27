@@ -26,10 +26,14 @@ export class ButtonComponent implements OnInit, AfterViewInit, OnChanges {
   @Input() iconWidth: number = 30;
   @Input() iconHeight: number = 30;
   @Input() counter: number = -1;
+  @Input() id?: string = ''; // ID en Button Opcional
   @ViewChild('button') button: ElementRef | undefined;
-
   disabledValue = false;
 
+  // Propiedad calculada para generar el id dinámico
+  get buttonId(): string | null {
+    return this.id ? `btn-${this.id}` : null;
+  }
 
   constructor(private renderer: Renderer2) { }
 
@@ -70,5 +74,6 @@ export class ButtonComponent implements OnInit, AfterViewInit, OnChanges {
   renderButtonType() {
     this.renderer.addClass(this.button?.nativeElement, this.buttonType);
   }
+
 
 }

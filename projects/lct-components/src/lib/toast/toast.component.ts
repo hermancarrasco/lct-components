@@ -15,7 +15,6 @@ export class ToastComponent implements OnInit, OnDestroy {
     this.toastService.toasts$.subscribe(toasts => {
       this.toasts = toasts;
     });
-    console.log('this.toasts', this.toasts);
   }
 
   removeToast(toast:any) {

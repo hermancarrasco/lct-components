@@ -35,6 +35,7 @@ export class InputTextComponent implements ControlValueAccessor, OnInit, AfterVi
   @Input() title = 'Insert Title';
   @Input() type: 'email' | 'number' | 'text' = 'text';
   @Input() error: boolean = false;
+  @Input() id?: string = ''; // ID en Button Opcional
   @Output() enterEmitted = new EventEmitter<string>()
   @Output() iconClick = new EventEmitter();
   @Output() inputClick = new EventEmitter();
@@ -48,6 +49,11 @@ export class InputTextComponent implements ControlValueAccessor, OnInit, AfterVi
   public lpnUpdate = new Subject<string>();
 
   public propagateChange = (_: any) => { };
+  
+  // Propiedad calculada para generar el id dinámico
+  get inputId(): string | null {
+    return this.id ? `input-${this.id}` : null;
+  }
 
   constructor(private render: Renderer2) {
     this.lpnUpdate
