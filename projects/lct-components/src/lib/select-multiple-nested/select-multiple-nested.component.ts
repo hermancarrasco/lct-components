@@ -7,7 +7,7 @@ export interface ILCTSelectMultiple {
   value?: string | number;
   disabled?: boolean | string;
   secondaryValue?: string | number;
-  quantity:number;
+  quantity?:number;
 }
 
 export interface IListSelectMultipleNested {
@@ -16,7 +16,7 @@ export interface IListSelectMultipleNested {
   listOptions: ILCTSelectMultiple[];
   disabled?: boolean | string;
   open?: boolean;
-  quantity:number;
+  quantity?:number;
 }
 
 @Component({
