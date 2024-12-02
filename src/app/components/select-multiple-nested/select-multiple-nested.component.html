@@ -1,5 +1,9 @@
-<lct-select-multiple-nested [id]="'nested'" [disabled]="switchValue" [list]="list" title="Selecciona zona" (shareCheckedList)="shareCheckedList($event)"
-                     (shareIndividualCheckedList)="shareIndividualCheckedList($event)">
+<lct-select-multiple-nested [id]="'nested'" [disabled]="switchValue" 
+    [list]="list" 
+    title="Selecciona zona" 
+    (shareCheckedList)="shareCheckedList($event)"
+    (shareIndividualCheckedList)="shareIndividualCheckedList($event)"
+    (setAutofocusEvent)="setAutofocus($event)">
 </lct-select-multiple-nested>
 <br>
 <button (click)="updateList()">Actualizar</button>

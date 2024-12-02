@@ -7,6 +7,7 @@ export interface IListLCTSelectMultiple {
   value?: string | number;
   disabled?: boolean;
   secondaryValue?: string | number;
+  quantity?: number;
 }
 
 @Component({
@@ -27,9 +28,9 @@ export class SelectMultipleComponent implements OnInit, OnChanges {
   @Input() heightOptions: string = '200px';
   @Input() id?: string = ''; // ID en Button Opcional
 
-
   @Output() shareCheckedList = new EventEmitter();
   @Output() shareIndividualCheckedList = new EventEmitter();
+  @Output() setAutofocusEvent = new EventEmitter<boolean>();
   disabledValue = false;
 
   iconFinder;
@@ -67,9 +68,9 @@ export class SelectMultipleComponent implements OnInit, OnChanges {
 
   getSelectedValue(status: boolean,name: string, value? : string | number){
     if (value) {
-      this.currentSelected = {checked : status,name:name, value: value};
+      this.currentSelected = {checked : status,name:name, value: value,quantity:10};
     } else {
-      this.currentSelected = {checked : status,name:name};
+      this.currentSelected = {checked : status,name:name,quantity:10};
     }
 
     //share checked list
@@ -92,8 +93,23 @@ export class SelectMultipleComponent implements OnInit, OnChanges {
 
   cleanSelecteds() {
     this.list = this.list?.map((item) =>{
-      return {name: item.name, value: item.value, checked: false};
+      return {name: item.name, value: item.value, checked: false,quantity:0};
     })
+  }
+
+  clickFilterComponent(){
+    this.showDropDown=!this.showDropDown;
+    //Desactivar autofocus externo cuando se muestra el buscador
+    if(this.list.length>=this.quantityToFilter){
+      this.setAutofocusEvent?.emit(this.showDropDown);
+    }
+  }
+  leaveComponent(){
+    this.showDropDown=false;
+    //Desactivar autofocus externo cuando se muestra el buscador
+    if(this.list.length>=this.quantityToFilter){
+      this.setAutofocusEvent?.emit(this.showDropDown);
+    }
   }
 
   filterData(value:string){

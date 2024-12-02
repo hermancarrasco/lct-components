@@ -1,3 +1,8 @@
-<lct-select [id]="'simple'"title="Select simple" [options]="array" (value)="changeSelect($event)"></lct-select>
+<lct-select [id]="'simple'" 
+    title="Select simple" 
+    [options]="array"
+    [placeholder]="'Seleccione una opción'"
+    (setAutofocusEvent)="setAutofocus($event)"
+    (value)="changeSelect($event)"></lct-select>
 
 <button (click)="agregar();">AGREGAR</button>

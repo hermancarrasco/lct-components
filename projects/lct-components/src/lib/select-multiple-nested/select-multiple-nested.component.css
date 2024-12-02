@@ -78,6 +78,19 @@ button:disabled {
   box-shadow: 0 6px 10px rgba(0,0,0,.15);
   margin-left: 1px;
 }
+.drop-empty{
+  width: 100%;
+  border: 1px solid #E0E5EE;
+  border-radius: 5px;
+  background-color: #FFFFFF;
+  position: absolute;
+  z-index: 2;
+  -webkit-box-shadow: 0 6px 10px rgba(0,0,0,.15);
+  -moz-box-shadow: 0 6px 10px rgba(0,0,0,.15);
+  box-shadow: 0 6px 10px rgba(0,0,0,.15);
+  padding:12px;
+  cursor: no-drop;
+}
 .mark-disabled {
   background-color: #C8CCD4 !important;
 }

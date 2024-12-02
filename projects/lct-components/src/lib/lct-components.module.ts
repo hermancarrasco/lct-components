@@ -19,6 +19,8 @@ import { SelectMultipleNestedComponent } from './select-multiple-nested/select-m
 import { RateExperienceComponent } from './rate-experience/rate-experience.component'
 import { ToastComponent } from './toast/toast.component'
 import { ToastService } from './toast.service';
+import { LabelPipe } from './pipes/label.pipe';
+import { LabelTitlePipe } from './pipes/label.title.pipe';
 
 
 
@@ -41,6 +43,8 @@ import { ToastService } from './toast.service';
     SelectMultipleNestedComponent,
     RateExperienceComponent,
     ToastComponent,
+    LabelPipe,
+    LabelTitlePipe,
   ],
   imports: [
     CommonModule,

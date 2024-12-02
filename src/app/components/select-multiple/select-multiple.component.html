@@ -1,3 +1,6 @@
-<lct-select-multiple [id]="'multiple'" [disabled]="switchValue" [list]="list" title="Selecciona tienda" (shareCheckedList)="shareCheckedList($event)"
-                     (shareIndividualCheckedList)="shareIndividualCheckedList($event)">
+<lct-select-multiple [id]="'multiple'" [disabled]="switchValue" 
+    [list]="list" title="Selecciona tienda"
+    (shareCheckedList)="shareCheckedList($event)"
+    (shareIndividualCheckedList)="shareIndividualCheckedList($event)"
+    (setAutofocusEvent)="setAutofocus($event)">
 </lct-select-multiple>
