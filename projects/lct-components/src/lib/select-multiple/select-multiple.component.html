@@ -1,11 +1,11 @@
-<div>
+<div id="lct-filter">
   <div class="title">{{title}}</div>
-  <div class="containerSelectMultiple" (mouseleave)="showDropDown = false">
-    <button [attr.id]="selectId" class="drop-toggle" [disabled]="disabledValue" (click)="showDropDown=!showDropDown">
+  <div class="containerSelectMultiple" (mouseleave)="leaveComponent()">
+    <button [attr.id]="selectId" class="drop-toggle" [disabled]="disabledValue" (click)="clickFilterComponent()">
       <span *ngIf="getListChecked().length<=0">{{placeholder}}</span>
       <span *ngIf="getListChecked().length>0">
         <div class="selected">
-          <span [ngClass]="{'text-disabled':getListChecked()[0].disabled?true: false}">{{getListChecked()[0].name | labelPipe}}</span>
+          <span [ngClass]="{'text-disabled':getListChecked()[0].disabled?true: false}">{{getListChecked()[0].name | labelTitlePipe}}</span>
           <div class="icon" (click)="uncheck(getListChecked()[0].name, getListChecked()[0].value)" [ngClass]="{'icon-disabled':getListChecked()[0].disabled?true: false}">
             <svg [ngClass]="{'text-disabled':getListChecked()[0].disabled?true: false}"
               width="20"
@@ -31,7 +31,7 @@
            src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gU3ZnIFZlY3RvciBJY29ucyA6IGh0dHA6Ly93d3cub25saW5ld2ViZm9udHMuY29tL2ljb24gLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgMTAwMCAxMDAwIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCAxMDAwIDEwMDAiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPG1ldGFkYXRhPiBTdmcgVmVjdG9yIEljb25zIDogaHR0cDovL3d3dy5vbmxpbmV3ZWJmb250cy5jb20vaWNvbiA8L21ldGFkYXRhPg0KPGc+PHBhdGggZD0iTTUwMCw3NzUuNEwxMCwyODcuMmw2NC40LTYyLjZMNTAwLDY1MC4ybDQyNS42LTQyNS42bDY0LjQsNjIuNkw1MDAsNzc1LjR6Ii8+PC9nPg0KPC9zdmc+" alt="Arrow Icon"
            aria-hidden="true"/>
     </button>
-    <div class="drop-show" *ngIf="showDropDown">
+    <div class="drop-show" *ngIf="showDropDown && list.length>0">
       <div *ngIf="list.length>=quantityToFilter" class="main">
         <lct-input-text [placeholder]="placeholderFilter" title=""
                         [(ngModel)]="filter"
@@ -41,7 +41,9 @@
         ></lct-input-text>
       </div>
       <div [ngStyle]="{'height': list.length>=quantityToFilter ? heightOptions : 'auto','overflow-y':list.length>=quantityToFilter ? 'auto':''}" *ngIf="!filter.length">
-        <label class="main" *ngFor="let a of list"><span class="text" [ngClass]="{'text-disabled': a.disabled?true: false}">{{a.name | labelPipe}}</span>
+        <label class="main" *ngFor="let a of list">
+          <span class="text" [ngClass]="{'text-disabled': a.disabled?true: false}">{{a.name | labelPipe}} </span>
+          <span *ngIf="a.quantity">({{a.quantity}})</span>
           <input type="checkbox" [(ngModel)]="a.checked"
                  (change)="getSelectedValue(a.checked,a.name, a?.value)" [disabled]="a.disabled?true: false">
           <span class="mark" [ngClass]="{'mark-disabled': a.disabled?true: false}"></span>
@@ -49,12 +51,17 @@
 
       </div>
       <div [ngStyle]="{'height': list.length>=quantityToFilter ? heightOptions : 'auto','overflow-y':list.length>=quantityToFilter ? 'auto':''}" *ngIf="filter.length">
-        <label class="main" *ngFor="let a of listFiltered"><span class="text" >{{a.name}}</span>
+        <label class="main" *ngFor="let a of listFiltered">
+          <span class="text" >{{a.name | labelPipe}} </span>
+          <span *ngIf="a.quantity">({{a.quantity}})</span>
           <input type="checkbox" [(ngModel)]="a.checked"
                  (change)="getSelectedValue(a.checked,a.name, a?.value)" [disabled]="a.disabled?true: false">
           <span class="mark"></span>
         </label>
       </div>
+    </div>
+    <div class="drop-empty" *ngIf="showDropDown && list.length===0">
+      Sin información
     </div>
   </div>
 </div>

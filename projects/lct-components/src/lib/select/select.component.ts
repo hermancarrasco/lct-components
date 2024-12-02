@@ -31,13 +31,13 @@ export class SelectComponent implements OnInit, OnChanges {
   @Input() quantityToFilter: number = 7;
   @Input() id?: string = ''; // ID en Button Opcional
   @Output() value = new EventEmitter<string>();
+  @Output() setAutofocusEvent = new EventEmitter<boolean>();
 
   filterStore = '';
   filteredOptions:string[]=[];
   disabledValue = false;
   selected : string;
   showDropDown = false;
-
   iconFinder;
 
   // Propiedad calculada para generar el id dinámico
@@ -72,9 +72,22 @@ export class SelectComponent implements OnInit, OnChanges {
       }
     }
   }
-
   filterData(value:string){
     this.filteredOptions=this.options.filter(opt=>opt.toLowerCase().includes(value.toLowerCase()));
+  }
+  clickFilterComponent(){
+    this.showDropDown=!this.showDropDown;
+    //Desactivar autofocus externo cuando se muestra el buscador
+    if(this.options.length>=this.quantityToFilter){
+      this.setAutofocusEvent?.emit(this.showDropDown);
+    }
+  }
+  leaveComponent(){
+    this.showDropDown=false;
+    //Desactivar autofocus externo cuando se muestra el buscador
+    if(this.options.length>=this.quantityToFilter){
+      this.setAutofocusEvent?.emit(this.showDropDown);
+    }
   }
   sortData(){
     this.filteredOptions.sort((a: string, b: string) => {
@@ -85,8 +98,10 @@ export class SelectComponent implements OnInit, OnChanges {
   }
 
   changeValue(value: string) {
+    //Activar autofocus externo
     this.selected = value;
     this.showDropDown = false;
+    this.setAutofocusEvent?.emit(false);
     this.value.emit(this.selected);
   }
 }

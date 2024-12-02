@@ -20,6 +20,7 @@ import { RateExperienceComponent } from './rate-experience/rate-experience.compo
 import { ToastComponent } from './toast/toast.component'
 import { ToastService } from './toast.service';
 import { LabelPipe } from './pipes/label.pipe';
+import { LabelTitlePipe } from './pipes/label.title.pipe';
 
 
 
@@ -43,6 +44,7 @@ import { LabelPipe } from './pipes/label.pipe';
     RateExperienceComponent,
     ToastComponent,
     LabelPipe,
+    LabelTitlePipe,
   ],
   imports: [
     CommonModule,

@@ -6,16 +6,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./select-simple.component.scss']
 })
 export class SelectSimpleComponent implements OnInit {
-  array = ['AAA','BBB','Metropolitana de Santiago de Chile']
+  array :any = ['Región de Arica','Región de Antofagasta','Metropolitana de Santiago de Chile', 'Región de Valparaíso',
+      'Región del Biobio','Región de los Rios','Región de la Araucanía', 'Región de Punta Arenas',
+  ]
   constructor() { }
   
   ngOnInit(): void {
   }
   changeSelect(value: string) {
-    console.log('value change select: ', value)
+    // console.log('value change select: ', value)
+  }
+  setAutofocus(autofocus:boolean){
+    // console.log("autofocus",autofocus);
   }
   agregar(){
-    this.array.push('ASD');
+    this.array.push('Región '+ String(this.array.length));
   }
 
 }

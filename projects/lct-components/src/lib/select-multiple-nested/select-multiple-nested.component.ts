@@ -39,6 +39,7 @@ export class SelectMultipleNestedComponent implements OnInit, OnChanges  {
   
   @Output() shareCheckedList = new EventEmitter();
   @Output() shareIndividualCheckedList = new EventEmitter();
+  @Output() setAutofocusEvent = new EventEmitter<boolean>();
   disabledValue = false;
 
   iconFinder;
@@ -174,5 +175,20 @@ export class SelectMultipleNestedComponent implements OnInit, OnChanges  {
       }
     }
     return null; // Retornar null si no se encuentra la categoría
+  }
+
+  clickFilterComponent(){
+    this.showDropDown=!this.showDropDown;
+    //Desactivar autofocus externo cuando se muestra el buscador
+    if(this.list.length>=this.quantityToFilter){
+      this.setAutofocusEvent?.emit(this.showDropDown);
+    }
+  }
+  leaveComponent(){
+    this.showDropDown=false;
+    //Desactivar autofocus externo cuando se muestra el buscador
+    if(this.list.length>=this.quantityToFilter){
+      this.setAutofocusEvent?.emit(this.showDropDown);
+    }
   }
 }

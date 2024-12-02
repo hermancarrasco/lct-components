@@ -111,6 +111,19 @@ button:disabled {
   letter-spacing: 0;
   line-height: 15px;
 }
+.drop-empty{
+  width: 100%;
+  border: 1px solid #E0E5EE;
+  border-radius: 5px;
+  background-color: #FFFFFF;
+  position: absolute;
+  z-index: 2;
+  -webkit-box-shadow: 0 6px 10px rgba(0,0,0,.15);
+  -moz-box-shadow: 0 6px 10px rgba(0,0,0,.15);
+  box-shadow: 0 6px 10px rgba(0,0,0,.15);
+  padding:12px;
+  cursor: no-drop;
+}
 
 .main {
   display: block;

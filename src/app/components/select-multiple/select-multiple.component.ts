@@ -15,14 +15,14 @@ export class SelectMultipleComponent implements OnInit {
   constructor() {
     this.list =
       [
-        {name : 'J1001 - Jeans Mujer' , checked : false, value: 'RELABEL_PENDING'},
-        {name : 'J1002 - Jeans Hombre' , checked : false, value: 'READY_TO_DISPATCH', disabled: true},
-        {name : 'T1001 - Consolas' , checked : false, value: 'READY_TO_DISPATCH'},
-        {name : 'T1002 - Juegos consolas' , checked : false, value: 'READY_TO_DISPATCH'},
-        {name : 'T1002 - Juegos para cualquier tipo de consola' , checked : false, value: 'READY_TO_DISPATCH'},
-        {name : 'O1001 - Otro 1' , checked : false, value: 'READY_TO_DISPATCH'},
-        {name : 'O1002 - Otro 2' , checked : false, value: 'READY_TO_DISPATCH'},
-        {name : 'O1003 - Otro 3' , checked : false, value: 'READY_TO_DISPATCH'},
+        {name : 'J1001 - Jeans Mujer' , checked : false, value: 'RELABEL_PENDING',quantity:10},
+        {name : 'J1002 - Jeans Hombre' , checked : false, value: 'READY_TO_DISPATCH', disabled: true,quantity:10},
+        {name : 'T1001 - Consolas' , checked : false, value: 'READY_TO_DISPATCH',quantity:10},
+        {name : 'T1002 - Juegos consolas' , checked : false, value: 'READY_TO_DISPATCH',quantity:10},
+        {name : 'T1002 - Juegos para cualquier tipo de consola' , checked : false, value: 'READY_TO_DISPATCH',quantity:10},
+        {name : 'O1001 - Otro 1' , checked : false, value: 'READY_TO_DISPATCH',quantity:10},
+        {name : 'O1002 - Otro 2' , checked : false, value: 'READY_TO_DISPATCH',quantity:10},
+        {name : 'O1003 - Otro 3' , checked : false, value: 'READY_TO_DISPATCH',quantity:10},
 
       ];
   }
@@ -31,11 +31,15 @@ export class SelectMultipleComponent implements OnInit {
   }
 
   shareCheckedList(item:any[]){
-    console.log(item);
+    // console.log(item);
+  }
+
+  setAutofocus(autofocus:any){
+    // console.log("autofocus-multiple",autofocus);
   }
 
   shareIndividualCheckedList(item:{}){
-    console.log(item);
+    // console.log(item);
   }
 
 }

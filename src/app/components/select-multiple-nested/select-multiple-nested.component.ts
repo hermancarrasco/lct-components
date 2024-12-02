@@ -35,11 +35,11 @@ export class SelectMultipleNestedComponent implements OnInit {
   }
 
   shareCheckedList(item:any[]){
-    console.log(item);
+    // console.log(item);
   }
 
   shareIndividualCheckedList(item:{}){
-    console.log(item);
+    // console.log(item);
   }
 
   updateList(){
@@ -110,6 +110,9 @@ export class SelectMultipleNestedComponent implements OnInit {
         ],
       }
     ]
+  }
+  setAutofocus(autofocus:any){
+    // console.log("autofocus-nested",autofocus);
   }
 
 }

@@ -26,17 +26,17 @@ export class ContentComponent implements OnInit {
   constructor() {
     this.list =
       [
-        {name : 'Pendiente etiquetado' , checked : false, value: 'RELABEL_PENDING'},
-        {name :'Listo para despachar' , checked : false, value: 'READY_TO_DISPATCH'},
+        {name : 'Pendiente etiquetado' , checked : false, value: 'RELABEL_PENDING',quantity:10},
+        {name :'Listo para despachar' , checked : false, value: 'READY_TO_DISPATCH',quantity:10},
       ]
     this.list2 =
       [
-        {name :'Falabella',checked : false},
-        {name :'Sodimac',checked : false},
-        {name :'Tottus',checked : false},
-        {name :'Linio',checked : false},
-        {name :'Ikea',checked : false},
-        {name :'Global Seller Center',checked : false}
+        {name :'Falabella',checked : false,quantity:10},
+        {name :'Sodimac',checked : false,quantity:10},
+        {name :'Tottus',checked : false,quantity:10},
+        {name :'Linio',checked : false,quantity:10},
+        {name :'Ikea',checked : false,quantity:10},
+        {name :'Global Seller Center',checked : false,quantity:10}
       ]
   }
 
