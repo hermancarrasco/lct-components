@@ -155,7 +155,7 @@ yourComponent.ts
 
 
 
-> Version 0.11.13
+> Version 0.11.14
 >
 > [(ngModel)] Can only be used at the moment for:
 >
