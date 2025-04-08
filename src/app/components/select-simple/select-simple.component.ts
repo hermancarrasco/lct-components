@@ -9,6 +9,7 @@ export class SelectSimpleComponent implements OnInit {
   array :any = ['Región de Arica','Región de Antofagasta','Metropolitana de Santiago de Chile', 'Región de Valparaíso',
       'Región del Biobio','Región de los Rios','Región de la Araucanía', 'Región de Punta Arenas',
   ]
+  sel ='';
   constructor() { }
   
   ngOnInit(): void {
@@ -20,7 +21,7 @@ export class SelectSimpleComponent implements OnInit {
     // console.log("autofocus",autofocus);
   }
   agregar(){
-    this.array.push('Región '+ String(this.array.length));
+    this.sel = 'hola mundo'
   }
 
 }
