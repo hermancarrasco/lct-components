@@ -3,6 +3,8 @@
     [options]="array"
     [placeholder]="'Seleccione una opción'"
     (setAutofocusEvent)="setAutofocus($event)"
-    (value)="changeSelect($event)"></lct-select>
+    (value)="changeSelect($event)"
+    [selectedUser]="sel"
+    ></lct-select>
 
 <button (click)="agregar();">AGREGAR</button>
