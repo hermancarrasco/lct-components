@@ -27,7 +27,7 @@ export class SelectComponent implements OnInit, OnChanges {
   @Input() placeholder = 'Insert placeholder';
   @Input() quantityToFilter: number = 7;
   @Input() id?: string = ''; // ID en Button Opcional
-  @Input() selectedUser = '';
+  @Input() selectedUser? = '';
   @Output() value = new EventEmitter<string>();
   @Output() setAutofocusEvent = new EventEmitter<boolean>();
 
@@ -82,7 +82,7 @@ export class SelectComponent implements OnInit, OnChanges {
   }
   filterData(value: string) {
     this.filteredOptions = this.options.filter((opt) =>
-      opt.toLowerCase().includes(value.toLowerCase())
+      opt?.toLowerCase().includes(value.toLowerCase())
     );
   }
   clickFilterComponent() {
