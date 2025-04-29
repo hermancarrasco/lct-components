@@ -29,5 +29,8 @@ export class TooltipComponent implements OnInit  {
   openModalChangeNode(evento:boolean){
     console.log("Abrir modal", evento)//Desactivar autofocus
   }
+  closeModal(even:boolean){
+    console.log('cierro modal?', even);
+  }
 
 }
