@@ -37,6 +37,7 @@ export class ModalTooltipDirective implements OnInit {
   @Input() nodes: AccessFilter[] = [];
   stores: LctNode[] = [];
   @Output() changeNode = new EventEmitter<boolean>()
+  @Output() closeModal = new EventEmitter<boolean>()
   @Output() openModalChangeNode = new EventEmitter<boolean>()
   @Input() isMobile: boolean = false;
   @Input() userId: string = '';
@@ -94,6 +95,7 @@ export class ModalTooltipDirective implements OnInit {
       if (resp) {
         if (this.viewContainerRef) {
           this.viewContainerRef.clear();
+          this.closeModal.next(true);
         }
       }
     });
