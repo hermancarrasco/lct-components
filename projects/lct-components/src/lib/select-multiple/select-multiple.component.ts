@@ -116,6 +116,13 @@ export class SelectMultipleComponent implements OnInit, OnChanges {
     if (!value){
       return;
     }
-    this.listFiltered = this.list.filter(option => option.name.toLowerCase().includes(value.toLowerCase()));
+    const normalizar = (str: string) =>
+      str
+        .normalize('NFD') // Descompone los caracteres con tilde
+        .replace(/[\u0300-\u036f]/g, '') // Elimina los signos diacríticos
+        .toLowerCase();
+      this.listFiltered  = this.list.filter((opt) =>
+      normalizar(opt.name).includes(normalizar(value))
+    );
   }
 }
