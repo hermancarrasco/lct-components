@@ -80,9 +80,15 @@ export class SelectComponent implements OnInit, OnChanges {
       }
     }
   }
+
   filterData(value: string) {
+    const normalizar = (str: string) =>
+      str
+        .normalize('NFD') // Descompone los caracteres con tilde
+        .replace(/[\u0300-\u036f]/g, '') // Elimina los signos diacríticos
+        .toLowerCase();
     this.filteredOptions = this.options.filter((opt) =>
-      opt?.toLowerCase().includes(value.toLowerCase())
+      normalizar(opt).includes(normalizar(value))
     );
   }
   clickFilterComponent() {

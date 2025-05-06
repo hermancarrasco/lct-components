@@ -23,12 +23,14 @@ export class ButtonComponent implements OnInit, AfterViewInit, OnChanges {
   @Input() icon = '';
   @Input() width = '';
   @Input() height = '';
+  @Input() bold: 'true' | 'false' | boolean = 'false';
   @Input() iconWidth: number = 30;
   @Input() iconHeight: number = 30;
   @Input() counter: number = -1;
   @Input() id?: string = ''; // ID en Button Opcional
   @ViewChild('button') button: ElementRef | undefined;
   disabledValue = false;
+  boldValue = false;
 
   // Propiedad calculada para generar el id dinámico
   get buttonId(): string | null {
@@ -53,6 +55,11 @@ export class ButtonComponent implements OnInit, AfterViewInit, OnChanges {
       this.disabledValue = true;
     } else {
       this.disabledValue = false;
+    }
+    if (this.bold=== true || this.bold == 'true'){
+      this.boldValue = true;
+    } else {
+      this.boldValue = false;
     }
   }
 

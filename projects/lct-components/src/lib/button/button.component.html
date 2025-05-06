@@ -11,6 +11,7 @@
     <span *ngIf="counter >= 0" class="btnCounter">{{counter}}</span>
   </button>
   <span *ngIf="shape==='round'"
+        [class.fw-bold]="boldValue"
         class="titleBtnRound"
   >{{title}}</span>
 </div>
