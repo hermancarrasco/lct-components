@@ -56,7 +56,12 @@
   &:focus-visible{
     outline: unset;
   }
+  &.transparent{
+    background-color: #FFFFFF;
+    color: #FFFFFF;
+  }
 }
+
 
 .input-with-icon .icon {
   :hover{

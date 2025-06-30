@@ -36,6 +36,7 @@ export class InputTextComponent implements ControlValueAccessor, OnInit, AfterVi
   @Input() type: 'email' | 'number' | 'text' = 'text';
   @Input() error: boolean = false;
   @Input() id?: string = ''; // ID en Button Opcional
+  @Input() transparent?: boolean = false; // transparent style
   @Output() enterEmitted = new EventEmitter<string>()
   @Output() iconClick = new EventEmitter();
   @Output() inputClick = new EventEmitter();
@@ -83,6 +84,10 @@ export class InputTextComponent implements ControlValueAccessor, OnInit, AfterVi
       this.render.addClass(this.inputScan?.nativeElement, 'error');
       this.render.addClass(this.titleRef?.nativeElement, 'error');
     }
+    if(this.transparent){
+      this.render.addClass(this.inputScan?.nativeElement, 'transparent');
+      this.render.addClass(this.titleRef?.nativeElement, 'transparent');
+    }
 
   }
 
@@ -102,6 +107,18 @@ export class InputTextComponent implements ControlValueAccessor, OnInit, AfterVi
         this.render.removeClass(this.titleRef?.nativeElement, 'error');
       }
     }
+    
+    if (changes['transparent'] && !changes['transparent'].firstChange) {
+      if (changes.error.currentValue) {
+        this.render.addClass(this.inputScan?.nativeElement, 'transparent');
+        this.render.addClass(this.titleRef?.nativeElement, 'transparent');
+      } else {
+        this.render.addClass(this.inputScan?.nativeElement, 'transparent');
+        this.render.addClass(this.titleRef?.nativeElement, 'transparent');
+      }
+    }
+
+
   }
 
   writeValue(value: any): void {

@@ -5,7 +5,7 @@
 
   <div class="row align-items-center">
     <div class="col-xs-12 col-md-4">
-      <lct-input-text [id]="'find'" placeholder="Find by LPN" ></lct-input-text>
+      <lct-input-text  [id]="'find'" placeholder="Find by LPN" ></lct-input-text>
     </div>
     <div class="col-xs-12 col-md-1" ><span lctClipboard textCopy="PROBANDO HOLA"></span></div>
 
@@ -15,6 +15,21 @@
         </code></pre>
     </div>
   </div>
+
+  <div class="row align-items-center">
+    <div class="col-xs-12 col-md-4">
+      <lct-input-text  [id]="'find'" [transparent]="true" placeholder="Input transparent for scan " ></lct-input-text>
+    </div>
+    <div class="col-xs-12 col-md-1" ><span lctClipboard textCopy="PROBANDO HOLA"></span></div>
+
+    <div class="col-xs-12 col-md-7" >
+        <pre><code class="language-html">
+  &lt;lct-input-text placeholder="Find by LPN [transparent]="true" "&gt;&lt;/lct-input-text&gt;
+        </code></pre>
+    </div>
+  </div>
+
+
   <div class="row align-items-center">
     <div class="col-xs-12 col-md-4">
       <lct-input-text placeholder="Input without title" title=""></lct-input-text>
