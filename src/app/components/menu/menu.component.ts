@@ -94,6 +94,15 @@ export class MenuComponent implements OnInit {
           key: 'Toast'
         }
       ]
+    },
+    {
+      title: 'Test connection',
+      items: [
+        {
+          title: 'Test connection',
+          key: 'Test-Connection'
+        }
+      ]
     }
   ]
 

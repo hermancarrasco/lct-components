@@ -19,3 +19,4 @@ export * from './lib/modal/modal-change-store/modal-change-store';
 export * from './lib/rate-experience/rate-experience.component';
 export * from './lib/toast/toast.component';
 export * from './lib/toast.service';
+export * from './lib/check-connection/check-connection.component';
