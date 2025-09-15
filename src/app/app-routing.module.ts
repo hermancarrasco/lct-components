@@ -13,6 +13,7 @@ import { TooltipComponent } from "./components/tooltip/tooltip.component";
 import { ButtonRoundComponent } from './components/button-round/button-round.component';
 import { RateExperienceComponent } from './components/rate-experience/rate-experience.component';
 import { IToastComponent } from './components/toast/toast.component';
+import { CheckConnectionComponent } from 'projects/lct-components/src/public-api';
 
 const routes: Routes = [
   { path: 'buttonSimple', component: ButtonSimpleComponent },
@@ -28,6 +29,7 @@ const routes: Routes = [
   { path: 'tooltip', component: TooltipComponent},
   { path: 'Rate-Experience', component: RateExperienceComponent },
   { path: 'Toast', component: IToastComponent},
+  { path: 'Test-Connection', component: CheckConnectionComponent},
   { path: '', redirectTo: '/buttonSimple', pathMatch: 'full' },
   { path: '**', redirectTo: '/buttonSimple', pathMatch: 'full' },
 ];

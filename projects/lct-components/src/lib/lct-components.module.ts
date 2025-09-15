@@ -21,6 +21,7 @@ import { ToastComponent } from './toast/toast.component'
 import { ToastService } from './toast.service';
 import { LabelPipe } from './pipes/label.pipe';
 import { LabelTitlePipe } from './pipes/label.title.pipe';
+import { CheckConnectionComponent } from './check-connection/check-connection.component';
 
 
 
@@ -43,6 +44,7 @@ import { LabelTitlePipe } from './pipes/label.title.pipe';
     SelectMultipleNestedComponent,
     RateExperienceComponent,
     ToastComponent,
+    CheckConnectionComponent,
     LabelPipe,
     LabelTitlePipe,
   ],
@@ -65,7 +67,8 @@ import { LabelTitlePipe } from './pipes/label.title.pipe';
     ClipboardDirective,
     SelectMultipleNestedComponent,
     RateExperienceComponent,
-    ToastComponent
+    ToastComponent,
+    CheckConnectionComponent,
   ],
 })
 export class LctComponentsModule { }

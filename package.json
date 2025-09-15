@@ -1,6 +1,6 @@
 {
   "name": "design-components",
-  "version": "0.11.20",
+  "version": "0.12.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

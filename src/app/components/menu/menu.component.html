@@ -132,4 +132,22 @@
       </div>
     </div>
   </div>
+
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-heading8">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse8"
+        aria-expanded="false" aria-controls="flush-collapse8">
+        Test Connection
+      </button>
+    </h2>
+    <div id="flush-collapse8" class="accordion-collapse collapse" aria-labelledby="flush-heading8"
+      data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body">
+        <div class="list-group list-group-flush">
+          <a *ngFor="let item of menu[7].items" [routerLink]="item.key" routerLinkActive="active"
+            class="list-group-item list-group-item-action">{{item.title | titlecase}}</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
