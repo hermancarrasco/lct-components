@@ -65,10 +65,7 @@ export class CheckConnectionComponent implements OnInit, OnDestroy {
 
   private checkIfLocalhost(): void {
     const hostname = window.location.hostname;
-    this.isLocalhost = hostname === 'localhost' || 
-                      hostname === '127.0.0.1' || 
-                      hostname === '0.0.0.0' ||
-                      hostname.startsWith('192.168.') ||
+    this.isLocalhost = hostname.startsWith('192.168.') ||
                       hostname.startsWith('10.') ||
                       hostname.endsWith('.local');
   }
