@@ -94,7 +94,7 @@ export class SelectMultipleNestedComponent implements OnInit, OnChanges {
   }
 
   getListChecked(): ILCTSelectMultiple[] {
-    return this.listFiltered.reduce(
+    return this.list.reduce(
       (accumulator: ILCTSelectMultiple[], category) => {
         const checkedOptions = category.listOptions.filter(
           (option) => option.checked
