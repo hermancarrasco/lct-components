@@ -205,6 +205,21 @@ button{
   }
 }
 
+.enabled{
+  background-color: #747474;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  &:disabled{
+    border: 0;
+  }
+  &:not([disabled]):hover{
+    border: 1px solid #747474;
+  }
+  &:not([disabled]):enabled{
+    background-color: #747474;
+  }
+}
+
 .error{
   background-color: #C60E4C;
   color: #FFFFFF;
