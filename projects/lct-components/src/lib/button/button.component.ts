@@ -105,6 +105,7 @@ export class ButtonComponent implements OnInit, AfterViewInit, OnChanges {
     
     // Si el usuario existe y su timestamp es menor a 4 horas, no mostrar el modal
     if(currentUser && currentUser.timestamp > new Date().getTime() - 1000 * 60 * 60 * 4){
+      this.alertManualInput.emit('keyboard');
       return;
     }
     
