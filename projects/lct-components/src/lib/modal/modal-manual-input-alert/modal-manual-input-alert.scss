@@ -1,0 +1,164 @@
+.modalmask {
+    position: fixed;
+    font-family: Arial, sans-serif;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 99999;
+    opacity: 0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+    &.open {
+        opacity: 1;
+        pointer-events: auto;
+    }
+    .modalbox {
+        width: 458px;
+        position: relative;
+        padding: 0;
+        background: #fff;
+        border-radius: 8px;
+        -webkit-transition: all 500ms ease-in;
+        -moz-transition: all 500ms ease-in;
+        transition: all 500ms ease-in;
+        display: flex;
+        flex-direction: column;
+        &.movedown {
+            margin: 0 auto;
+            margin-top: calc(50vh - 134px);
+            @media screen and (min-width: 100px) and (max-width: 490px) {
+                margin-top: 0% !important;
+                width: 100% !important;
+                height: 100% !important;
+                border-radius: 0;
+            }
+        }
+
+        .modal-header {
+            display: flex;
+            align-items: center;
+            padding: 12px 24px;
+            position: relative;
+
+            .alert-icon {
+                padding-right: 12px;
+            }
+
+            .alert-title {
+                font-family: "Barlow", Arial, sans-serif;
+                font-style: normal;
+                font-weight: 700;
+                font-size: 18px;
+                line-height: 24px;
+                color: #3c4149;
+                flex: 1;
+            }
+
+            .ico-equis {
+                cursor: pointer;
+                width: 16px;
+                height: 16px;
+                position: absolute;
+                top: 20px;
+                right: 24px;
+            }
+        }
+
+        .modal-content {
+            padding: 12px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            align-items: center;
+            .main-question {
+                font-family: "Barlow", Arial, sans-serif;
+                font-style: normal;
+                font-weight: 700;
+                font-size: 20px;
+                line-height: 28px;
+                color: #2649B6;
+                margin: 0;
+            }
+
+            .instructions {
+                p {
+                    font-family: "Barlow", Arial, sans-serif;
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 14px;
+                    line-height: 20px;
+                    color: #3c4149;
+                    margin: 0;
+
+                    strong {
+                        font-weight: 700;
+                    }
+                }
+            }
+
+            .warning {
+                p {
+                    font-family: "Barlow", Arial, sans-serif;
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 14px;
+                    line-height: 20px;
+                    color: #3c4149;
+                    margin: 0;
+                }
+            }
+        }
+
+        .modal-actions {
+            padding-top: 16px;
+            display: flex;
+            gap: 12px;
+
+            button {
+                flex: 1;
+                padding: 12px 24px;
+                border-radius: 4px;
+                font-family: "Barlow", Arial, sans-serif;
+                font-style: normal;
+                font-weight: 600;
+                font-size: 14px;
+                line-height: 20px;
+                cursor: pointer;
+                border: none;
+                transition: all 0.2s ease;
+
+                &.btn-manual {
+                    background: #fff;
+                    color: #2649B6;
+                    border: 1px solid #2649B6;
+
+                    &:hover {
+                        background: #f5f7fa;
+                    }
+
+                    &:active {
+                        background: #e8ecf0;
+                    }
+                }
+
+                &.btn-laser {
+                    background: #2649B6;
+                    color: #fff;
+
+                    &:hover {
+                        background: #1e3a8a;
+                    }
+
+                    &:active {
+                        background: #1a2e75;
+                    }
+                }
+            }
+        }
+    }
+}

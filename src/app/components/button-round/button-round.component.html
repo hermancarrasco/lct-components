@@ -70,17 +70,25 @@
   </div>
   <div class="row align-items-center">
     <div class="col-xs-12 col-md-4">
-      <lct-button buttonType="enabled" shape="round" title="Enabled" icon="./assets/img/icon-check.svg"></lct-button>
+      <lct-button buttonType="enabled" 
+        shape="round" 
+        title="Enabled" 
+        [manualInputAlert]=true
+        (click)="clickButtonEnabled()"
+        (buttonClickAlert)="buttonClickAlert($event)"
+        icon="./assets/img/icon-check.svg" 
+        [alertIconPath]="'./assets/img/alert-icon.svg'"></lct-button>
     </div>
     <div class="col-xs-12 col-md-8">
         <pre><code class="language-html">
-    &lt;lct-button
-          buttonType="enabled"
-          title="Enabled"
-          shape="round"
-          icon="./assets/img/icon-check.svg"
-    &gt;&lt;/lct-button&gt;
-  </code></pre>
+          &lt;lct-button
+                buttonType="enabled"
+                title="Enabled"
+                shape="round"
+                manualInputAlert="true"
+                icon="./assets/img/icon-check.svg"
+          &gt;&lt;/lct-button&gt;
+        </code></pre>
     </div>
   </div>
   <div class="row align-items-center">

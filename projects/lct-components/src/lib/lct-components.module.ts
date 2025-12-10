@@ -22,6 +22,7 @@ import { ToastService } from './toast.service';
 import { LabelPipe } from './pipes/label.pipe';
 import { LabelTitlePipe } from './pipes/label.title.pipe';
 import { CheckConnectionComponent } from './check-connection/check-connection.component';
+import { ModalManualInputAlertComponent } from './modal/modal-manual-input-alert/modal-manual-input-alert';
 
 
 
@@ -45,6 +46,7 @@ import { CheckConnectionComponent } from './check-connection/check-connection.co
     RateExperienceComponent,
     ToastComponent,
     CheckConnectionComponent,
+    ModalManualInputAlertComponent,
     LabelPipe,
     LabelTitlePipe,
   ],

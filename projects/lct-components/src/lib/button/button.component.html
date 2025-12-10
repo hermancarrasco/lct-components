@@ -1,5 +1,8 @@
 <div [ngClass]="{'containerBtnRound': shape==='round'}">
-  <button [attr.id]="buttonId" [disabled]="disabledValue" #button [ngClass]="{'button-round': shape==='round'}" [ngStyle]="{'padding': title && shape==='normal' ? '0px 14px': ''}" >
+  <button [attr.id]="buttonId" 
+  [disabled]="disabledValue" #button 
+  (click)="onButtonClick()"
+  [ngClass]="{'button-round': shape==='round'}" [ngStyle]="{'padding': title && shape==='normal' ? '0px 14px': ''}" >
     <img
       *ngIf="icon" [ngClass]="{'counterAndIconImg': counter >= 0 && icon}"
       [width]="iconWidth"
