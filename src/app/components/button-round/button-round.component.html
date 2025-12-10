@@ -73,9 +73,8 @@
       <lct-button buttonType="enabled" 
         shape="round" 
         title="Enabled" 
-        [manualInputAlert]=true
         (click)="clickButtonEnabled()"
-        (buttonClickAlert)="buttonClickAlert($event)"
+        (alertManualInput)="alertManualInput($event)"
         icon="./assets/img/icon-check.svg" 
         [alertIconPath]="'./assets/img/alert-icon.svg'"></lct-button>
     </div>

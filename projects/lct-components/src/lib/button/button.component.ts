@@ -14,12 +14,8 @@ import {
   ViewChild,
   ViewContainerRef
 } from '@angular/core';
-import { ModalManualInputAlertComponent, ManualInputAlertType } from '../modal/modal-manual-input-alert/modal-manual-input-alert';
-
-export interface ModalManualInputAlertData {
-  finish: boolean 
-  type?: 'keyboard' | 'laser'
-}
+import { ModalManualInputAlertComponent } from '../modal/modal-manual-input-alert/modal-manual-input-alert';
+import { ManualInputAlertType } from '../modal/modal-manual-input-alert/modal-manual-input-alert.types';
 
 @Component({
   selector: 'lct-button',
@@ -31,7 +27,6 @@ export class ButtonComponent implements OnInit, AfterViewInit, OnChanges {
   @Input() buttonType: 'primary' | 'enabled' | 'secondary' | 'tertiary' | 'quaternary' | 'quintary' | 'sextary' | 'error' | 'success' = 'primary'
   @Input() disabled: 'true' | 'false' | 'disabled'| boolean | '' = 'false';
   @Input() shape: 'normal' | 'round' = 'normal';
-  @Input() manualInputAlert: boolean = false;
   @Input() icon = '';
   @Input() width = '';
   @Input() height = '';
@@ -43,7 +38,7 @@ export class ButtonComponent implements OnInit, AfterViewInit, OnChanges {
   @Input() id?: string = ''; // ID en Button Opcional
   @Input() userId?: string = '';
   @Input() alertIconPath?: string = ''; // Ruta del ícono de alerta para el modal
-  @Output() buttonClickAlert = new EventEmitter<ManualInputAlertType>();
+  @Output() alertManualInput: EventEmitter<ManualInputAlertType> = new EventEmitter<ManualInputAlertType>();
   @ViewChild('button') button: ElementRef | undefined;
   disabledValue = false;
   boldValue = false;
@@ -139,14 +134,18 @@ export class ButtonComponent implements OnInit, AfterViewInit, OnChanges {
     
     this.componentRef2.instance.closeModalStore.subscribe(resp => {
       if(resp.finish){
-        this.buttonClickAlert.emit(resp.type);
+        this.alertManualInput.emit(resp.type);
         this.closeModal();
       }
     })
   }
 
   onButtonClick(): void {
-    if(this.buttonType === 'enabled' && this.manualInputAlert){
+    // Verificar si el EventEmitter tiene suscriptores (observers)
+    // Esto indica si hay un listener en el template padre: (buttonClickAlert)="..."
+    const hasSubscribers = this.alertManualInput?.observers?.length > 0;
+    
+    if(this.buttonType === 'enabled' && hasSubscribers){
       this.openModalInputAlert();
     }
   }
