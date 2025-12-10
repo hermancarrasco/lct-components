@@ -1,12 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { BehaviorSubject } from "rxjs";
-
-export type ManualInputAlertType = 'keyboard' | 'laser';
-
-export interface ModalManualInputAlertData {
-  finish: boolean;
-  type?: ManualInputAlertType;
-}
+import { ManualInputAlertType, ModalManualInputAlertData } from './modal-manual-input-alert.types';
 
 @Component({
   selector: 'lct-modal-manual-input-alert',

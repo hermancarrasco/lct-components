@@ -121,41 +121,54 @@
 
             button {
                 flex: 1;
-                padding: 12px 24px;
-                border-radius: 4px;
+                width: 100%;
+                height: 40px;
+                padding: 0px 14px;
+                border-radius: 8px;
                 font-family: "Barlow", Arial, sans-serif;
                 font-style: normal;
                 font-weight: 600;
                 font-size: 14px;
-                line-height: 20px;
+                line-height: 18px;
                 cursor: pointer;
-                border: none;
                 transition: all 0.2s ease;
+                border: 1px solid #C2C2C2;
+                width: 180px;
 
                 &.btn-manual {
-                    background: #fff;
-                    color: #2649B6;
+                    box-sizing: border-box;
                     border: 1px solid #2649B6;
+                    background-color: #FFFFFF;
+                    color: #2649B6;
 
-                    &:hover {
-                        background: #f5f7fa;
+                    &:not([disabled]):active {
+                        background: #2A5AED;
+                        color: #FFFFFF;
                     }
-
-                    &:active {
-                        background: #e8ecf0;
+                    @media (hover: hover) {
+                        &:not([disabled]):hover {
+                            border: 1px solid #2A5AED;
+                            color: #2A5AED;
+                        }
+                        &:active {
+                            color: #FFFFFF !important;
+                        }
                     }
                 }
 
                 &.btn-laser {
-                    background: #2649B6;
-                    color: #fff;
+                    background-color: #2649B6;
+                    color: #FFFFFF;
+                    font-weight: bold;
+                    border: none;
 
-                    &:hover {
-                        background: #1e3a8a;
+                    &:not([disabled]):active {
+                        background: #2A5AED;
                     }
-
-                    &:active {
-                        background: #1a2e75;
+                    @media (hover: hover) {
+                        &:not([disabled]):hover {
+                            background: #2A5AED;
+                        }
                     }
                 }
             }

@@ -30,12 +30,14 @@
                 <p>Usarlo manualmente aumenta errores y tiempos de operación.</p>
             </div>
             <div class="modal-actions">
-                <lct-button buttonType="primary" 
-                    (click)="clickButtonAlert('keyboard')" 
-                    title="Usar teclado manual"></lct-button>
-                <lct-button buttonType="secondary"
-                    (click)="clickButtonAlert('laser')" 
-                    title="Usar pistola laser"></lct-button>
+                <button class="btn-manual" 
+                    (click)="clickButtonAlert('keyboard')">
+                    Usar teclado manual
+                </button>
+                <button class="btn-laser"
+                    (click)="clickButtonAlert('laser')">
+                    Usar pistola laser
+                </button>
             </div>
         </div>
     </div>

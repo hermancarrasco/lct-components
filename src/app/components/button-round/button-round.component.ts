@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ManualInputAlertType } from 'projects/lct-components/src/lib/modal/modal-manual-input-alert/modal-manual-input-alert';
+import { ManualInputAlertType } from 'projects/lct-components/src/lib/modal/modal-manual-input-alert/modal-manual-input-alert.types';
 
 @Component({
   selector: 'app-button-round',
@@ -11,7 +11,7 @@ export class ButtonRoundComponent {
   clickButtonEnabled() {
     // console.log('clickButtonEnabled');
   }
-  buttonClickAlert(event: ManualInputAlertType) {
+  alertManualInput(event: ManualInputAlertType) {
     console.log('buttonClickAlert', event);
   }
 }
