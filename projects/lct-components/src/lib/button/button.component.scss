@@ -29,6 +29,9 @@ button{
       filter: hue-rotate(10deg) saturate(0.5) brightness(390%) saturate(4);
     }
   }
+  &.primary {
+    border: none;
+  }
 }
 
 .button-round {

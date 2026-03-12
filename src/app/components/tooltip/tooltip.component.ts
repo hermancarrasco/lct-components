@@ -7,7 +7,8 @@ import { ACCESSFILTER, TIENDAS } from 'src/app/mocks/stores.mock';
 @Component({
   selector: 'app-tooltip',
   templateUrl: './tooltip.component.html',
-  styleUrls: ['./tooltip.component.scss']
+  styleUrls: ['./tooltip.component.scss'],
+  standalone: false
 })
 export class TooltipComponent implements OnInit  {
 

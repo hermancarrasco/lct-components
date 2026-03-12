@@ -4,7 +4,8 @@ import { LctNode } from '../../modal-tooltip.directive';
 @Component({
   selector: 'lct-modal',
   templateUrl: './modal-change-store.component.html',
-  styleUrls: ['./modal-change-store.scss']
+  styleUrls: ['./modal-change-store.scss'],
+  standalone: false
 })
 export class ModalChangeStoreComponent implements OnInit {
 

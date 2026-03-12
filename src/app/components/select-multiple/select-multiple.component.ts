@@ -6,11 +6,13 @@ import {
 @Component({
   selector: 'app-select-multiple',
   templateUrl: './select-multiple.component.html',
-  styleUrls: ['./select-multiple.component.scss']
+  styleUrls: ['./select-multiple.component.scss'],
+  standalone: false
 })
 export class SelectMultipleComponent implements OnInit {
   switchValue = false;
-  list : IListLCTSelectMultiple[];
+  list: IListLCTSelectMultiple[];
+  optionsNodos: IListLCTSelectMultiple[];
 
   constructor() {
     this.list =
@@ -24,6 +26,17 @@ export class SelectMultipleComponent implements OnInit {
         {name : 'O1002 - Otro 2' , checked : false, value: 'READY_TO_DISPATCH',quantity:10},
         {name : 'O1003 - Otro 3' , checked : false, value: 'READY_TO_DISPATCH',quantity:10},
 
+      ];
+    
+    this.optionsNodos =
+      [
+        {name : 'Todos los Nodos' , checked : false, value: 'all'},
+        {name : 'Tienda 1' , checked : false, value: 'tienda'},
+        {name : 'Tienda 2' , checked : false, value:  'tienda'},
+        {name : 'Tienda con nombre super largo para probar tooltip', checked : false, value: 'tienda'},
+        {name : 'Tienda 4' , checked : false, value: 'tienda'},
+        {name : 'Tienda 5' , checked : false, value: 'tienda'},
+        {name : 'Tienda con nombre super largo para probar tooltip' , checked : false, value: 'tienda'},
       ];
   }
 
@@ -40,6 +53,43 @@ export class SelectMultipleComponent implements OnInit {
 
   shareIndividualCheckedList(item:{}){
     // console.log(item);
+  }
+
+    allNodesSelected: boolean = false;
+
+   checkedNodesList(event: IListLCTSelectMultiple[]) {
+    const selected = event.find((e) => e.name);
+    const nodeAllSelected = this.optionsNodos.find((node: any) => node.value === 'all')!;
+    if (nodeAllSelected?.checked && !this.allNodesSelected && selected?.value === 'all') {
+      this.allNodesSelected = true;
+      this.optionsNodos.forEach((node: any) => {
+        node.checked = true;
+      });
+    }
+    if (!nodeAllSelected?.checked && this.allNodesSelected) {
+      this.allNodesSelected = false;
+      this.optionsNodos.forEach((node: any) => {
+        node.checked = false;
+      });
+    }
+    if (
+      this.allNodesSelected &&
+      this.optionsNodos
+        .filter((node: any) => node.value !== 'all')
+        .some((node: any) => !node.checked)
+    ) {
+      this.allNodesSelected = false;
+      nodeAllSelected.checked = false;
+    }
+    if (
+      !this.allNodesSelected &&
+      this.optionsNodos
+        .filter((node: any) => node.value !== 'all')
+        .every((node: any) => node.checked)
+    ) {
+      this.allNodesSelected = true;
+      nodeAllSelected.checked = true;
+    }
   }
 
 }

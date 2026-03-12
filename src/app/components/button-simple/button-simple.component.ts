@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-button-simple',
   templateUrl: './button-simple.component.html',
   styleUrls: ['./button-simple.component.scss'],
+  standalone: false
 })
 export class ButtonSimpleComponent implements OnInit {
 

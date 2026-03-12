@@ -21,7 +21,8 @@ interface Node {
 }
 
 @Directive({
-  selector: '[lctModalTooltip]'
+  selector: '[lctModalTooltip]',
+  standalone: false
 })
 export class ModalTooltipDirective implements OnInit {
 

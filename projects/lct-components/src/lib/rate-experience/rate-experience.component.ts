@@ -3,7 +3,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 @Component({
   selector: 'lct-rate-experience',
   templateUrl: './rate-experience.component.html',
-  styleUrls: ['./rate-experience.component.scss']
+  styleUrls: ['./rate-experience.component.scss'],
+  standalone: false
 })
 export class RateExperienceComponent implements OnInit {
 

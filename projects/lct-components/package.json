@@ -1,6 +1,6 @@
 {
   "name": "lct-components",
-  "version": "0.12.9",
+  "version": "beta-0.0.1",
   "description": "LCT basic components",
   "keywords": [
     "button",
@@ -38,10 +38,10 @@
     "email" : "hermancarrasco@outlook.com"
   },
   "peerDependencies": {
-    "@angular/common": "^12.1.0 || ^13.0.0 || ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0  || ^18.0.0 || ^19.0.0 || ^20.0.0",
-    "@angular/core": "^12.1.0 || ^13.0.0 || ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0  || ^18.0.0 || ^19.0.0 || ^20.0.0"
+    "@angular/common": "^20.3.17",
+    "@angular/core": "^20.3.17"
   },
   "dependencies": {
-    "tslib": "^2.2.0"
+    "tslib": "^2.6.0"
   }
 }

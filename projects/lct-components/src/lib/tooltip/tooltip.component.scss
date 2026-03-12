@@ -1,6 +1,7 @@
 .tooltipLCT {
   position: relative;
   display: inline-block;
+  z-index: 99999;
   // border-bottom: 1px dotted black;
 
   &.top {
@@ -26,7 +27,8 @@
     border-radius: 6px;
     padding: 10px;
     position: absolute;
-    z-index: 1000;
+    z-index: 100000;
+    font-size: 13px;
 
     &.primary {
       background-color: #2649B6;
@@ -38,6 +40,25 @@
 
     &.tertiary {
       background-color: #C60E4C;
+    }
+
+    &.top-rigth {
+      &::after {
+        bottom: -10px;
+        left: 4px;
+      }
+      
+      &.primary::after {
+        border-color: #2649B6 transparent transparent transparent;
+      }
+
+      &.secondary::after {
+        border-color: #8CBA37 transparent transparent transparent;
+      }
+
+      &.tertiary::after {
+        border-color: #C60E4C transparent transparent transparent;
+      }
     }
 
     &.top {
@@ -114,5 +135,6 @@
     margin-top: -5px;
     border-width: 5px;
     border-style: solid;
+
   }
 }

@@ -12,6 +12,7 @@ import {ClipboardComponent} from "./clipboard/clipboard.component";
 
 @Directive({
   selector: '[lctClipboard]',
+  standalone: false
 })
 export class ClipboardDirective {
 

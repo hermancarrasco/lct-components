@@ -68,15 +68,18 @@ button:disabled {
 .drop-show {
   box-sizing: border-box;
   width: 100%;
-  border: 1px solid #E0E5EE;
+  max-width: 310px;
+  min-width: 280px;
+  /* border: 1px solid #E0E5EE; */
   border-radius: 5px;
   background-color: #FFFFFF;
   position: absolute;
   z-index: 2;
-  -webkit-box-shadow: 0 6px 10px rgba(0,0,0,.15);
+  /* -webkit-box-shadow: 0 6px 10px rgba(0,0,0,.15);
   -moz-box-shadow: 0 6px 10px rgba(0,0,0,.15);
-  box-shadow: 0 6px 10px rgba(0,0,0,.15);
+  box-shadow: 0 6px 10px rgba(0,0,0,.15); */
   margin-left: 1px;
+  border: 1px solid #C2C2C2;
 }
 .drop-empty{
   width: 100%;
@@ -145,6 +148,7 @@ ul .main {
   font-size: 13px;
   letter-spacing: 0;
   line-height: 27px;
+  white-space: nowrap;
 }
 
 .main {
@@ -158,6 +162,7 @@ ul .main {
   font-size: 13px;
   letter-spacing: 0;
   line-height: 27px;
+  white-space: nowrap;
 }
 .text {
   margin-left: 27px;
@@ -227,4 +232,29 @@ like a tickmark */
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
+}
+
+.options-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #2649B6 transparent;
+}
+
+.options-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.options-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.options-scroll::-webkit-scrollbar-thumb {
+  background-color: #2649B6;
+  border-radius: 10px;
+}
+
+.lct-qty {
+  margin-left: 5px;
+}
+.padding-content {
+  padding-right: 15px;
 }

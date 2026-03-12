@@ -3,11 +3,12 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-select-simple',
   templateUrl: './select-simple.component.html',
-  styleUrls: ['./select-simple.component.scss']
+  styleUrls: ['./select-simple.component.scss'],
+  standalone: false
 })
 export class SelectSimpleComponent implements OnInit {
   array :any = ['Región de Arica','Región de Antofagasta','Metropolitana de Santiago de Chile', 'Región de Valparaíso',
-      'Región del Biobio','Región de los Rios','Región de la Araucanía', 'Región de Punta Arenas',
+      'Región del Biobio','Región de los Rios','Región de la Araucanía', 'Región de Punta Arenas', 'Región con un nombre muuuuuuuuuuuuuy largo para probar'
   ]
   constructor() { }
   

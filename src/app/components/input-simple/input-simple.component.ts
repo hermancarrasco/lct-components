@@ -3,7 +3,8 @@ import { Component, OnInit} from '@angular/core';
 @Component({
   selector: 'app-input-simple',
   templateUrl: './input-simple.component.html',
-  styleUrls: ['./input-simple.component.scss']
+  styleUrls: ['./input-simple.component.scss'],
+  standalone: false
 })
 export class InputSimpleComponent implements OnInit {
   value1 = '';

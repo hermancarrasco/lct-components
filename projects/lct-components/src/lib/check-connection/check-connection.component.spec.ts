@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TestConnectionComponent } from './check-connection.component';
+import { CheckConnectionComponent } from './check-connection.component';
 
-describe('TestConnectionComponent', () => {
-  let component: TestConnectionComponent;
-  let fixture: ComponentFixture<TestConnectionComponent>;
+describe('CheckConnectionComponent', () => {
+  let component: CheckConnectionComponent;
+  let fixture: ComponentFixture<CheckConnectionComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TestConnectionComponent ]
+      declarations: [ CheckConnectionComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(TestConnectionComponent);
+    fixture = TestBed.createComponent(CheckConnectionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

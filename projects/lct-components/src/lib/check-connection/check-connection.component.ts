@@ -4,7 +4,8 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'lct-check-connection',
   templateUrl: './check-connection.component.html',
-  styleUrls: ['./check-connection.component.scss']
+  styleUrls: ['./check-connection.component.scss'],
+  standalone: false
 })
 export class CheckConnectionComponent implements OnInit, OnDestroy {
   connectionType: string = '';

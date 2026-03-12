@@ -5,7 +5,8 @@ import { ManualInputAlertType, ModalManualInputAlertData } from './modal-manual-
 @Component({
   selector: 'lct-modal-manual-input-alert',
   templateUrl: './modal-manual-input-alert.component.html',
-  styleUrls: ['./modal-manual-input-alert.scss']
+  styleUrls: ['./modal-manual-input-alert.scss'],
+  standalone: false
 })
 export class ModalManualInputAlertComponent implements OnInit {
 

@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { LctComponentsModule } from '../../../../projects/lct-components/src/lib/lct-components.module';
 
 import { ButtonSimpleComponent } from './button-simple.component';
 
@@ -8,6 +9,7 @@ describe('ButtonSimpleComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [ LctComponentsModule ],
       declarations: [ ButtonSimpleComponent ]
     })
     .compileComponents();

@@ -5,7 +5,8 @@ import { ToastService } from 'projects/lct-components/src/lib/toast.service';
 @Component({
   selector: 'app-toast',
   templateUrl: './toast.component.html',
-  styleUrls: ['./toast.component.scss']
+  styleUrls: ['./toast.component.scss'],
+  standalone: false
 })
 export class IToastComponent implements OnInit {
   switchValue = false;

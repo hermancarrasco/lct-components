@@ -3,7 +3,8 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-button-with-icon',
   templateUrl: './button-with-icon.component.html',
-  styleUrls: ['./button-with-icon.component.scss']
+  styleUrls: ['./button-with-icon.component.scss'],
+  standalone: false
 })
 export class ButtonWithIconComponent implements OnInit {
 
