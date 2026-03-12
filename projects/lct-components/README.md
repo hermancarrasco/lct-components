@@ -1,6 +1,6 @@
 # LctComponents
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.0.
+This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version ^20.3.17.
 
 ## How to use
 
@@ -155,8 +155,13 @@ yourComponent.ts
 
 
 
-> Version beta-0.0.1
 >
+> [(ngModel)] Can only be used at the moment for:
+>
+> > lct-input-text
+> > lct-switch
+```
+## Version beta-0.0.1
 - Angular version updated in library
 - Multiple selection designs are updated.
 - Tooltips are added to selectors to display hidden text.
