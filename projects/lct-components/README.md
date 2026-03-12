@@ -155,10 +155,10 @@ yourComponent.ts
 
 
 
-> Version 0.12.9
+> Version beta-0.0.1
 >
-> [(ngModel)] Can only be used at the moment for:
->
-> > lct-input-text
-> > lct-switch
-```
+- Angular version updated in library
+- Multiple selection designs are updated.
+- Tooltips are added to selectors to display hidden text.
+- A new top-right tooltip position is added.
+- Sizes are adjusted according to mockup.
