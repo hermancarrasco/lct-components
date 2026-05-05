@@ -1,6 +1,6 @@
 {
   "name": "lct-components",
-  "version": "beta-0.0.1",
+  "version": "0.0.1-beta",
   "description": "LCT basic components",
   "keywords": [
     "button",
@@ -30,7 +30,7 @@
   }],
   "repository": {
     "type": "git",
-    "url": "https://github.com/hermancarrasco/lct-components.git",
+    "url": "git+https://github.com/hermancarrasco/lct-components.git",
     "directory": "projects"
   },
   "bugs": {
