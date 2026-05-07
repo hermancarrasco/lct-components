@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { LctComponentsComponent } from './lct-components.component';
 import { SelectMultipleComponent } from './select-multiple/select-multiple.component';
-import {CommonModule} from "@angular/common";
 import {FormsModule} from "@angular/forms";
 import { SelectComponent } from './select/select.component';
 import { ButtonComponent } from './button/button.component';
@@ -23,6 +22,8 @@ import { LabelPipe } from './pipes/label.pipe';
 import { LabelTitlePipe } from './pipes/label.title.pipe';
 import { CheckConnectionComponent } from './check-connection/check-connection.component';
 import { ModalManualInputAlertComponent } from './modal/modal-manual-input-alert/modal-manual-input-alert';
+import { LabelTooltipPipe } from './pipes/label-tooltip-pipe';
+import { CommonModule } from '@angular/common';
 
 
 
@@ -49,6 +50,7 @@ import { ModalManualInputAlertComponent } from './modal/modal-manual-input-alert
     ModalManualInputAlertComponent,
     LabelPipe,
     LabelTitlePipe,
+    LabelTooltipPipe,
   ],
   imports: [
     CommonModule,

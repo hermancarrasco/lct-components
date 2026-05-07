@@ -1,8 +1,42 @@
-<lct-select [id]="'simple'" 
+<div class="container">
+    <h1>Select Simple </h1>
+    <p>Select Simple lct</p>
+
+    <div class="col-12">
+        <lct-select [id]="'simple'" title="Select simple" [options]="array" [placeholder]="'Seleccione una opción'"
+            (setAutofocusEvent)="setAutofocus($event)" (value)="changeSelect($event)"></lct-select>
+    </div>
+    <div class="col-12 col-md-4 mt-3">
+        <lct-button title="AGREGAR" bold="true" (click)="agregar();"></lct-button>
+    </div>
+
+    <div class="col-12 mt-4">
+        <p>Html code for Select Simple</p>
+        <pre>
+            <code class="language-html">
+    &lt;lct-select [id]="'simple'" 
     title="Select simple" 
     [options]="array"
     [placeholder]="'Seleccione una opción'"
     (setAutofocusEvent)="setAutofocus($event)"
-    (value)="changeSelect($event)"></lct-select>
-
-<button (click)="agregar();">AGREGAR</button>
+    (value)="changeSelect($event)"&gt;&lt;/lct-select&gt;
+            </code>
+        </pre>
+        <p class="mt-2">Options for Select Simple - (String Array)</p>
+        <pre>
+            <code class="language-html">
+    array :any = [
+        'Región de Arica',
+        'Región de Antofagasta',
+        'Metropolitana de Santiago de Chile',
+        'Región de Valparaíso',
+        'Región del Biobio',
+        'Región de los Rios',
+        'Región de la Araucanía',
+        'Región de Punta Arenas',
+        'Región con un nombre muuuuuuuuuuuuuy largo para probar'
+    ];
+            </code>
+        </pre>
+    </div>
+</div>

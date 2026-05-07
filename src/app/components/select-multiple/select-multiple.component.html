@@ -1,6 +1,128 @@
-<lct-select-multiple [id]="'multiple'" [disabled]="switchValue" 
-    [list]="list" title="Selecciona tienda"
-    (shareCheckedList)="shareCheckedList($event)"
-    (shareIndividualCheckedList)="shareIndividualCheckedList($event)"
-    (setAutofocusEvent)="setAutofocus($event)">
-</lct-select-multiple>
+<div class="container">
+    <h1>Select Multiple </h1>
+    <p>Select Multiple whit quantity</p>
+
+    <div class="col-12">
+        <lct-select-multiple [id]="'multiple'" [disabled]="switchValue" [list]="list" title="Selecciona tienda"
+            (shareCheckedList)="shareCheckedList($event)"
+            (shareIndividualCheckedList)="shareIndividualCheckedList($event)"
+            (setAutofocusEvent)="setAutofocus($event)">
+        </lct-select-multiple>
+    </div>
+
+    <div class="col-12 mt-4">
+      <p>Html code for Select Multiple Nodos</p>
+        <pre>
+            <code class="language-html">
+    &lt;lct-select-multiple [id]="'multiple'" [disabled]="switchValue" 
+        [list]="list" title="Selecciona tienda"
+        (shareCheckedList)="shareCheckedList($event)"
+        (shareIndividualCheckedList)="shareIndividualCheckedList($event)"
+        (setAutofocusEvent)="setAutofocus($event)"&gt;
+    &lt;/lct-select-multiple&gt;
+            </code>
+        </pre>
+<p class="mt-2">Options for Select Multiple Nodos</p>
+        <pre>
+            <code class="language-html">
+    options =
+        [
+            &#123;name : 'J1001 - Jeans Mujer' , checked : false, value: 'RELABEL_PENDING',quantity:10&#125;,
+            &#123;name : 'J1002 - Jeans Hombre' , checked : false, value: 'READY_TO_DISPATCH', disabled: true,quantity:10&#125;,
+            &#123;name : 'T1001 - Consolas' , checked : false, value: 'READY_TO_DISPATCH'&#125;,
+            &#123;name : 'T1002 - Juegos consolas' , checked : false, value: 'READY_TO_DISPATCH'&#125;,
+            &#123;name : 'T1002 - Juegos para cualquier tipo de consola' , checked : false, value: 'READY_TO_DISPATCH',quantity:10&#125;,
+            &#123;name : 'O1001 - Otro 1' , checked : false, value: 'READY_TO_DISPATCH'&#125;,
+            &#123;name : 'O1002 - Otro 2' , checked : false, value: 'READY_TO_DISPATCH',quantity:10&#125;,
+            &#123;name : 'O1003 - Otro 3' , checked : false, value: 'READY_TO_DISPATCH',quantity:10&#125;,
+
+        ];
+            </code>
+        </pre>
+    </div>
+
+    <p class="mt-4">Select Multiple Nodos</p>
+    <div class="col-12">
+        <lct-select-multiple [id]="'multiple'" [disabled]="switchValue" [list]="optionsNodos" title="Selecciona tienda"
+            (shareCheckedList)="checkedNodesList($event)"
+            (shareIndividualCheckedList)="shareIndividualCheckedList($event)"
+            (setAutofocusEvent)="setAutofocus($event)">
+        </lct-select-multiple>
+    </div>
+
+     <div class="col-12 mt-4">
+        <p>Html code for Select Multiple Nodos</p>
+        <pre>
+            <code class="language-html">
+    &lt;lct-select-multiple [id]="'multiple'" [disabled]="switchValue" 
+        [list]="optionsNodos" title="Selecciona tienda"
+        (shareCheckedList)="checkedNodesList($event)"
+        (shareIndividualCheckedList)="shareIndividualCheckedList($event)"
+        (setAutofocusEvent)="setAutofocus($event)"&gt;
+    &lt;/lct-select-multiple&gt;
+            </code>
+        </pre>
+
+        <p class="mt-2">Options for Select Multiple Nodos</p>
+
+        <pre>
+            <code class="language-html">
+    options =
+      [
+        &#123;name : 'Todos los Nodos' , checked : false, value: 'all'&#125;,
+        &#123;name : 'Tienda 1' , checked : false, value: 'tieda'&#125;,
+        &#123;name : 'Tienda 2' , checked : false, value:  'tieda'&#125;,
+        &#123;name : 'Tienda con nombre super largo para probar tooltip', checked : false, value: 'tieda'&#125;,
+        &#123;name : 'Tienda 4' , checked : false, value: 'tieda'&#125;,
+        &#123;name : 'Tienda 5' , checked : false, value: 'tieda'&#125;,
+        &#123;name : 'Tienda con nombre super largo para probar tooltip' , checked : false, value: 'tieda'&#125;,
+      ];
+            </code>
+        </pre>
+
+        <p class="mt-2">Options select All Options Function for Select Multiple Nodos</p>
+
+        <pre>
+            <code class="language-html">
+    allOptionsSelected: boolean = false;
+
+   checkedNodesList(event: IListLCTSelectMultiple[]) &#123;
+    const selected = event.find((e) => e.name);
+    const optionsSelected = this.options.find((node: any) => node.value === 'all')!;
+    if (optionsSelected?.checked && !this.allOptionsSelected && selected?.value === 'all') &#123;
+      this.allOptionsSelected = true;
+      this.options.forEach((node: any) => &#123;
+        node.checked = true;
+      &#125;);
+    &#125;
+    if (!optionsSelected?.checked && this.allOptionsSelected) &#123;
+      this.allOptionsSelected = false;
+      this.options.forEach((node: any) => &#123;
+        node.checked = false;
+      &#125;);
+    &#125;
+    if (
+      this.allOptionsSelected &&
+      this.options
+        .filter((node: any) => node.value !== 'all')
+        .some((node: any) => !node.checked)
+    ) &#123;
+      this.allOptionsSelected = false;
+      optionsSelected.checked = false;
+    &#125;
+    if (
+      !this.allOptionsSelected &&
+      this.options
+        .filter((node: any) => node.value !== 'all')
+        .every((node: any) => node.checked)
+    ) &#123;
+      this.allOptionsSelected = true;
+      optionsSelected.checked = true;
+    &#125;
+  &#125;
+            </code>
+        </pre>
+    </div>
+
+
+</div>

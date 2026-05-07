@@ -3,7 +3,8 @@ import {AfterViewInit, Component, ElementRef, Input, OnInit, Renderer2, Template
 @Component({
   selector: 'lct-tooltip',
   templateUrl: './tooltip.component.html',
-  styleUrls: ['./tooltip.component.scss']
+  styleUrls: ['./tooltip.component.scss'],
+  standalone: false
 })
 export class TooltipComponent implements OnInit, AfterViewInit{
 

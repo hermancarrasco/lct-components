@@ -3,7 +3,8 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-rate-experience',
   templateUrl: './rate-experience.component.html',
-  styleUrls: ['./rate-experience.component.scss']
+  styleUrls: ['./rate-experience.component.scss'],
+  standalone: false
 })
 export class RateExperienceComponent implements OnInit {
   show =true;

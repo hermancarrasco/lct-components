@@ -15,6 +15,7 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
   selector: 'lct-switch',
   templateUrl: './switch.component.html',
   styleUrls: ['./switch.component.css'],
+  standalone: false,
   providers: [{
     provide: NG_VALUE_ACCESSOR,
     useExisting: SwitchComponent,

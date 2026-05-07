@@ -17,6 +17,7 @@ export interface IListLCTSelect {
   selector: 'lct-select',
   templateUrl: './select.component.html',
   styleUrls: ['./select.component.css'],
+  standalone: false
 })
 export class SelectComponent implements OnInit, OnChanges {
   @Input() options = ['Insert Values as string array'];

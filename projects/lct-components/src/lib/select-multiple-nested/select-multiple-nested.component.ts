@@ -31,6 +31,7 @@ export interface IListSelectMultipleNested {
   selector: 'lct-select-multiple-nested',
   templateUrl: './select-multiple-nested.component.html',
   styleUrls: ['./select-multiple-nested.component.css'],
+  standalone: false
 })
 export class SelectMultipleNestedComponent implements OnInit, OnChanges {
   @Input() list: IListSelectMultipleNested[] = [];

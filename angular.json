@@ -46,13 +46,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "1mb",
+                  "maximumError": "2mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "4kb",
+                  "maximumError": "8kb"
                 }
               ],
               "fileReplacements": [
@@ -78,10 +78,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "designComponents:build:production"
+              "buildTarget": "designComponents:build:production"
             },
             "development": {
-              "browserTarget": "designComponents:build:development"
+              "buildTarget": "designComponents:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -108,130 +108,6 @@
               "src/styles.scss"
             ],
             "scripts": []
-          }
-        }
-      }
-    },
-    "input-text": {
-      "projectType": "library",
-      "root": "projects/input-text",
-      "sourceRoot": "projects/input-text/src",
-      "prefix": "lct",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
-          "options": {
-            "project": "projects/input-text/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/input-text/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "projects/input-text/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/input-text/src/test.ts",
-            "tsConfig": "projects/input-text/tsconfig.spec.json",
-            "karmaConfig": "projects/input-text/karma.conf.js"
-          }
-        }
-      }
-    },
-    "button": {
-      "projectType": "library",
-      "root": "projects/button",
-      "sourceRoot": "projects/button/src",
-      "prefix": "lct",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
-          "options": {
-            "project": "projects/button/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/button/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "projects/button/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/button/src/test.ts",
-            "tsConfig": "projects/button/tsconfig.spec.json",
-            "karmaConfig": "projects/button/karma.conf.js"
-          }
-        }
-      }
-    },
-    "select": {
-      "projectType": "library",
-      "root": "projects/select",
-      "sourceRoot": "projects/select/src",
-      "prefix": "lct",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
-          "options": {
-            "project": "projects/select/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/select/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "projects/select/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/select/src/test.ts",
-            "tsConfig": "projects/select/tsconfig.spec.json",
-            "karmaConfig": "projects/select/karma.conf.js"
-          }
-        }
-      }
-    },
-    "selectMultiple": {
-      "projectType": "library",
-      "root": "projects/select-multiple",
-      "sourceRoot": "projects/select-multiple/src",
-      "prefix": "lct",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
-          "options": {
-            "project": "projects/select-multiple/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/select-multiple/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "projects/select-multiple/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/select-multiple/src/test.ts",
-            "tsConfig": "projects/select-multiple/tsconfig.spec.json",
-            "karmaConfig": "projects/select-multiple/karma.conf.js"
           }
         }
       }
@@ -267,6 +143,5 @@
         }
       }
     }
-  },
-  "defaultProject": "designComponents"
+  }
 }

@@ -17,7 +17,7 @@
 .input-with-icon {
   box-sizing: border-box;
   position: relative;
-  height: 40px;
+  height: 36px;
   /*@media (max-width: 375px) { // descomentar si se necesita el input mas grande para pda
     height: 50px;
   }*/
@@ -69,7 +69,7 @@
   }
   position: absolute;
   right: 1%;
-  top: 0.01rem;
+  top: -0.09rem;
   width: 2.6rem;
   height: 2.6rem;
   border-radius: 0.3rem;

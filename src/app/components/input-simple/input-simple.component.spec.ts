@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 import { InputSimpleComponent } from './input-simple.component';
 
@@ -8,7 +9,8 @@ describe('InputSimpleComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ InputSimpleComponent ]
+      declarations: [ InputSimpleComponent ],
+      schemas: [NO_ERRORS_SCHEMA]
     })
     .compileComponents();
   });

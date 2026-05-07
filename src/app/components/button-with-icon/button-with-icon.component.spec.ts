@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 import { ButtonWithIconComponent } from './button-with-icon.component';
 
@@ -8,7 +9,8 @@ describe('ButtonWithIconComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ButtonWithIconComponent ]
+      declarations: [ ButtonWithIconComponent ],
+      schemas: [NO_ERRORS_SCHEMA]
     })
     .compileComponents();
   });

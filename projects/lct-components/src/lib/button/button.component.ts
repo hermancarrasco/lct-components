@@ -20,7 +20,8 @@ import { ManualInputAlertType } from '../modal/modal-manual-input-alert/modal-ma
 @Component({
   selector: 'lct-button',
   templateUrl: './button.component.html',
-  styleUrls: ['./button.component.scss']
+  styleUrls: ['./button.component.scss'],
+  standalone: false
 })
 export class ButtonComponent implements OnInit, AfterViewInit, OnChanges {
   @Input() title = 'Insert Title'

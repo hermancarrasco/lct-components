@@ -4,7 +4,8 @@ import { ManualInputAlertType } from 'projects/lct-components/src/lib/modal/moda
 @Component({
   selector: 'app-button-round',
   templateUrl: './button-round.component.html',
-  styleUrls: ['./button-round.component.scss']
+  styleUrls: ['./button-round.component.scss'],
+  standalone: false
 })
 export class ButtonRoundComponent {
 

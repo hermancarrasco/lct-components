@@ -13,7 +13,8 @@ export interface IListLCTSelectMultiple {
 @Component({
   selector: 'lct-select-multiple',
   templateUrl: './select-multiple.component.html',
-  styleUrls: ['./select-multiple.component.css']
+  styleUrls: ['./select-multiple.component.css'],
+  standalone: false
 })
 export class SelectMultipleComponent implements OnInit, OnChanges {
 
@@ -25,7 +26,7 @@ export class SelectMultipleComponent implements OnInit, OnChanges {
   @Input() placeholder = 'Insert placeholder';
   @Input() placeholderFilter = 'Buscar';
   @Input() quantityToFilter: number = 6;
-  @Input() heightOptions: string = '200px';
+  @Input() heightOptions: string = '195px';
   @Input() id?: string = ''; // ID en Button Opcional
 
   @Output() shareCheckedList = new EventEmitter();

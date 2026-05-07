@@ -4,7 +4,8 @@ import {IListSelectMultipleNested} from 'projects/lct-components/src/lib/select-
 @Component({
   selector: 'app-select-multiple-nested',
   templateUrl: './select-multiple-nested.component.html',
-  styleUrls: ['./select-multiple-nested.component.scss']
+  styleUrls: ['./select-multiple-nested.component.scss'],
+  standalone: false
 })
 export class SelectMultipleNestedComponent implements OnInit {
   switchValue = false;

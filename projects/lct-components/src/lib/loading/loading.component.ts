@@ -3,7 +3,8 @@ import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
 @Component({
   selector: 'lct-loading',
   templateUrl: './loading.component.html',
-  styleUrls: ['./loading.component.css']
+  styleUrls: ['./loading.component.css'],
+  standalone: false
 })
 export class LoadingComponent {
 

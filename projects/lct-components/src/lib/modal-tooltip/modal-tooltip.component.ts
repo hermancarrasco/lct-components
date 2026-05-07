@@ -5,7 +5,8 @@ import { BehaviorSubject } from "rxjs";
 @Component({
   selector: 'lct-modal-tooltip',
   templateUrl: './modal-tooltip.component.html',
-  styleUrls: ['./modal-tooltip.component.scss']
+  styleUrls: ['./modal-tooltip.component.scss'],
+  standalone: false
 })
 export class ModalTooltipComponent {
 

@@ -13,6 +13,7 @@ import { NG_VALUE_ACCESSOR } from "@angular/forms";
   selector: 'lct-clipboard',
   templateUrl: './clipboard.component.html',
   styleUrls: ['./clipboard.component.css'],
+  standalone: false,
   providers: [{
     provide: NG_VALUE_ACCESSOR,
     useExisting: ClipboardComponent,

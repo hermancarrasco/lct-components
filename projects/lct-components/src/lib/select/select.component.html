@@ -23,12 +23,13 @@
           [showIcon]="true"
         ></lct-input-text>
       </div>
-      <div [ngStyle]="{'height': options.length>7 ? '200px' : 'auto','overflow-y':options.length>7 ? 'auto':''}">
+      <div class="padding-content">
+      <div class="options-scroll" [ngStyle]="{'height': options.length>7 ? '200px' : 'auto','overflow-y':options.length>7 ? 'auto':''}">
         <label class="main" *ngFor="let option of filteredOptions; let i = index" >
-          <span class="text" [ngStyle]="{'padding-top': i===0 ? '8px' : ''}" (click)="changeValue(option)">{{option | labelPipe}}</span>
+          <span class="text" [ngStyle]="{'padding-top': i===0 ? '8px' : ''}" (click)="changeValue(option)" lctTooltip [tooltipText]="option | labelTooltip:'title'" position="top-rigth" color="primary">{{option | labelTooltip}}</span>
         </label>
       </div>
-
+</div>
     </div>
     <div class="drop-empty" *ngIf="showDropDown && options.length===0">
       Sin información

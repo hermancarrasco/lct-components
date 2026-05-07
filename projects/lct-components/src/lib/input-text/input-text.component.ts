@@ -18,6 +18,7 @@ import { SafeResourceUrl } from '@angular/platform-browser';
   selector: 'lct-input-text',
   templateUrl: './input-text.component.html',
   styleUrls: ['./input-text.component.scss'],
+  standalone: false,
   providers: [{
     provide: NG_VALUE_ACCESSOR,
     useExisting: InputTextComponent,

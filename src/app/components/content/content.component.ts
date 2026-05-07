@@ -7,7 +7,8 @@ import {LoadingComponent} from "../../../../projects/lct-components/src/lib/load
 @Component({
   selector: 'app-content',
   templateUrl: './content.component.html',
-  styleUrls: ['./content.component.scss']
+  styleUrls: ['./content.component.scss'],
+  standalone: false
 })
 export class ContentComponent implements OnInit {
 
