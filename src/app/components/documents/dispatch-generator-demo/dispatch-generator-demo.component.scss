@@ -1,0 +1,15 @@
+.dispatch-generator-demo {
+  padding: 16px;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 16px;
+}
+
+@media print {
+  .actions {
+    display: none;
+  }
+}

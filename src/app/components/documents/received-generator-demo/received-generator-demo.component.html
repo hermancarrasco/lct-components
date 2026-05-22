@@ -1,0 +1,23 @@
+<div class="received-generator-demo">
+  <div class="actions">
+    <button type="button" class="btn btn-primary" (click)="generateDocument()">
+      Generar documento
+    </button>
+  </div>
+
+  <div class="demo-content">
+    <div #receivedDocumentHost class="document-panel">
+      <lct-received-generator [receivePdf]="receivePdfData"></lct-received-generator>
+    </div>
+
+    <div class="example-panel">
+      <label class="example-title" for="receive-payload-example">Ejemplo payload receivePdf</label>
+      <textarea
+        id="receive-payload-example"
+        class="example-textarea"
+        [value]="receivePdfExample"
+        readonly
+      ></textarea>
+    </div>
+  </div>
+</div>

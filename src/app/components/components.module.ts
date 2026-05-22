@@ -16,6 +16,10 @@ import { SwitchComponent } from './switch/switch.component';
 import { TooltipComponent } from './tooltip/tooltip.component';
 import { SelectMultipleNestedComponent } from './select-multiple-nested/select-multiple-nested.component';
 import { RateExperienceComponent } from './rate-experience/rate-experience.component';
+import { ReceivedGeneratorDemoComponent } from './documents/received-generator-demo/received-generator-demo.component';
+import { LctReceivedGeneratorComponent } from 'projects/lct-components/src/public-api';
+import { DispatchGeneratorDemoComponent } from './documents/dispatch-generator-demo/dispatch-generator-demo.component';
+import { LctDispatchGeneratorComponent } from 'projects/lct-components/src/public-api';
 
 @NgModule({
   declarations: [
@@ -32,6 +36,8 @@ import { RateExperienceComponent } from './rate-experience/rate-experience.compo
     TooltipComponent,
     SelectMultipleNestedComponent,
     RateExperienceComponent,
+    ReceivedGeneratorDemoComponent,
+    DispatchGeneratorDemoComponent,
   ],
   exports: [
     ContentComponent,
@@ -42,6 +48,8 @@ import { RateExperienceComponent } from './rate-experience/rate-experience.compo
     LctComponentsModule,
     FormsModule,
     RouterModule,
+    LctReceivedGeneratorComponent,
+    LctDispatchGeneratorComponent,
   ]
 })
 export class ComponentsModule { }

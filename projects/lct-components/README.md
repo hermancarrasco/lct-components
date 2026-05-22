@@ -161,9 +161,5 @@ yourComponent.ts
 > > lct-input-text
 > > lct-switch
 ```
-## Version beta-0.0.1
-- Angular version updated in library
-- Multiple selection designs are updated.
-- Tooltips are added to selectors to display hidden text.
-- A new top-right tooltip position is added.
-- Sizes are adjusted according to mockup.
+## Version 0.13.1
+- Add Documents Receive and Dispatch 

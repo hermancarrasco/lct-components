@@ -14,6 +14,8 @@ import { ButtonRoundComponent } from './components/button-round/button-round.com
 import { RateExperienceComponent } from './components/rate-experience/rate-experience.component';
 import { IToastComponent } from './components/toast/toast.component';
 import { CheckConnectionComponent } from 'projects/lct-components/src/public-api';
+import { ReceivedGeneratorDemoComponent } from './components/documents/received-generator-demo/received-generator-demo.component';
+import { DispatchGeneratorDemoComponent } from './components/documents/dispatch-generator-demo/dispatch-generator-demo.component';
 
 const routes: Routes = [
   { path: 'buttonSimple', component: ButtonSimpleComponent },
@@ -30,6 +32,8 @@ const routes: Routes = [
   { path: 'Rate-Experience', component: RateExperienceComponent },
   { path: 'Toast', component: IToastComponent},
   { path: 'Test-Connection', component: CheckConnectionComponent},
+  { path: 'Received-Generator', component: ReceivedGeneratorDemoComponent},
+  { path: 'Dispatch-Generator', component: DispatchGeneratorDemoComponent},
   { path: '', redirectTo: '/buttonSimple', pathMatch: 'full' },
   { path: '**', redirectTo: '/buttonSimple', pathMatch: 'full' },
 ];
