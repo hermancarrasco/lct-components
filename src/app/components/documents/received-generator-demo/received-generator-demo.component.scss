@@ -1,0 +1,53 @@
+.received-generator-demo {
+  padding: 16px;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 16px;
+}
+
+.demo-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.example-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.example-title {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.example-textarea {
+  width: 100%;
+  min-height: 320px;
+  resize: vertical;
+  font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
+  font-size: 12px;
+  line-height: 1.4;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  background: #f8f9fa;
+}
+
+.document-panel {
+  overflow-x: auto;
+}
+
+@media print {
+  .actions {
+    display: none;
+  }
+
+  .example-panel {
+    display: none;
+  }
+}

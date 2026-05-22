@@ -1,6 +1,6 @@
 {
   "name": "design-components",
-  "version": "0.0.1-beta",
+  "version": "0.13.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -10,6 +10,10 @@
     "build-lib": "npm run build lctComponents --prod"
   },
   "private": true,
+  "overrides": {
+    "webpack-dev-server": "5.2.4",
+    "uuid": "11.1.1"
+  },
   "dependencies": {
     "@angular/animations": "^20.3.17",
     "@angular/common": "^20.3.17",

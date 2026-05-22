@@ -1,0 +1,123 @@
+@if (receivePdf !== undefined) {
+  <div id="document_container">
+    <div class="header">
+      <span class="document">DOCUMENTO DE RECEPCIÓN</span>
+      <div class="code">
+        <!-- <div class="code-value">{{ receivePdf.receiveConfirmedId || '' }}</div> -->
+
+        @if (barcodeBars.length > 0) {
+          <svg
+            class="barcode"
+            [attr.viewBox]="'0 0 ' + barcodeTotalUnits + ' ' + barcodeHeight"
+            preserveAspectRatio="xMidYMid meet"
+            role="img"
+            [attr.aria-label]="'Código de barras para ' + barcodeDisplayValue"
+          >
+            @for (bar of barcodeBars; track $index) {
+              <rect [attr.x]="bar.x" y="0" [attr.width]="bar.width" [attr.height]="barcodeHeight" />
+            }
+          </svg>
+          <!-- <div class="barcode-text">*{{ barcodeDisplayValue }}*</div> -->
+        }
+
+        <div>
+          <strong>CÓDIGO DE RECEPCIÓN:</strong>
+          <span>{{ receivePdf.receiveConfirmedId || 'CL-' }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-data">
+      <div class="general-info">
+        <div class="title-info">Información general</div>
+        <div class="body-info">
+          <div class="column">
+            <span><strong>Nodo Recepción:</strong> {{ receivePdf.nodeName || '-' }}</span>
+            <span><strong>Patente Camión:</strong> {{ receivePdf.tractorNumber || '-' }}</span>
+            <span><strong>N° Cortina:</strong> {{ receivePdf.deckNumber || receivePdf.deck || '-' }}</span>
+          </div>
+          <div class="column">
+            <span><strong>Fecha Recepción:</strong> {{ formatDateToDdMmYyyy(receivePdf.receptionDate || receivePdf.date) }}</span>
+            <span><strong>Usuario Backstore:</strong> {{ receivePdf.receptionEmail || receivePdf.userEmail || '-' }}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="reception-details">
+        <div class="title-detail">
+          <span>Detalle de la recepción</span>
+        </div>
+        <div class="packages">
+          <div class="packages-box">
+            <div>Total Recepcionados: {{ receivePdf.packagesTotalCount ?? receivePdf.numberPackages ?? 0 }} paquetes</div>
+            <div>
+              <div class="status-container">
+                <strong>{{ receivePdf.receiveCount ?? receivePdf.detail?.ok ?? 0 }}</strong>
+                <span class="status-label">Recepcionados</span>
+                <span class="vertical-line"></span>
+                <strong>{{ receivePdf.detail?.noInformation ?? receivePdf.discrepancyCount ?? 0 }}</strong>
+                <span class="status-label">Sin Información</span>
+              </div>
+              <div class="status">
+                <span><strong>{{ receivePdf.detail?.disagreed ?? receivePdf.discrepancyCount ?? 0 }}</strong><br />Discrepados</span>
+                <span><strong>{{ receivePdf.cancelledCount ?? receivePdf.detail?.cancelled ?? 0 }}<br /></strong>Cancelados</span>
+                <span><strong>{{ receivePdf.wrongStoreCount ?? receivePdf.detail?.wrongStore ?? 0 }}</strong><br />Tienda Errónea</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="annulled">
+        <strong>
+          Rechazado{{ (receivePdf.annulledCount ?? receivePdf.anulledCount ?? receivePdf.detail?.annulled ?? 0) === 1 ? '' : 's' }}:
+          {{ receivePdf.annulledCount ?? receivePdf.anulledCount ?? receivePdf.detail?.annulled ?? 0 }}
+          paquete{{ (receivePdf.annulledCount ?? receivePdf.anulledCount ?? receivePdf.detail?.annulled ?? 0) === 1 ? '' : 's' }}
+        </strong>
+      </div>
+
+      @if (discrepancyList.length > 0) {
+        <div class="list-container">
+          <div class="title-list">Detalle Paquetes discrepados:</div>
+          <div class="columns">
+            <div class="column">
+              <ol>
+                @for (pkg of getLeftColumn(); track $index) {
+                  <li>
+                    {{ pkg.lpn?.[0]?.packageLpnValue || '-' }} / {{ formatReason(pkg.reason) }}
+                    {{ pkg.isWrongStore && pkg.reason !== 'WRONG_STORE' && pkg.reason !== '-' ? '(Tienda Errónea)' : '' }}
+                  </li>
+                }
+              </ol>
+            </div>
+            <div class="column">
+              <ol start="{{ getLeftColumn().length + 1 }}">
+                @for (pkg of getRightColumn(); track $index) {
+                  <li>
+                    {{ pkg.lpn?.[0]?.packageLpnValue || '-' }} / {{ formatReason(pkg.reason) }}
+                    {{ pkg.isWrongStore && pkg.reason !== 'WRONG_STORE' && pkg.reason !== '-' ? '(Tienda Errónea)' : '' }}
+                  </li>
+                }
+              </ol>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+
+    <div class="signature-container">
+      <div class="signature">
+        <div class="line"></div>
+        <p>Timbre/Firma de seguridad</p>
+      </div>
+      <div class="signature">
+        <div class="line"></div>
+        <p>Timbre/Firma recepción local</p>
+      </div>
+      <div class="signature">
+        <div class="line"></div>
+        <p>Timbre/Firma transportista</p>
+      </div>
+    </div>
+  </div>
+}

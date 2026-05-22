@@ -1,0 +1,11 @@
+<div class="dispatch-generator-demo">
+  <div class="actions">
+    <button type="button" class="btn btn-primary" (click)="generateDocument()">
+      Generar documento
+    </button>
+  </div>
+
+  <div #dispatchDocumentHost>
+    <lct-dispatch-generator [dispatchPdf]="dispatchPdfData"></lct-dispatch-generator>
+  </div>
+</div>

@@ -1,0 +1,70 @@
+
+@if(dispatchPdf !== undefined){
+  <div id="document_container" class="lct-document">
+    <div class="lct-document__title">
+      DOCUMENTO DE DESPACHO
+    </div>
+
+    <div class="lct-document__code">
+      <div class="lct-document__code-value">
+        {{ dispatchPdf.dispatchConfirmedId || '' }}
+      </div>
+      <div class="lct-document__code-label">
+        <strong>CÓDIGO DE DESPACHO:</strong>
+        {{ dispatchPdf.dispatchConfirmedId || 'CL-' }}
+      </div>
+    </div>
+
+    <div class="lct-document__box">
+      <div class="lct-document__box-title">Detalle del despacho</div>
+
+      <div class="lct-document__details">
+        <div class="lct-document__details-labels">
+          <div>Nodo origen:</div>
+          <div>{{ securityLabel }}:</div>
+          <div>{{ truckPlateLabel }}:</div>
+          <div>Nº Cortina Despacho:</div>
+          <div>Flota:</div>
+          <div>Usuario Backstore:</div>
+          <div>Fecha despacho:</div>
+        </div>
+
+        <div class="lct-document__details-values">
+          <div>{{ dispatchPdf.nodeName || '-' }}</div>
+          <div>{{ dispatchPdf.securityNumber || '-' }}</div>
+          <div>{{ dispatchPdf.tractorNumber || '-' }}</div>
+          <div>{{ dispatchPdf.deck || '-' }}</div>
+          <div>{{ dispatchPdf.logisticOperator || '-' }}</div>
+          <div>{{ dispatchPdf.dispatchEmail || '-' }}</div>
+          <div>{{ dispatchPdf.dispatchedDate || '-' }}</div>
+        </div>
+
+        <div class="lct-document__packages">
+          <div>Número de paquetes:</div>
+          <div class="lct-document__packages-value">
+            {{ dispatchPdf.packageCount ?? 0 }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lct-document__signatures">
+      @if (country === 'CO') {
+        <div class="lct-document__signature">
+          <div class="lct-document__signature-line"></div>
+          <div class="lct-document__signature-label">Timbre/Firma Transportista</div>
+        </div>
+      }
+
+      <div class="lct-document__signature">
+        <div class="lct-document__signature-line"></div>
+        <div class="lct-document__signature-label">Timbre/Firma de seguridad</div>
+      </div>
+
+      <div class="lct-document__signature">
+        <div class="lct-document__signature-line"></div>
+        <div class="lct-document__signature-label">Timbre/Firma recepción local</div>
+      </div>
+    </div>
+  </div>
+}

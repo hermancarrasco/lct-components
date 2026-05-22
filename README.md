@@ -26,9 +26,5 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
-## Version beta-0.0.1
-- Angular version updated in library
-- Multiple selection designs are updated.
-- Tooltips are added to selectors to display hidden text.
-- A new top-right tooltip position is added.
-- Sizes are adjusted according to mockup.
+## Version 0.13.1
+- Add Documents Receive and Dispatch

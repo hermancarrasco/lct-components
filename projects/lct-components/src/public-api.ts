@@ -20,3 +20,5 @@ export * from './lib/rate-experience/rate-experience.component';
 export * from './lib/toast/toast.component';
 export * from './lib/toast.service';
 export * from './lib/check-connection/check-connection.component';
+export * from './lib/documents/received-generator/received-generator.component';
+export * from './lib/documents/dispatch-generator/dispatch-generator.component';

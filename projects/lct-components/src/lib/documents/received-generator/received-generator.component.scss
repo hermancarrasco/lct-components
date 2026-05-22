@@ -1,0 +1,203 @@
+#document_container{
+    width:920px;
+    padding-bottom: 32px;
+    padding-top: 32px;
+    font-family: Arial, sans-serif;
+}
+.container-data{
+    border: 1px solid #333;
+    width: 90%;
+    margin-left: 5%;
+    padding: 12px;
+}
+.header{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    padding-bottom: 32px;
+    .document{
+        font-family: Arial;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 18px;
+    }
+}
+.code {
+    text-align: center;
+}
+.code-value {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+}
+.barcode {
+    display: block;
+    width: 420px;
+    max-width: 100%;
+    height: 48px;
+    margin: 0 auto 6px;
+    shape-rendering: crispEdges;
+}
+.barcode rect {
+    fill: #000000;
+}
+.barcode-text {
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    margin-bottom: 4px;
+}
+.general-info{
+    padding-bottom: 24px;
+    .title-info{
+        font-family: Arial;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 20px;
+        text-align: left;
+        padding-bottom: 12px;
+    }
+    .body-info{
+        display: flex;
+        justify-content: space-between;
+        font-family: Arial, sans-serif;
+    }
+    .column{
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 2px;
+    }
+}
+/* Contenedor principal */
+.reception-details {
+    border: 1px solid #333;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    .title-detail {
+      font-size: 18px;
+      padding-top: 18px;
+      padding-bottom: 2px;
+      line-height: 20px;
+      margin-left: 12px;
+      span {
+          font-weight: 700;
+      }
+      display: flex;
+      justify-content: center;
+    }
+    .packages {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        .packages-box {
+            background-color: #ECECEC;
+            color: #000000;
+            font-family: Arial;
+            font-size: 16px;
+            line-height: 20px;
+            padding: 24px 120px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            .status-label {
+                font-weight: bold;
+                padding-left: 12px;
+            }
+            .status-container {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 12px;
+            }
+        }
+        .vertical-line {
+            display: inline-block;
+            width: 1px;
+            height: 20px;
+            background: #333;
+            margin: 0 52px;
+            vertical-align: middle;
+        }
+        .status {
+            display: flex;
+            justify-content: space-evenly;
+            width: 100%;
+            gap: 32px;
+            text-align: center;
+            font-size: 16px;
+            line-height: normal;
+        }
+    }
+}
+
+.annulled {
+    background-color: #E6E6E6;
+    border: 1px solid #333;
+    border-top: none;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+}
+
+.list-container {
+    padding-top: 24px;
+    padding-bottom: 8px;
+    min-height: 320px;
+    .title-list{
+        font-family: Arial;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 20px;
+        text-align: left;
+        padding-bottom: 12px;
+    }
+    .columns {
+        display: flex;
+        justify-content: space-between;
+    }
+    .column {
+        flex: 1;
+        margin-left: 24px;
+    }
+    ol {
+        margin: 0;
+        padding-left: 20px;
+    }
+    li {
+        margin-bottom: 5px;
+    }
+}
+  
+  
+  
+
+// Contenedor firmas
+.signature-container {
+    position: relative;
+    width: 85%;
+    left: 5%;
+    padding-top: 64px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    margin: 20px;
+    font-family: Arial, sans-serif;
+    .signature {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 30%;
+    }
+    .line {
+        width: 100%;
+        height: 1px;
+        background-color: black;
+        margin-bottom: 10px;
+    }
+}

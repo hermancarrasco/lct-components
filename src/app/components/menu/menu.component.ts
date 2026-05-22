@@ -104,6 +104,19 @@ export class MenuComponent implements OnInit {
           key: 'Test-Connection'
         }
       ]
+    },
+    {
+      title: 'Generate Documents',
+      items: [
+        {
+          title: 'Received Generator',
+          key: 'Received-Generator'
+        },
+        {
+          title: 'Dispatch Generator',
+          key: 'Dispatch-Generator'
+        }
+      ]
     }
   ]
 
