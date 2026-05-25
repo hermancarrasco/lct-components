@@ -1,4 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
+
 import { LctReceptionPdfData } from 'projects/lct-components/src/public-api';
 
 @Component({
@@ -10,32 +11,6 @@ import { LctReceptionPdfData } from 'projects/lct-components/src/public-api';
 export class ReceivedGeneratorDemoComponent {
   @ViewChild('receivedDocumentHost')
   receivedDocumentHost?: ElementRef<HTMLElement>;
-
-  // readonly receivePdfData: LctReceptionPdfData = {
-  //   receiveConfirmedId: 'CL1779292292409',
-  //   nodeName: 'CD Pudahuel',
-  //   tractorNumber: 'ABCD-12',
-  //   deck: '03',
-  //   receptionDate: '20/05/2026 10:30',
-  //   receptionEmail: 'usuario@falabella.com',
-  //   packagesTotalCount: 18,
-  //   receiveCount: 8,
-  //   discrepancyCount: 2,
-  //   cancelledCount: 1,
-  //   wrongStoreCount: 1,
-  //   anulledCount: 0,
-  //   packages: [
-  //     {
-  //       reason: 'EMPTY_BOX',
-  //       lpn: [{ packageLpnValue: '100001' }]
-  //     },
-  //     {
-  //       reason: 'WRONG_STORE',
-  //       lpn: [{ packageLpnValue: '100002' }],
-  //       isWrongStore: true
-  //     }
-  //   ]
-  // };
 
   readonly receivePdfData: LctReceptionPdfData = {
     "numberPackages":4,
