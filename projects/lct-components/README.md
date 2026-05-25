@@ -161,5 +161,5 @@ yourComponent.ts
 > > lct-input-text
 > > lct-switch
 ```
-## Version 0.13.1
+## Version 0.13.2
 - Add Documents Receive and Dispatch 
