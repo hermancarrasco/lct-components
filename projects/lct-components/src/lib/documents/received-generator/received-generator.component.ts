@@ -108,33 +108,36 @@ export class LctReceivedGeneratorComponent {
   protected formatReason(reason: string | undefined) {
     switch (reason) {
       case 'EMPTY_BOX':
-        return 'Caja vacía';
+        return 'Caja Vacía.';
       case 'ADULTERATED':
-        return 'Adulterado';
+        return 'Daño de Embalaje Adulterado.';
       case 'CHANGED':
-        return 'Cambiado';
+        return 'Cambiado.';
       case 'PACKAGING_DAMAGE':
-        return 'Daño de embalaje';
+        return 'Daño Embalaje Normal.';
       case 'MEDIUM_PRODUCT_DAMAGE':
-        return 'Daño medio del producto';
+        return 'Daño medio del producto.';
       case 'NORMAL_PRODUCT_DAMAGE':
-        return 'Daño del producto';
+        return 'Daño de Producto Normal.';
       case 'UNRECOVERABLE_DAMAGE':
-        return 'Daño irrecuperable';
+        return 'Daño de Producto Irrecuperable.';
       case 'HIGH_INCOMPLETE_PRODUCT':
-        return 'Faltante alto';
+        return 'Producto Incompleto Alto (100%).';
       case 'MEDIUM_INCOMPLETE_PRODUCT':
-        return 'Faltante medio';
+        return 'Producto Incompleto Medio (50%).';
       case 'LOW_INCOMPLETE_PRODUCT':
-        return 'Faltante bajo';
+        return 'Producto Incompleto Bajo (20%).';
       case 'INCOMPLETE':
-        return 'Incompleto';
+        return 'Producto Incompleto.';
       case 'WRONG_STORE':
-        return 'Tienda errónea';
+        return 'Tienda errónea.';
+      case 'earlyArrival':
+          return 'Paquete adelantado';
       default:
         return reason || '-';
     }
   }
+        
 
   private buildDiscrepancyList(receivePdf: LctReceptionPdfData | undefined) {
     const packages = this.getNormalizedPackages(receivePdf);
