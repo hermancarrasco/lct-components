@@ -7,7 +7,19 @@
 
     <div class="lct-document__code">
       <div class="lct-document__code-value">
-        {{ dispatchPdf.dispatchConfirmedId || '' }}
+        @if (barcodeBars.length > 0) {
+          <svg
+            class="lct-document__barcode"
+            [attr.viewBox]="'0 0 ' + barcodeTotalUnits + ' ' + barcodeHeight"
+            preserveAspectRatio="xMidYMid meet"
+            role="img"
+            [attr.aria-label]="'Código de barras para ' + barcodeDisplayValue"
+          >
+            @for (bar of barcodeBars; track $index) {
+              <rect [attr.x]="bar.x" y="0" [attr.width]="bar.width" [attr.height]="barcodeHeight" />
+            }
+          </svg>
+        }
       </div>
       <div class="lct-document__code-label">
         <strong>CÓDIGO DE DESPACHO:</strong>
@@ -21,7 +33,9 @@
       <div class="lct-document__details">
         <div class="lct-document__details-labels">
           <div>Nodo origen:</div>
+          <div>Tipo de Operación:</div>
           <div>{{ securityLabel }}:</div>
+          <div>RUT del transportista:</div>
           <div>{{ truckPlateLabel }}:</div>
           <div>Nº Cortina Despacho:</div>
           <div>Flota:</div>
@@ -31,25 +45,27 @@
 
         <div class="lct-document__details-values">
           <div>{{ dispatchPdf.nodeName || '-' }}</div>
-          <div>{{ dispatchPdf.securityNumber || '-' }}</div>
-          <div>{{ dispatchPdf.tractorNumber || '-' }}</div>
-          <div>{{ dispatchPdf.deck || '-' }}</div>
-          <div>{{ dispatchPdf.logisticOperator || '-' }}</div>
-          <div>{{ dispatchPdf.dispatchEmail || '-' }}</div>
-          <div>{{ dispatchPdf.dispatchedDate || '-' }}</div>
+          <div>{{ dispatchPdf.operationType || '-' }}</div>
+          <div>{{ dispatchPdf.transportInfo?.securityNumber || dispatchPdf.securityNumber || '-' }}</div>
+          <div>{{ dispatchPdf.transportInfo?.driverDni || '-' }}</div>
+          <div>{{ dispatchPdf.transportInfo?.plate || dispatchPdf.tractorNumber || '-' }}</div>
+          <div>{{ dispatchPdf.transportInfo?.deck || dispatchPdf.deck || '-' }}</div>
+          <div>{{ dispatchPdf.fleet || dispatchPdf.logisticOperator || '-' }}</div>
+          <div>{{ dispatchPdf.userEmail || dispatchPdf.dispatchEmail || '-' }}</div>
+          <div>{{ formatDateToDdMmYyyy(dispatchPdf.date || dispatchPdf.dispatchedDate) }}</div>
         </div>
 
         <div class="lct-document__packages">
           <div>Número de paquetes:</div>
           <div class="lct-document__packages-value">
-            {{ dispatchPdf.packageCount ?? 0 }}
+            {{ dispatchPdf.numberPackages ?? dispatchPdf.packageCount ?? 0 }}
           </div>
         </div>
       </div>
     </div>
 
     <div class="lct-document__signatures">
-      @if (country === 'CO') {
+      @if (dispatchPdf.country === 'CO') {
         <div class="lct-document__signature">
           <div class="lct-document__signature-line"></div>
           <div class="lct-document__signature-label">Timbre/Firma Transportista</div>
