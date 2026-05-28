@@ -46,6 +46,12 @@ export class LctDispatchGeneratorComponent {
   barcodeTotalUnits = 0;
   barcodeHeight = 36;
   barcodeDisplayValue = '';
+  barcodeImageDataUrl = '';
+
+  private readonly barcodeOutputWidth = 420;
+  private readonly barcodeOutputHeight = 48;
+  private readonly barcodeMarginHorizontal = 8;
+  private readonly barcodeOffsetY = 6;
 
   private _dispatchPdf: LctDispatchPdfData | undefined = undefined;
 
@@ -74,6 +80,42 @@ export class LctDispatchGeneratorComponent {
     this.barcodeDisplayValue = barcode.displayValue;
     this.barcodeBars = barcode.bars;
     this.barcodeTotalUnits = barcode.totalUnits;
+    this.barcodeImageDataUrl = this.buildBarcodeImage();
+  }
+
+  private buildBarcodeImage() {
+    if (this.barcodeBars.length === 0 || this.barcodeTotalUnits === 0 || typeof document === 'undefined') {
+      return '';
+    }
+
+    const canvas = document.createElement('canvas');
+    canvas.width = this.barcodeOutputWidth;
+    canvas.height = this.barcodeOutputHeight;
+
+    const context = canvas.getContext('2d');
+    if (!context) {
+      return '';
+    }
+
+    context.fillStyle = '#ffffff';
+    context.fillRect(0, 0, this.barcodeOutputWidth, this.barcodeOutputHeight);
+
+    const availableWidth = this.barcodeOutputWidth - this.barcodeMarginHorizontal * 2;
+    const moduleWidth = Math.max(1, Math.floor(availableWidth / this.barcodeTotalUnits));
+    const renderedWidth = this.barcodeTotalUnits * moduleWidth;
+    const offsetX = Math.floor((this.barcodeOutputWidth - renderedWidth) / 2);
+
+    context.fillStyle = '#000000';
+    this.barcodeBars.forEach(bar => {
+      context.fillRect(
+        offsetX + bar.x * moduleWidth,
+        this.barcodeOffsetY,
+        bar.width * moduleWidth,
+        this.barcodeHeight
+      );
+    });
+
+    return canvas.toDataURL('image/png');
   }
 
   protected formatDateToDdMmYyyy(value: string | undefined) {

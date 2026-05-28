@@ -8,17 +8,36 @@
     <div class="lct-document__code">
       <div class="lct-document__code-value">
         @if (barcodeBars.length > 0) {
-          <svg
-            class="lct-document__barcode"
-            [attr.viewBox]="'0 0 ' + barcodeTotalUnits + ' ' + barcodeHeight"
-            preserveAspectRatio="xMidYMid meet"
-            role="img"
-            [attr.aria-label]="'Código de barras para ' + barcodeDisplayValue"
-          >
-            @for (bar of barcodeBars; track $index) {
-              <rect [attr.x]="bar.x" y="0" [attr.width]="bar.width" [attr.height]="barcodeHeight" />
-            }
-          </svg>
+          @if (barcodeImageDataUrl) {
+            <img
+              class="lct-document__barcode-image"
+              [src]="barcodeImageDataUrl"
+              width="420"
+              height="48"
+              [attr.alt]="'Código de barras para ' + barcodeDisplayValue"
+            />
+          } @else {
+            <svg
+              class="lct-document__barcode"
+              [attr.viewBox]="'0 0 ' + barcodeTotalUnits + ' ' + barcodeHeight"
+              width="420"
+              height="48"
+              preserveAspectRatio="xMidYMid meet"
+              shape-rendering="crispEdges"
+              role="img"
+              [attr.aria-label]="'Código de barras para ' + barcodeDisplayValue"
+            >
+              @for (bar of barcodeBars; track $index) {
+                <rect
+                  [attr.x]="bar.x"
+                  y="0"
+                  [attr.width]="bar.width"
+                  [attr.height]="barcodeHeight"
+                  shape-rendering="crispEdges"
+                />
+              }
+            </svg>
+          }
         }
       </div>
       <div class="lct-document__code-label">
@@ -32,15 +51,15 @@
 
       <div class="lct-document__details">
         <div class="lct-document__details-labels">
-          <div>Nodo origen:</div>
-          <div>Tipo de Operación:</div>
-          <div>{{ securityLabel }}:</div>
-          <div>RUT del transportista:</div>
-          <div>{{ truckPlateLabel }}:</div>
-          <div>Nº Cortina Despacho:</div>
-          <div>Flota:</div>
-          <div>Usuario Backstore:</div>
-          <div>Fecha despacho:</div>
+          <div><strong>Nodo origen:</strong></div>
+          <div><strong>Tipo de Operación:</strong></div>
+          <div><strong>{{ securityLabel }}:</strong></div>
+          <div><strong>RUT del transportista:</strong></div>
+          <div><strong>{{ truckPlateLabel }}:</strong></div>
+          <div><strong>Nº Cortina Despacho:</strong></div>
+          <div><strong>Flota:</strong></div>
+          <div><strong>Usuario Backstore:</strong></div>
+          <div><strong>Fecha despacho:</strong></div>
         </div>
 
         <div class="lct-document__details-values">
