@@ -7,6 +7,7 @@ import {
   HostListener,
   Input,
   Injector,
+  OnDestroy,
   Renderer2,
 } from '@angular/core';
 import {TooltipComponent} from "./tooltip/tooltip.component";
@@ -15,8 +16,9 @@ import {TooltipComponent} from "./tooltip/tooltip.component";
   selector: '[lctTooltip]',
   standalone: false
 })
-export class TooltipDirective {
+export class TooltipDirective implements OnDestroy {
   private componentRef: ComponentRef<TooltipComponent> | null = null;
+  private _tooltipText: string = '';
 
   constructor(
     private renderer: Renderer2,
@@ -26,7 +28,18 @@ export class TooltipDirective {
     private applicationRef: ApplicationRef,
   ) {}
 
-  @Input() tooltipText: string | null = '';
+  @Input()
+  set tooltipText(value: string | null | undefined) {
+    this._tooltipText = value ?? '';
+    if (!this._tooltipText.trim()) {
+      this.destroyTooltip();
+    }
+  }
+
+  get tooltipText(): string {
+    return this._tooltipText;
+  }
+
   @Input() secondaryMessage?: string | null = '';
   @Input() position: 'top' | 'right' | 'left' | 'top-rigth' = 'top';
   @Input() color: 'primary' | 'secondary' | 'tertiary' = 'primary';
@@ -64,9 +77,17 @@ export class TooltipDirective {
     this.destroyTooltip();
   }
 
+  ngOnDestroy(): void {
+    this.destroyTooltip();
+  }
+
   private destroyTooltip(): void {
     if (!this.componentRef) {
       return;
+    }
+    const tooltipRoot = this.componentRef.location.nativeElement as HTMLElement;
+    if (tooltipRoot.parentNode) {
+      this.renderer.removeChild(tooltipRoot.parentNode, tooltipRoot);
     }
     this.applicationRef.detachView(this.componentRef.hostView);
     this.componentRef.destroy();
